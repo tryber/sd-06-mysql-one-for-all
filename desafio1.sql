@@ -3,8 +3,6 @@ DROP SCHEMA IF EXISTS `SpotifyClone` ;
 CREATE SCHEMA IF NOT EXISTS `SpotifyClone` ;
 USE `SpotifyClone` ;
 
-DROP TABLE IF EXISTS `SpotifyClone`.`plano` ;
-
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`plano` (
   `id` INT NOT NULL,
   `nome` VARCHAR(30) NOT NULL,
@@ -16,8 +14,6 @@ INSERT INTO `SpotifyClone`.`plano` (`id`, `nome`, `valor`) VALUES
 (1, 'gratuito', 0),
 (2, 'familiar', 7.99),
 (3, 'universitário', 5.99);
-
-DROP TABLE IF EXISTS `SpotifyClone`.`usuario` ;
 
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`usuario` (
   `id` INT NOT NULL,
@@ -39,8 +35,6 @@ INSERT INTO `SpotifyClone`.`usuario` (`id`, `nome`, `idade`, `id_plano`) VALUES
 (3, 'Bill', 20, 3),
 (4, 'Roger', 45, 1);
 
-DROP TABLE IF EXISTS `SpotifyClone`.`artista` ;
-
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`artista` (
   `id` INT NOT NULL,
   `nome` VARCHAR(50) NOT NULL,
@@ -52,8 +46,6 @@ INSERT INTO `SpotifyClone`.`artista` (`id`, `nome`) VALUES
 (2, 'Peter Strong'),
 (3, 'Lance Day'),
 (4, 'Freedie Shannon');
-
-DROP TABLE IF EXISTS `SpotifyClone`.`album` ;
 
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`album` (
   `id` INT NOT NULL,
@@ -74,8 +66,6 @@ INSERT INTO `SpotifyClone`.`album` (`id`, `nome`, `id_artista`) VALUES
 (3, 'Hallowed', 2),
 (4, 'Incandescent', 3),
 (5, 'Temporary Culture', 4);
-
-DROP TABLE IF EXISTS `SpotifyClone`.`cancoes` ;
 
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`cancoes` (
   `id` INT NOT NULL,
@@ -110,8 +100,6 @@ INSERT INTO `SpotifyClone`.`cancoes` (`id`, `nome`, `id_album`) VALUES
 (17, 'Words Of Her Life', 5),
 (18, 'Without My Streets', 4);
 
-DROP TABLE IF EXISTS `SpotifyClone`.`historico_de_reproducoes` ;
-
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`historico_de_reproducoes` (
   `id_usuario` INT NOT NULL,
   `id_cancao` INT NOT NULL,
@@ -144,8 +132,6 @@ INSERT INTO `SpotifyClone`.`historico_de_reproducoes` (`id_usuario`, `id_cancao`
 (4, 3),
 (4, 18),
 (4, 11);
-
-DROP TABLE IF EXISTS `SpotifyClone`.`seguindo_artistas` ;
 
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`seguindo_artistas` (
   `id_usuario` INT NOT NULL,
