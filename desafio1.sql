@@ -145,7 +145,7 @@ VALUES (4, 18);
 INSERT INTO SpotifyClone.historico_cancoes(usuario_id, cancoes_id)
 VALUES (4, 11);
 
-CREATE TABLE SpotifyClone.historico_seguidores(
+CREATE TABLE SpotifyClone.seguindo_artistas(
 usuario_id INT NOT NULL,
 artista_id INT NOT NULL,
 PRIMARY KEY (usuario_id, artista_id),
@@ -153,19 +153,19 @@ FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id),
 FOREIGN KEY (artista_id) REFERENCES artistas(artista_id)
 )engine=InnoDB;
 
-INSERT INTO SpotifyClone.historico_seguidores(usuario_id, artista_id)
+INSERT INTO SpotifyClone.seguindo_artistas(usuario_id, artista_id)
 VALUES (1, 1);
-INSERT INTO SpotifyClone.historico_seguidores(usuario_id, artista_id)
+INSERT INTO SpotifyClone.seguindo_artistas(usuario_id, artista_id)
 VALUES (1, 4);
-INSERT INTO SpotifyClone.historico_seguidores(usuario_id, artista_id)
+INSERT INTO SpotifyClone.seguindo_artistas(usuario_id, artista_id)
 VALUES (1, 3);
-INSERT INTO SpotifyClone.historico_seguidores(usuario_id, artista_id)
+INSERT INTO SpotifyClone.seguindo_artistas(usuario_id, artista_id)
 VALUES (2, 1);
-INSERT INTO SpotifyClone.historico_seguidores(usuario_id, artista_id)
+INSERT INTO SpotifyClone.seguindo_artistas(usuario_id, artista_id)
 VALUES (2, 3);
-INSERT INTO SpotifyClone.historico_seguidores(usuario_id, artista_id)
+INSERT INTO SpotifyClone.seguindo_artistas(usuario_id, artista_id)
 VALUES (3, 2);
-INSERT INTO SpotifyClone.historico_seguidores(usuario_id, artista_id)
+INSERT INTO SpotifyClone.seguindo_artistas(usuario_id, artista_id)
 VALUES (3, 1);
-INSERT INTO SpotifyClone.historico_seguidores(usuario_id, artista_id)
+INSERT INTO SpotifyClone.seguindo_artistas(usuario_id, artista_id)
 VALUES (4, 4);
