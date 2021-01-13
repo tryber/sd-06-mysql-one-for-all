@@ -1,13 +1,13 @@
 DELIMITER $$
 
-CREATE PROCEDURE albuns_do_artista(IN artista VARCHAR(200))
+CREATE TRIGGER trigger_usuario_delete
+BEFORE DELETE ON SpotifyClone.tabela_usuario
+FOR EACH ROW
 BEGIN
-  SELECT ar.nome_artista AS 'artista',
-  al.nome_album AS 'album'
-  FROM SpotifyClone.tabela_artista AS ar
-  INNER JOIN SpotifyClone.tabela_album AS al ON al.fk_artista_id = ar.artista_id
-  WHERE ar.nome_artista LIKE CONCAT('%', artista, '%')
-  ORDER BY `album`;
+  DELETE FROM SpotifyClone.tabela_reproducoes
+    WHERE fk_usuario_id = OLD.usuario_id;
+  DELETE FROM SpotifyClone.tabela_seguindo_artistas
+    WHERE fk_usuario_id = OLD.usuario_id;
 END $$
 
 DELIMITER ;
