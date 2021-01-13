@@ -1,4 +1,5 @@
 DROP SCHEMA IF EXISTS SpotifyClone;
+
 CREATE SCHEMA SpotifyClone;
 
 USE SpotifyClone;
@@ -110,10 +111,10 @@ VALUES (18, "Without My Streets", 5);
 
 CREATE TABLE SpotifyClone.historico_execucoes (
 usuario_id INT NOT NULL,
-artista_id INT NOT NULL,
-PRIMARY KEY (usuario_id, artista_id),
+cancoes_id INT NOT NULL,
+PRIMARY KEY (usuario_id, cancoes_id),
 FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id),
-FOREIGN KEY (artista_id) REFERENCES artistas(artista_id)
+FOREIGN KEY (cancoes_id) REFERENCES cancoes(cancoes_id)
 )engine=InnoDB;
 
 INSERT INTO SpotifyClone.historico_execucoes(usuario_id, cancoes_id)
