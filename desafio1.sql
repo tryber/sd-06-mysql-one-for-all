@@ -24,19 +24,14 @@ CREATE TABLE `Artists` (
 
 CREATE TABLE `Songs` (
     `song_id` INTEGER PRIMARY KEY AUTO_INCREMENT,
-    `song_name` VARCHAR(64) NOT NULL
+    `song_name` VARCHAR(64) NOT NULL,
+    `album_id` NOT NULL
 ) engine = InnoDB;
 
 CREATE TABLE `Albums` (
     `album_id` INTEGER PRIMARY KEY AUTO_INCREMENT,
     `album_name` VARCHAR(64) NOT NULL,
     `artist_id` INTEGER
-) engine = InnoDB;
-
-CREATE TABLE `Albums_songs` (
-    `albums_songs_id` INTEGER PRIMARY KEY AUTO_INCREMENT,
-    `album_id` INTEGER,
-    `song_id` INTEGER
 ) engine = InnoDB;
 
 CREATE TABLE `Follow` (
