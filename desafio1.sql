@@ -8,8 +8,8 @@ CREATE TABLE plano (
   plano_id INT NOT NULL AUTO_INCREMENT,
   nome VARCHAR(100) NOT NULL,
   valor DOUBLE NOT NULL,
-  PRIMARY KEY (plano_id),
-) ENGINE = InnoDB;
+  PRIMARY KEY (plano_id)) 
+ENGINE = InnoDB;
 
 CREATE TABLE usuario (
   usuario_id INT NOT NULL AUTO_INCREMENT,
@@ -17,22 +17,22 @@ CREATE TABLE usuario (
   idade INT NOT NULL,
   plano_id INT NOT NULL,
   PRIMARY KEY (usuario_id),
-  FOREIGN KEY (plano_id) REFERENCES plano (plano_id)
-) ENGINE = InnoDB;
+  FOREIGN KEY (plano_id) REFERENCES plano (plano_id)) 
+ENGINE = InnoDB;
 
 CREATE TABLE artista (
   artista_id INT NOT NULL AUTO_INCREMENT,
   nome VARCHAR(100) NOT NULL,
-  PRIMARY KEY (artista_id)
-) ENGINE = InnoDB;
+  PRIMARY KEY (artista_id)) 
+ENGINE = InnoDB;
 
 CREATE TABLE album (
   album_id INT NOT NULL AUTO_INCREMENT,
   nome VARCHAR(100) NOT NULL,
   artista_id INT NOT NULL,
   PRIMARY KEY (album_id),
-  FOREIGN KEY (artista_id) REFERENCES artista (artista_id)
-) ENGINE = InnoDB;
+  FOREIGN KEY (artista_id) REFERENCES artista (artista_id)) 
+ENGINE = InnoDB;
 
 CREATE TABLE cancoes (
   cancoes_id INT NOT NULL AUTO_INCREMENT,
@@ -40,24 +40,24 @@ CREATE TABLE cancoes (
   album_id INT NOT NULL,
   PRIMARY KEY (cancoes_id),
   FOREIGN KEY (album_id)
-  REFERENCES album (album_id)
-) ENGINE = InnoDB;
+  REFERENCES album (album_id)) 
+ENGINE = InnoDB;
 
 CREATE TABLE historico_de_reproducoes (
   usuario_id INT NOT NULL,
   cancoes_id INT NOT NULL,
   PRIMARY KEY (usuario_id, cancoes_id),
   FOREIGN KEY (usuario_id) REFERENCES usuario (usuario_id),
-  FOREIGN KEY (cancoes_id) REFERENCES cancoes (cancoes_id)
-) ENGINE = InnoDB;
+  FOREIGN KEY (cancoes_id) REFERENCES cancoes (cancoes_id)) 
+ENGINE = InnoDB;
 
 CREATE TABLE seguindo_artistas (
   usuario_id INT NOT NULL,
   artista_id INT NOT NULL,
   PRIMARY KEY (usuario_id, artista_id),
   FOREIGN KEY (usuario_id) REFERENCES usuario (usuario_id),
-  FOREIGN KEY (artista_id) REFERENCES artista (artista_id)
-) ENGINE = InnoDB;
+  FOREIGN KEY (artista_id) REFERENCES artista (artista_id)) 
+ENGINE = InnoDB;
 
 INSERT INTO plano(nome, valor) VALUES
 ('gratuito', 0.00),
