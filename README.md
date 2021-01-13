@@ -162,7 +162,7 @@ Algumas coisas devem seguir um padrão pré-estabelecido para que os teste de co
 
 3. Para executar localmente os testes, é preciso escrever o seguinte no seu terminal:
     ```sh
-    MYSQL_USER=root MYSQL_PASSWORD='sua_senha_aqui' HOSTNAME=localhost npm test
+    MYSQL_USER=<SEU_NOME_DE_PESSOA_USUARIA> MYSQL_PASSWORD=<SUA SENHA> HOSTNAME=<NOME_DO_HOST> npm test
     ```
 
   * Ou seja, suponha que para poder acessar a base de dados feita neste projeto você tenha `root` como seu nome de pessoa usuária, `password` como senha e `localhost` como host. Logo, você executaria:
