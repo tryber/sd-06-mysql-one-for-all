@@ -97,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`artistas_seguidos` (
   `artista_id` INT NOT NULL,
   INDEX `fk_usuarios_artistas_usuarios1_idx` (`usuario_id` ASC) VISIBLE,
   INDEX `fk_usuarios_artistas_artistas1_idx` (`artista_id` ASC) VISIBLE,
-    CONSTRAINT `PK_artistas_seguidos` PRIMARY KEY (`usuario_id`,`artista_id`),
+  PRIMARY KEY (`usuario_id`, `artista_id`),
   CONSTRAINT `fk_usuarios_artistas_usuarios1`
     FOREIGN KEY (`usuario_id`)
     REFERENCES `SpotifyClone`.`usuarios` (`usuario_id`)
@@ -118,7 +118,7 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`historico_de_reproducoes` (
   `cancao_id` INT NOT NULL,
   INDEX `fk_usuarios_cancoes_usuarios1_idx` (`usuario_id` ASC) VISIBLE,
   INDEX `fk_usuarios_cancoes_cancoes1_idx` (`cancao_id` ASC) VISIBLE,
-  CONSTRAINT `PK_historico_reproducoes` PRIMARY KEY (`usuario_id`,`cancao_id`),
+  PRIMARY KEY (`usuario_id`,`cancao_id`),
   CONSTRAINT `fk_usuarios_cancoes_usuarios1`
     FOREIGN KEY (`usuario_id`)
     REFERENCES `SpotifyClone`.`usuarios` (`usuario_id`)
