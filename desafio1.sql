@@ -39,6 +39,7 @@ CREATE TABLE historico_de_reproducoes(
 usuario_id INT NOT NULL,
 cancao_id INT NOT NULL,
 FOREIGN KEY(usuario_id) references usuario(usuario_id),
+FOREIGN KEY(cancao_id) references cancoes(cancao_id),
 PRIMARY KEY(usuario_id, cancao_id)
 )engine = InnoDB;
 
