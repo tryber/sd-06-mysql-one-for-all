@@ -10,18 +10,18 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema SpotifyClone
 -- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `SpotifyClone` ;
+DROP SCHEMA IF EXISTS `SpotifyClone`;
 
 -- -----------------------------------------------------
 -- Schema SpotifyClone
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `SpotifyClone` ;
-USE `SpotifyClone` ;
+CREATE SCHEMA IF NOT EXISTS `SpotifyClone`;
+USE `SpotifyClone`;
 
 -- -----------------------------------------------------
 -- Table `SpotifyClone`.`plano`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `SpotifyClone`.`plano` ;
+DROP TABLE IF EXISTS `SpotifyClone`.`plano`;
 
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`plano` (
   `id` INT NOT NULL,
@@ -30,15 +30,16 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`plano` (
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
-INSERT INTO `SpotifyClone`.`plano` (`id`, `nome`, `valor`) VALUES
-(1, 'gratuito', 0),
-(2, 'familiar', 7.99),
-(3, 'universitário', 5.99);
+INSERT INTO `SpotifyClone`.`plano` (`id`, `nome`, `valor`)
+VALUES
+  (1, 'gratuito', 0),
+  (2, 'familiar', 7.99),
+  (3, 'universitário', 5.99);
 
 -- -----------------------------------------------------
 -- Table `SpotifyClone`.`usuario`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `SpotifyClone`.`usuario` ;
+DROP TABLE IF EXISTS `SpotifyClone`.`usuario`;
 
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`usuario` (
   `id` INT NOT NULL,
@@ -54,11 +55,12 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`usuario` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO `SpotifyClone`.`usuario` (`id`, `nome`, `idade`, `id_plano`) VALUES
-(1, 'Thati', 23, 1),
-(2, 'Cintia', 35, 2),
-(3, 'Bill', 20, 3),
-(4, 'Roger', 45, 1);
+INSERT INTO `SpotifyClone`.`usuario` (`id`, `nome`, `idade`, `id_plano`)
+VALUES
+  (1, 'Thati', 23, 1),
+  (2, 'Cintia', 35, 2),
+  (3, 'Bill', 20, 3),
+  (4, 'Roger', 45, 1);
 
 -- -----------------------------------------------------
 -- Table `SpotifyClone`.`artista`
