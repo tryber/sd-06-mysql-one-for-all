@@ -118,6 +118,6 @@ VALUES
 INSERT INTO seguindo(seguindo_id, artista_id, usuario_id)
 VALUES
 (11, 1, 1), (41, 4, 1), (31, 3, 1),
-(12, 1, 1), (32, 3, 2),
+(12, 1, 2), (32, 3, 2),
 (23, 2, 3), (13, 1, 3),
 (44, 4, 4);
