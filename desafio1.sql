@@ -39,7 +39,7 @@ FOREIGN KEY (plano_id) references planos (plano_id)
 CREATE TABLE seguidores(
 usuario_id INT NOT NULL,
 artista_id INT NOT NULL,
-PRIMARY KEY (usuario_id, artista_id)
+PRIMARY KEY (usuario_id, artista_id),
 FOREIGN KEY (usuario_id) references usuario (usuario_id),
 FOREIGN KEY (artista_id) references artistas (artista_id)
 ) engine = InnoDB;
@@ -48,7 +48,7 @@ CREATE TABLE reproducoes(
 cancao_id INT NOT NULL,
 usuario_id INT NOT NULL,
 PRIMARY KEY (cancao_id, usuario_id),
-FOREIGN KEY (usuario_id) references usuario (usuario_id)
+FOREIGN KEY (usuario_id) references usuario (usuario_id),
 FOREIGN KEY (cancao_id) references cancoes (cancao_id)
 ) engine = InnoDB;
 
