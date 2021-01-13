@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`plano` (
   `plano_id` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NOT NULL,
   `valor_plano` DECIMAL(4,2) NOT NULL,
-  PRIMARY KEY (`plano_id`)
+  PRIMARY KEY (`plano_id`))
 ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`usuarios` (
@@ -25,7 +25,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`artistas` (
   `artista_id` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`artista_id`),
+  PRIMARY KEY (`artista_id`))
 ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`albuns` (
