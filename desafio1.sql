@@ -108,7 +108,7 @@ VALUES (17, "Words Of Her Life", 5);
 INSERT INTO SpotifyClone.cancoes(cancoes_id, nome_cancao, album_id)
 VALUES (18, "Without My Streets", 5);
 
-CREATE TABLE SpotifyClone.historico_cancoes(
+CREATE TABLE SpotifyClone.historico_execucoes(
 usuario_id INT NOT NULL,
 artista_id INT NOT NULL,
 PRIMARY KEY (usuario_id, artista_id),
@@ -116,33 +116,33 @@ FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id),
 FOREIGN KEY (artista_id) REFERENCES artistas(artista_id)
 )engine=InnoDB;
 
-INSERT INTO SpotifyClone.historico_cancoes(usuario_id, cancoes_id)
+INSERT INTO SpotifyClone.historico_execucoes(usuario_id, cancoes_id)
 VALUES (1, 1);
-INSERT INTO SpotifyClone.historico_cancoes(usuario_id, cancoes_id)
+INSERT INTO SpotifyClone.historico_execucoes(usuario_id, cancoes_id)
 VALUES (1, 6);
-INSERT INTO SpotifyClone.historico_cancoes(usuario_id, cancoes_id)
+INSERT INTO SpotifyClone.historico_execucoes(usuario_id, cancoes_id)
 VALUES (1, 14);
-INSERT INTO SpotifyClone.historico_cancoes(usuario_id, cancoes_id)
+INSERT INTO SpotifyClone.historico_execucoes(usuario_id, cancoes_id)
 VALUES (1, 16);
-INSERT INTO SpotifyClone.historico_cancoes(usuario_id, cancoes_id)
+INSERT INTO SpotifyClone.historico_execucoes(usuario_id, cancoes_id)
 VALUES (2, 13);
-INSERT INTO SpotifyClone.historico_cancoes(usuario_id, cancoes_id)
+INSERT INTO SpotifyClone.historico_execucoes(usuario_id, cancoes_id)
 VALUES (2, 17);
-INSERT INTO SpotifyClone.historico_cancoes(usuario_id, cancoes_id)
+INSERT INTO SpotifyClone.historico_execucoes(usuario_id, cancoes_id)
 VALUES (2, 2);
-INSERT INTO SpotifyClone.historico_cancoes(usuario_id, cancoes_id)
+INSERT INTO SpotifyClone.historico_execucoes(usuario_id, cancoes_id)
 VALUES (2, 15);
-INSERT INTO SpotifyClone.historico_cancoes(usuario_id, cancoes_id)
+INSERT INTO SpotifyClone.historico_execucoes(usuario_id, cancoes_id)
 VALUES (3, 4);
-INSERT INTO SpotifyClone.historico_cancoes(usuario_id, cancoes_id)
+INSERT INTO SpotifyClone.historico_execucoes(usuario_id, cancoes_id)
 VALUES (3, 16);
-INSERT INTO SpotifyClone.historico_cancoes(usuario_id, cancoes_id)
+INSERT INTO SpotifyClone.historico_execucoes(usuario_id, cancoes_id)
 VALUES (3, 6);
-INSERT INTO SpotifyClone.historico_cancoes(usuario_id, cancoes_id)
+INSERT INTO SpotifyClone.historico_execucoes(usuario_id, cancoes_id)
 VALUES (4, 3);
-INSERT INTO SpotifyClone.historico_cancoes(usuario_id, cancoes_id)
+INSERT INTO SpotifyClone.historico_execucoes(usuario_id, cancoes_id)
 VALUES (4, 18);
-INSERT INTO SpotifyClone.historico_cancoes(usuario_id, cancoes_id)
+INSERT INTO SpotifyClone.historico_execucoes(usuario_id, cancoes_id)
 VALUES (4, 11);
 
 CREATE TABLE SpotifyClone.seguindo_artistas(
