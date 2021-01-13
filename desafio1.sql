@@ -108,7 +108,7 @@ VALUES (17, "Words Of Her Life", 5);
 INSERT INTO SpotifyClone.cancoes(cancoes_id, nome_cancao, album_id)
 VALUES (18, "Without My Streets", 5);
 
-CREATE TABLE SpotifyClone.historico_seguidores(
+CREATE TABLE SpotifyClone.historico_cancoes(
 usuario_id INT NOT NULL,
 artista_id INT NOT NULL,
 PRIMARY KEY (usuario_id, artista_id),
