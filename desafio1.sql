@@ -31,7 +31,7 @@ CREATE TABLE albums(
 ) engine = InnoDB;
 
 CREATE TABLE musicas(
-	musica_id INT PRIMARY KEY AUTO_INCREMENT,
+	  musica_id INT PRIMARY KEY AUTO_INCREMENT,
     musica VARCHAR(100) NOT NULL,
     album_id INT,
     FOREIGN KEY(album_id) REFERENCES albums(album_id)
@@ -129,3 +129,4 @@ VALUES
   (3, 2),
   (3, 1),
   (4, 4);
+  
