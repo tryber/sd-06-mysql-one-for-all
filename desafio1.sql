@@ -1,30 +1,22 @@
--- Schema SpotifyClone
-DROP SCHEMA IF EXISTS `SpotifyClone`;
+DROP SCHEMA IF EXISTS SpotifyClone;
 
--- Schema SpotifyClone
-CREATE SCHEMA IF NOT EXISTS `SpotifyClone`;
-USE `SpotifyClone`;
+CREATE SCHEMA SpotifyClone;
+USE SpotifyClone;
 
--- Table `SpotifyClone`.`plano`
-DROP TABLE IF EXISTS `SpotifyClone`.`plano`;
-
-CREATE TABLE IF NOT EXISTS `SpotifyClone`.`plano` (
+CREATE TABLE plano (
   `id` INT NOT NULL,
   `nome` VARCHAR(30) NOT NULL,
   `valor` DECIMAL(8,2) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
-INSERT INTO `SpotifyClone`.`plano` (`id`, `nome`, `valor`)
+INSERT INTO plano (`id`, `nome`, `valor`)
 VALUES
   (1, 'gratuito', 0),
   (2, 'familiar', 7.99),
   (3, 'universitário', 5.99);
 
--- Table `SpotifyClone`.`usuario`
-DROP TABLE IF EXISTS `SpotifyClone`.`usuario`;
-
-CREATE TABLE IF NOT EXISTS `SpotifyClone`.`usuario` (
+CREATE TABLE usuario (
   `id` INT NOT NULL,
   `nome` VARCHAR(60) NOT NULL,
   `idade` INT NOT NULL,
@@ -38,33 +30,27 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`usuario` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO `SpotifyClone`.`usuario` (`id`, `nome`, `idade`, `id_plano`)
+INSERT INTO usuario (`id`, `nome`, `idade`, `id_plano`)
 VALUES
   (1, 'Thati', 23, 1),
   (2, 'Cintia', 35, 2),
   (3, 'Bill', 20, 3),
   (4, 'Roger', 45, 1);
   
--- Table `SpotifyClone`.`artista`
-DROP TABLE IF EXISTS `SpotifyClone`.`artista` ;
-
-CREATE TABLE IF NOT EXISTS `SpotifyClone`.`artista` (
+CREATE TABLE artista (
   `id` INT NOT NULL,
   `nome` VARCHAR(50) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
-INSERT INTO `SpotifyClone`.`artista` (`id`, `nome`)
+INSERT INTO artista (`id`, `nome`)
 VALUES
   (1, 'Walter Phoenix'),
   (2, 'Peter Strong'),
   (3, 'Lance Day'),
   (4, 'Freedie Shannon');
 
--- Table `SpotifyClone`.`album`
-DROP TABLE IF EXISTS `SpotifyClone`.`album` ;
-
-CREATE TABLE IF NOT EXISTS `SpotifyClone`.`album` (
+CREATE TABLE album (
   `id` INT NOT NULL,
   `nome` VARCHAR(45) NOT NULL,
   `id_artista` INT NOT NULL,
@@ -77,17 +63,15 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`album` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO `SpotifyClone`.`album` (`id`, `nome`, `id_artista`) VALUES
-(1, 'Envious', 1),
-(2, 'Exuberant', 1),
-(3, 'Hallowed Steam', 2),
-(4, 'Incandescent', 3),
-(5, 'Temporary Culture', 4);
+INSERT INTO album (`id`, `nome`, `id_artista`)
+VALUES
+  (1, 'Envious', 1),
+  (2, 'Exuberant', 1),
+  (3, 'Hallowed Steam', 2),
+  (4, 'Incandescent', 3),
+  (5, 'Temporary Culture', 4);
 
--- Table `SpotifyClone`.`cancoes`
-DROP TABLE IF EXISTS `SpotifyClone`.`cancoes` ;
-
-CREATE TABLE IF NOT EXISTS `SpotifyClone`.`cancoes` (
+CREATE TABLE cancoes (
   `id` INT NOT NULL,
   `nome` VARCHAR(45) NOT NULL,
   `id_album` INT NOT NULL,
@@ -100,7 +84,7 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`cancoes` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO `SpotifyClone`.`cancoes` (`id`, `nome`, `id_album`)
+INSERT INTO cancoes (`id`, `nome`, `id_album`)
 VALUES
   (1, 'Soul For Us', 1),
   (2, 'Reflections Of Magic', 1),
@@ -121,12 +105,7 @@ VALUES
   (17, 'Words Of Her Life', 5),
   (18, 'Without My Streets', 5);
 
--- -----------------------------------------------------
--- Table `SpotifyClone`.`historico_de_reproducoes`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `SpotifyClone`.`historico_de_reproducoes` ;
-
-CREATE TABLE IF NOT EXISTS `SpotifyClone`.`historico_de_reproducoes` (
+CREATE TABLE historico_de_reproducoes (
   `id_usuario` INT NOT NULL,
   `id_cancao` INT NOT NULL,
   PRIMARY KEY (`id_usuario`, `id_cancao`),
@@ -143,28 +122,24 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`historico_de_reproducoes` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO `SpotifyClone`.`historico_de_reproducoes` (`id_usuario`, `id_cancao`) VALUES
-(1, 1),
-(1, 6),
-(1, 14),
-(1, 16),
-(2, 13),
-(2, 17),
-(2, 2),
-(2, 15),
-(3, 4),
-(3, 16),
-(3, 6),
-(4, 3),
-(4, 18),
-(4, 11);
+INSERT INTO historico_de_reproducoes (`id_usuario`, `id_cancao`)
+VALUES
+  (1, 1),
+  (1, 6),
+  (1, 14),
+  (1, 16),
+  (2, 13),
+  (2, 17),
+  (2, 2),
+  (2, 15),
+  (3, 4),
+  (3, 16),
+  (3, 6),
+  (4, 3),
+  (4, 18),
+  (4, 11);
 
--- -----------------------------------------------------
--- Table `SpotifyClone`.`seguindo_artistas`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `SpotifyClone`.`seguindo_artistas` ;
-
-CREATE TABLE IF NOT EXISTS `SpotifyClone`.`seguindo_artistas` (
+CREATE TABLE seguindo_artistas (
   `id_usuario` INT NOT NULL,
   `id_artista` INT NOT NULL,
   INDEX `fk_seguindo_artistas_usuario_idx` (`id_usuario` ASC) VISIBLE,
@@ -182,12 +157,13 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`seguindo_artistas` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO `SpotifyClone`.`seguindo_artistas` (`id_usuario`, `id_artista`) VALUES
-(1, 1),
-(1, 4),
-(1, 3),
-(2, 1),
-(2, 3),
-(3, 2),
-(3, 1),
-(4, 4);
+INSERT INTO seguindo_artistas (`id_usuario`, `id_artista`)
+VALUES
+  (1, 1),
+  (1, 4),
+  (1, 3),
+  (2, 1),
+  (2, 3),
+  (3, 2),
+  (3, 1),
+  (4, 4);
