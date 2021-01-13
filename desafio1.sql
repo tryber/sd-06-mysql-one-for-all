@@ -40,15 +40,15 @@ CREATE TABLE `Albums_songs` (
 ) engine = InnoDB;
 
 CREATE TABLE `Follow` (
-    `follow_id` INTEGER PRIMARY KEY AUTO_INCREMENT,
-    `user_id` INTEGER,
-    `artist_id` INTEGER
+    `follow_id` INTEGER PRIMARY KEY (user_id, artist_id),
+    `user_id` INTEGER NOT NULL,
+    `artist_id` INTEGER NOT NULL
 ) engine = InnoDB;
 
 CREATE TABLE `History` (
-    `history_id` INTEGER PRIMARY KEY AUTO_INCREMENT,
-    `user_id` INTEGER,
-    `song_id` INTEGER
+    `history_id` INTEGER PRIMARY KEY (user_id, song_id),
+    `user_id` INTEGER NOT NULL,
+    `song_id` INTEGER NOT NULL
 ) engine = InnoDB;
 
 ALTER TABLE `Users` ADD FOREIGN KEY (`subscription_id`) REFERENCES `Subscriptions` (`subscription_id`);
