@@ -1,5 +1,3 @@
-USE SpotifyClone;
-
 CREATE VIEW estatisticas_musicais AS
 SELECT COUNT(DISTINCT(c.cancao_id)) AS 'cancoes',
   COUNT(DISTINCT(ar.artista_id)) AS 'artistas',
