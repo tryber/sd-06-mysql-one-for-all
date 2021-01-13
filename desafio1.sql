@@ -16,67 +16,48 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`usuario` (
   `idade` INT NOT NULL,
   `plano_id` INT NOT NULL,
   PRIMARY KEY (`usuario_id`),
-    FOREIGN KEY (`plano_id`)
-    REFERENCES `SpotifyClone`.`plano` (`plano_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    FOREIGN KEY (`plano_id`) REFERENCES `SpotifyClone`.`plano` (`plano_id`)
+) ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`artista` (
   `artista_id` INT NOT NULL,
   `artista_nm` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`artista_id`))
-ENGINE = InnoDB;
+  PRIMARY KEY (`artista_id`)
+) ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`album` (
   `album_id` INT NOT NULL,
-  `album_nm` VARCHAR(45) NULL,
+  `album_nm` VARCHAR(100) NULL,
   `artista_id` INT NOT NULL,
   PRIMARY KEY (`album_id`),
     FOREIGN KEY (`artista_id`)
     REFERENCES `SpotifyClone`.`artista` (`artista_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+) ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`cancoes` (
   `cancoes_id` INT NOT NULL,
-  `cancoes_nm` VARCHAR(45) NOT NULL,
+  `cancoes_nm` VARCHAR(200) NOT NULL,
   `album_id` INT NOT NULL,
   PRIMARY KEY (`cancoes_id`),
     FOREIGN KEY (`album_id`)
     REFERENCES `SpotifyClone`.`album` (`album_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+) ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`historico` (
-  `historico_id` INT NOT NULL AUTO_INCREMENT,
   `usuario_id` INT NOT NULL,
   `cancoes_id` INT NOT NULL,
-  PRIMARY KEY (`historico_id`),
-    FOREIGN KEY (`cancoes_id`)
-    REFERENCES `SpotifyClone`.`cancoes` (`cancoes_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-    FOREIGN KEY (`usuario_id`)
-    REFERENCES `SpotifyClone`.`usuario` (`usuario_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+  PRIMARY KEY (`usuario_id`, `cancoes_id`),
+    FOREIGN KEY (`usuario_id`) REFERENCES `SpotifyClone`.`usuario` (`usuario_id`),
+    FOREIGN KEY (`cancoes_id`) REFERENCES `SpotifyClone`.`cancoes` (`cancoes_id`)
+) ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`artista_usuario` (
-  `artista_usuario_id` INT NOT NULL AUTO_INCREMENT,
   `usuario_id` INT NOT NULL,
   `artista_id` INT NOT NULL,
-  PRIMARY KEY (`artista_usuario_id`),
-    FOREIGN KEY (`usuario_id`)
-    REFERENCES `SpotifyClone`.`usuario` (`usuario_id`),
-    FOREIGN KEY (`artista_id`)
-    REFERENCES `SpotifyClone`.`artista` (`artista_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+  PRIMARY KEY (`usuario_id`, `artista_id`),
+    FOREIGN KEY (`usuario_id`) REFERENCES `SpotifyClone`.`usuario` (`usuario_id`),
+    FOREIGN KEY (`artista_id`) REFERENCES `SpotifyClone`.`artista` (`artista_id`)
+) ENGINE = InnoDB;
 
 INSERT INTO `plano` (`plano_id`, `plano_nm`, `valor`)
 VALUES
