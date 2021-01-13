@@ -38,7 +38,6 @@ CONSTRAINT `fk_plano` FOREIGN KEY (plano) REFERENCES plano(plano_id)
 ) ENGINE = InnoDB;
 
 CREATE TABLE historico(
-historico_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
 usuario INT NOT NULL,
 musica INT NOT NULL,
 CONSTRAINT `fk_usuario` FOREIGN KEY (usuario) REFERENCES usuarios(usuario_id),
