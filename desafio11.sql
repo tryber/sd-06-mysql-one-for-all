@@ -1,4 +1,3 @@
-USE SpotifyClone;
 CREATE VIEW cancoes_premium AS
 SELECT 
 r.historico AS nome,
