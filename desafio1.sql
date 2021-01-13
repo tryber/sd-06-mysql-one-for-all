@@ -16,7 +16,7 @@ VALUES
 ('universitário', 5.99);
 
 CREATE TABLE User (
-user_id INT PRIMARY KEY AUTO_INCREMENT,
+user_id INT PRIMARY KEY auto_increment,
 user_name VARCHAR(130), 
 user_age INT NOT NULL,
 plan_id INT NOT NULL,
@@ -32,7 +32,7 @@ VALUES
 ('Roger', (YEAR(NOW()) - 1976), 2);
 
 CREATE TABLE Musicians (
-musician_id INT PRIMARY KEY AUTO_INCREMENT,
+musician_id INT PRIMARY KEY auto_increment,
 musician_name VARCHAR(130)
 );
 
@@ -45,7 +45,7 @@ VALUES
 ('Walter Phoenix');
 
 CREATE TABLE Albums (
-album_id INT PRIMARY KEY AUTO_INCREMENT,
+album_id INT PRIMARY KEY auto_increment,
 album_name VARCHAR(130)
 );
 
@@ -59,7 +59,7 @@ VALUES
 ('Temporary Culture');
 
 CREATE TABLE Songs (
-song_id INT PRIMARY KEY AUTO_INCREMENT,
+song_id INT PRIMARY KEY auto_increment,
 song_name VARCHAR(130),
 album_id INT NOT NULL,
 musician_id INT NOT NULL,
@@ -92,6 +92,8 @@ VALUES
 CREATE TABLE Following_Musicians (
 user_id INT NOT NULL,
 musician_id INT NOT NULL,
+FOREIGN KEY (user_id) REFERENCES Users (user_id),
+FOREIGN KEY (musician_id) REFERENCES Musicians (musician_id),
 PRIMARY KEY (user_id, musician_id)
 );
 
@@ -100,7 +102,6 @@ Following_Musicians (user_id, musician_id)
 VALUES
 (1, 1),
 (1, 2),
-(1, 3),
 (1, 4),
 (2, 2),
 (2, 4),
@@ -111,6 +112,8 @@ VALUES
 CREATE TABLE Reproduction_History (
 user_id INT NOT NULL,
 song_id INT NOT NULL,
+FOREIGN KEY (user_id) REFERENCES Users (user_id),
+FOREIGN KEY (song_id) REFERENCES Songs (song_id),
 PRIMARY KEY (user_id, song_id)
 );
 
