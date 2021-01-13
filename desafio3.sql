@@ -6,4 +6,4 @@ INNER JOIN users
 ON SpotifyClone.users.user_id = SpotifyClone.historic.user_id
 INNER JOIN song
 ON SpotifyClone.song.song_id = SpotifyClone.historic.song_id
-ORDER BY usuario;
+ORDER BY usuario, nome;
