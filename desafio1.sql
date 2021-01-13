@@ -94,6 +94,10 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`historico_de_reproducoes` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
 INSERT INTO SpotifyClone.plano (nome, valor_plano)
 VALUES
 ('gratuito', 0),
@@ -119,7 +123,7 @@ VALUES
 ('Envious', 1),
 ('Exuberant', 1),
 ('Hallowed Steam', 2),
-('Incadescent', 3),
+('Incandescent', 3),
 ('Temporary Culture', 4);
 
 INSERT INTO SpotifyClone.cancoes(nome, album_id)
