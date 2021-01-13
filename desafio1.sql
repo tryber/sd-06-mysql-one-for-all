@@ -1,6 +1,6 @@
-DROP SCHEMA SpotifyClone;
+DROP DATABASE IF EXISTS SpotifyClone;
 
-CREATE SCHEMA IF NOT EXISTS SpotifyClone;
+CREATE DATABASE SpotifyClone;
 
 USE SpotifyClone;
 
@@ -37,16 +37,18 @@ id_album INT NOT NULL,
 FOREIGN KEY (id_album) REFERENCES albuns(id_album)
 )engine=InnoDB;
 
-CREATE TABLE reproductory_history(
+CREATE TABLE users_songs(
 id_user INT NOT NULL,
 id_song INT NOT NULL,
+PRIMARY KEY (id_user, id_song),
 FOREIGN KEY (id_user) REFERENCES users(id_user),
 FOREIGN KEY (id_song) REFERENCES songs(id_song)
 )engine=InnoDB;
 
-CREATE TABLE following_artist(
+CREATE TABLE users_artists(
 id_user INT NOT NULL,
 id_artist INT NOT NULL,
+PRIMARY KEY (id_user, id_artist),
 FOREIGN KEY (id_user) REFERENCES users(id_user),
 FOREIGN KEY (id_artist) REFERENCES artists(id_artist)
 )engine=InnoDB;
@@ -100,7 +102,7 @@ VALUES
   (17, 'Words Of Her Life', 5),
   (18, 'Without My Streets', 5);
 
-INSERT INTO reproductory_history(id_user, id_song)
+INSERT INTO users_songs(id_user, id_song)
 VALUES
   (1, 1),
   (1, 6),
@@ -117,7 +119,7 @@ VALUES
   (4, 18),
   (4, 11);
   
-INSERT INTO following_artist(id_user, id_artist)
+INSERT INTO users_artists(id_user, id_artist)
 VALUES
   (1, 1),
   (1, 4),
