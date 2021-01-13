@@ -5,53 +5,53 @@ CREATE SCHEMA IF NOT EXISTS SpotifyClone;
 USE SpotifyClone;
 
 CREATE TABLE plan(
-	id_plan INT PRIMARY KEY AUTO_INCREMENT,
-	type VARCHAR(50) NOT NULL,
-	value DECIMAL(5,2) NOT NULL
+id_plan INT PRIMARY KEY AUTO_INCREMENT,
+type VARCHAR(50) NOT NULL,
+value DECIMAL(5,2) NOT NULL
 )engine=InnoDB;
 
 CREATE TABLE users(
-	id_user INT PRIMARY KEY AUTO_INCREMENT,
-	name VARCHAR(50) NOT NULL,
-	age INT NOT NULL,
-    id_plan INT NOT NULL,
-    FOREIGN KEY (id_plan) REFERENCES plan(id_plan)
+id_user INT PRIMARY KEY AUTO_INCREMENT,
+name VARCHAR(50) NOT NULL,
+age INT NOT NULL,
+id_plan INT NOT NULL,
+FOREIGN KEY (id_plan) REFERENCES plan(id_plan)
 )engine=InnoDB;
 
 CREATE TABLE artists(
-	id_artist INT PRIMARY KEY AUTO_INCREMENT,
-	name VARCHAR(50) NOT NULL
+id_artist INT PRIMARY KEY AUTO_INCREMENT,
+name VARCHAR(50) NOT NULL
 )engine=InnoDB;
 
 CREATE TABLE albuns(
-	id_album INT PRIMARY KEY AUTO_INCREMENT,
-	title VARCHAR(50) NOT NULL,
-	id_artist INT NOT NULL,
-    FOREIGN KEY (id_artist) REFERENCES artists(id_artist)
+id_album INT PRIMARY KEY AUTO_INCREMENT,
+title VARCHAR(50) NOT NULL,
+id_artist INT NOT NULL,
+FOREIGN KEY (id_artist) REFERENCES artists(id_artist)
 )engine=InnoDB;
 
 CREATE TABLE songs(
-	id_song INT PRIMARY KEY AUTO_INCREMENT,
-	name VARCHAR(200) NOT NULL,
-    id_album INT NOT NULL,
-    FOREIGN KEY (id_album) REFERENCES albuns(id_album)
+id_song INT PRIMARY KEY AUTO_INCREMENT,
+name VARCHAR(200) NOT NULL,
+id_album INT NOT NULL,
+FOREIGN KEY (id_album) REFERENCES albuns(id_album)
 )engine=InnoDB;
 
 CREATE TABLE reproductory_history(
-	id_reproductory_history INT PRIMARY KEY AUTO_INCREMENT,
-	id_user INT NOT NULL,
-    id_song INT NOT NULL,
-    FOREIGN KEY (id_user) REFERENCES users(id_user),
-    FOREIGN KEY (id_song) REFERENCES songs(id_song)
+id_reproductory_history INT PRIMARY KEY AUTO_INCREMENT,
+id_user INT NOT NULL,
+id_song INT NOT NULL,
+FOREIGN KEY (id_user) REFERENCES users(id_user),
+FOREIGN KEY (id_song) REFERENCES songs(id_song)
 )engine=InnoDB;
 
 CREATE TABLE following_artist(
-	id_following_artist INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(80),
-    id_user INT NOT NULL,
-    id_artist INT NOT NULL,
-    FOREIGN KEY (id_user) REFERENCES users(id_user),
-    FOREIGN KEY (id_artist) REFERENCES artists(id_artist)
+id_following_artist INT PRIMARY KEY AUTO_INCREMENT,
+name VARCHAR(80),
+id_user INT NOT NULL,
+id_artist INT NOT NULL,
+FOREIGN KEY (id_user) REFERENCES users(id_user),
+FOREIGN KEY (id_artist) REFERENCES artists(id_artist)
 )engine=InnoDB;
 
 INSERT INTO plan(id_plan, type, value)
