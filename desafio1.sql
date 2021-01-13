@@ -38,7 +38,6 @@ FOREIGN KEY (id_album) REFERENCES albuns(id_album)
 )engine=InnoDB;
 
 CREATE TABLE reproductory_history(
-id_reproductory_history INT PRIMARY KEY AUTO_INCREMENT,
 id_user INT NOT NULL,
 id_song INT NOT NULL,
 FOREIGN KEY (id_user) REFERENCES users(id_user),
@@ -46,8 +45,6 @@ FOREIGN KEY (id_song) REFERENCES songs(id_song)
 )engine=InnoDB;
 
 CREATE TABLE following_artist(
-id_following_artist INT PRIMARY KEY AUTO_INCREMENT,
-name VARCHAR(80),
 id_user INT NOT NULL,
 id_artist INT NOT NULL,
 FOREIGN KEY (id_user) REFERENCES users(id_user),
