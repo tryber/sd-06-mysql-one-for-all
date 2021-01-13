@@ -89,7 +89,7 @@ VALUES
   ('Troubles Of My Inner Fire', 1),
   ('Time Fireworks', 1),
   ('Magic Circus', 2),
-  ('Honey, So Do I', 2),
+  ("Honey, Let's Be Silly", 2),
   ("Sweetie, Let's Go Wild", 2),
   ('She Knows', 2),
   ( 'Fantasy For Me', 3),
