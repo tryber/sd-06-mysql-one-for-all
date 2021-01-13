@@ -41,7 +41,9 @@ VALUES ('Walter Phoenix'),
 CREATE TABLE followers(
 artist_id INT NOT NULL,
 user_id INT NOT NULL,
-PRIMARY KEY (artist_id, user_id)
+PRIMARY KEY (artist_id, user_id),
+FOREIGN KEY (artist_id) REFERENCES artists(artist_id),
+FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
 INSERT INTO followers(artist_id, user_id)
@@ -98,7 +100,9 @@ VALUES ('Soul For Us', 1),
 CREATE TABLE playback_history(
 user_id INT NOT NULL,
 song_id INT NOT NULL,
-PRIMARY KEY (user_id, song_id)
+PRIMARY KEY (user_id, song_id),
+FOREIGN KEY (user_id) REFERENCES users(user_id),
+FOREIGN KEY (song_id) REFERENCES songs(song_id)
 );
 
 INSERT INTO playback_history(user_id, song_id)
