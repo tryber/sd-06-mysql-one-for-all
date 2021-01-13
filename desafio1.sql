@@ -5,8 +5,7 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`plano` (
   `plano_id` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NOT NULL,
   `valor_plano` DECIMAL(4,2) NOT NULL,
-  PRIMARY KEY (`plano_id`),
-  UNIQUE INDEX `plano_id_UNIQUE` (`plano_id` ASC) VISIBLE)
+  PRIMARY KEY (`plano_id`)
 ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`usuarios` (
@@ -15,7 +14,6 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`usuarios` (
   `idade` INT NULL,
   `plano_id` INT NOT NULL,
   PRIMARY KEY (`usuario_id`),
-  UNIQUE INDEX `usuario_id_UNIQUE` (`usuario_id` ASC) VISIBLE,
   INDEX `fk_usuarios_plano1_idx` (`plano_id` ASC) VISIBLE,
   CONSTRAINT `fk_usuarios_plano1`
     FOREIGN KEY (`plano_id`)
@@ -28,7 +26,6 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`artistas` (
   `artista_id` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`artista_id`),
-  UNIQUE INDEX `artista_id_UNIQUE` (`artista_id` ASC) VISIBLE)
 ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`albuns` (
@@ -36,7 +33,6 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`albuns` (
   `nome` VARCHAR(45) NOT NULL,
   `artista_id` INT NOT NULL,
   PRIMARY KEY (`album_id`),
-  UNIQUE INDEX `album_id_UNIQUE` (`album_id` ASC) VISIBLE,
   INDEX `fk_albuns_artistas1_idx` (`artista_id` ASC) VISIBLE,
   CONSTRAINT `fk_albuns_artistas1`
     FOREIGN KEY (`artista_id`)
@@ -49,7 +45,6 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`cancoes` (
   `cancao_id` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NOT NULL,
   `album_id` INT NOT NULL,
-  INDEX `fk_cancoes_albuns1_idx` (`album_id` ASC) VISIBLE,
   PRIMARY KEY (`cancao_id`),
   CONSTRAINT `fk_cancoes_albuns1`
     FOREIGN KEY (`album_id`)
@@ -93,10 +88,6 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`historico_de_reproducoes` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 INSERT INTO SpotifyClone.plano (nome, valor_plano)
 VALUES
