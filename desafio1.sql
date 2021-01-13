@@ -4,68 +4,54 @@ CREATE DATABASE SpotifyClone;
 
 USE SpotifyClone;
 
-CREATE TABLE `Users` (
-    `user_id` INTEGER PRIMARY KEY AUTO_INCREMENT,
-    `user_name` VARCHAR(64) NOT NULL,
-    `age` INTEGER NOT NULL,
-    `subscription_id` INTEGER
+CREATE TABLE Subscriptions (
+    subscription_id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    subscription VARCHAR(64) NOT NULL,
+    subscription_cost DECIMAL(10, 2) NOT NULL
 ) engine = InnoDB;
 
-CREATE TABLE `Subscriptions` (
-    `subscription_id` INTEGER PRIMARY KEY AUTO_INCREMENT,
-    `subscription` VARCHAR(64) NOT NULL,
-    `subscription_cost` DOUBLE NOT NULL
+CREATE TABLE Users (
+    user_id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    user_name VARCHAR(64) NOT NULL,
+    age INTEGER NOT NULL,
+    subscription_id INTEGER NOT NULL,
+    FOREIGN KEY (subscription_id) REFERENCES Subscriptions(subscription_id)
 ) engine = InnoDB;
 
-CREATE TABLE `Artists` (
-    `artist_id` INTEGER PRIMARY KEY AUTO_INCREMENT,
-    `artist_name` VARCHAR(64) NOT NULL
+CREATE TABLE Artists (
+    artist_id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    artist_name VARCHAR(128) NOT NULL
 ) engine = InnoDB;
 
-CREATE TABLE `Songs` (
-    `song_id` INTEGER PRIMARY KEY AUTO_INCREMENT,
-    `song_name` VARCHAR(64) NOT NULL
+CREATE TABLE Albums (
+    album_id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    album_name VARCHAR(64) NOT NULL,
+    artist_id INTEGER NOT NULL,
+    FOREIGN KEY (artist_id) REFERENCES Artists(artist_id)
 ) engine = InnoDB;
 
-CREATE TABLE `Albums` (
-    `album_id` INTEGER PRIMARY KEY AUTO_INCREMENT,
-    `album_name` VARCHAR(64) NOT NULL,
-    `artist_id` INTEGER
+CREATE TABLE Songs (
+    song_id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    song_name VARCHAR(64) NOT NULL,
+    album_id INTEGER NOT NULL,
+    FOREIGN KEY (album_id) REFERENCES Albums(album_id)
 ) engine = InnoDB;
 
-CREATE TABLE `Albums_songs` (
-    `albums_songs_id` INTEGER PRIMARY KEY AUTO_INCREMENT,
-    `album_id` INTEGER,
-    `song_id` INTEGER
+CREATE TABLE History (
+    user_id INTEGER NOT NULL,
+    song_id INTEGER NOT NULL,
+    PRIMARY KEY (user_id, song_id),
+    FOREIGN KEY (user_id) REFERENCES Users(user_id),
+    FOREIGN KEY (song_id) REFERENCES Songs(song_id)
 ) engine = InnoDB;
 
-CREATE TABLE `Follow` (
-    `follow_id` INTEGER PRIMARY KEY AUTO_INCREMENT,
-    `user_id` INTEGER,
-    `artist_id` INTEGER
+CREATE TABLE Follow (
+    user_id INTEGER NOT NULL,
+    artist_id INTEGER NOT NULL,
+    PRIMARY KEY (user_id, artist_id),
+    FOREIGN KEY (user_id) REFERENCES Users(user_id),
+    FOREIGN KEY (artist_id) REFERENCES Artists(artist_id)
 ) engine = InnoDB;
-
-CREATE TABLE `History` (
-    `history_id` INTEGER PRIMARY KEY AUTO_INCREMENT,
-    `user_id` INTEGER,
-    `song_id` INTEGER
-) engine = InnoDB;
-
-ALTER TABLE `Users` ADD FOREIGN KEY (`subscription_id`) REFERENCES `Subscriptions` (`subscription_id`);
-
-ALTER TABLE `Albums_songs` ADD FOREIGN KEY (`album_id`) REFERENCES `Albums` (`album_id`);
-
-ALTER TABLE `Albums_songs` ADD FOREIGN KEY (`song_id`) REFERENCES `Songs` (`song_id`);
-
-ALTER TABLE `Albums` ADD FOREIGN KEY (`artist_id`) REFERENCES `Artists` (`artist_id`);
-
-ALTER TABLE `Follow` ADD FOREIGN KEY (`user_id`) REFERENCES `Users` (`user_id`);
-
-ALTER TABLE `Follow` ADD FOREIGN KEY (`artist_id`) REFERENCES `Artists` (`artist_id`);
-
-ALTER TABLE `History` ADD FOREIGN KEY (`user_id`) REFERENCES `Users` (`user_id`);
-
-ALTER TABLE `History` ADD FOREIGN KEY (`song_id`) REFERENCES `Songs` (`song_id`);
 
 INSERT INTO Artists(artist_name)
 VALUES
@@ -79,39 +65,31 @@ INSERT INTO Users(user_name, age, subscription_id)
 VALUES
   ('Thati', 23, 1), ('Cíntia', 35, 2), ('Bill', 20, 3), ('Roger', 45, 1);
 
-INSERT INTO Songs(song_name)
-VALUES
-  ('Soul For Us'),
-  ('Reflections Of Magic'),
-  ('Dance With Her Own'),
-  ('Troubles Of My Inner Fire'),
-  ('Time Fireworks'),
-  ('Magic Circus'),
-  ('Honey, So Do I'),
-  ('Sweetie, Let\'s Go Wild'),
-  ('She Knows'),
-  ('Fantasy For Me'),
-  ('Celebration Of More'),
-  ('Rock His Everything'),
-  ('Home Forever'),
-  ('Diamond Power'),
-  ('Honey, Let\'s Be Silly'),
-  ('Thang Of Thunder'),
-  ('Words Of Her Life'),
-  ('Without My Streets');
-
 INSERT INTO Albums(album_name, artist_id)
 VALUES
   ('Envious', 1), ('Exuberant', 1), ('Hallowed Steam', 2),
   ('Incandescent', 3), ('Temporary Culture', 4);
 
-INSERT INTO Albums_songs(album_id, song_id)
-VALUE
-  (1, 1), (1, 2), (1, 3),
-  (2, 4), (2, 5),
-  (3, 6), (3, 7), (3, 8), (3, 9),
-  (4, 10), (4, 11), (4, 12), (4, 13), (4, 14), (4, 15),
-  (5, 16), (5, 16), (5, 17);
+INSERT INTO Songs(song_name, album_id)
+VALUES
+  ('Soul For Us', '1'),
+  ('Reflections Of Magic', '1'),
+  ('Dance With Her Own', '1'),
+  ('Troubles Of My Inner Fire', '2'),
+  ('Time Fireworks', '2'),
+  ('Magic Circus', '3'),
+  ('Honey, So Do I', '3'),
+  ("Sweetie, Let's Go Wild", '3'),
+  ('She Knows', '3'),
+  ('Fantasy For Me', '4'),
+  ('Celebration Of More', '4'),
+  ('Rock His Everything', '4'),
+  ('Home Forever', '4'),
+  ('Diamond Power', '4'),
+  ("Honey, Let's Be Silly", '4'),
+  ('Thang Of Thunder', '5'),
+  ('Words Of Her Life', '5'),
+  ('Without My Streets', '5');
 
 INSERT INTO Follow(user_id, artist_id)
 VALUES
