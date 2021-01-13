@@ -19,7 +19,7 @@ CREATE TABLE usuarios(
     usuario_id INT PRIMARY KEY AUTO_INCREMENT,
     usuario VARCHAR(100) NOT NULL,
     idade INT NOT NULL,
-    plano_id int,
+    plano_id INT,
     FOREIGN KEY(plano_id) REFERENCES planos(plano_id)
 ) engine = InnoDB;
 
@@ -73,7 +73,7 @@ VALUES
   ('Bill', 20, 3),
   ('Roger', 45, 1);
   
-INSERT INTO albuns (album, artista_id)
+INSERT INTO albums (album, artista_id)
 VALUES
   ('Envious', 1),
   ('Exuberant', 1),
