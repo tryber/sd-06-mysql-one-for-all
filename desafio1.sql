@@ -92,15 +92,15 @@ VALUES
 ("Honey, Let's Be Silly", 2),
 ("Sweetie, Let's Go Wild", 2),
 ('She Knows', 2),
-( 'Fantasy For Me', 3),
-( 'Celebration Of More', 3),
-( 'Rock His Everything', 3),
-( 'Home Forever', 3),
-( 'Diamond Power', 3),
-( "Honey, Let's Be Silly", 3),
-( 'Thang Of Thunder', 4),
-( 'Words Of Her Life', 4),
-( 'Without My Streets', 4);
+('Fantasy For Me', 3),
+('Celebration Of More', 3),
+('Rock His Everything', 3),
+('Home Forever', 3),
+('Diamond Power', 3),
+("Honey, Let's Be Silly", 3),
+('Thang Of Thunder', 4),
+('Words Of Her Life', 4),
+('Without My Streets', 4);
 
 INSERT INTO historico_de_reproducoes (usuario_id, cancao_id)
 VALUES
