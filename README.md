@@ -142,9 +142,9 @@ Seu banco de dados deve seguir as regras de negócio e ser capaz de recuperar:
 
   - Projeto individual.
 
-  - Serão dois dias de projeto.
+  - Será um dia de projeto.
   
-  - Data de entrega para avaliação final do projeto: `DD/MM/YYYY - 14:00h`.
+  - Data de entrega para avaliação final do projeto: `20/01/2021 - 14:00h`.
 
 ---
 
