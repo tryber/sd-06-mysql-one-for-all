@@ -1,9 +1,9 @@
 DROP SCHEMA IF EXISTS `SpotifyClone` ;
 
-CREATE SCHEMA IF NOT EXISTS `SpotifyClone` ;
+CREATE SCHEMA `SpotifyClone` ;
 USE `SpotifyClone` ;
 
-CREATE TABLE IF NOT EXISTS `SpotifyClone`.`plano` (
+CREATE TABLE `SpotifyClone`.`plano` (
   `id` INT NOT NULL,
   `nome` VARCHAR(30) NOT NULL,
   `valor` DECIMAL(8,2) NOT NULL,
@@ -15,7 +15,7 @@ INSERT INTO `SpotifyClone`.`plano` (`id`, `nome`, `valor`) VALUES
 (2, 'familiar', 7.99),
 (3, 'universitário', 5.99);
 
-CREATE TABLE IF NOT EXISTS `SpotifyClone`.`usuario` (
+CREATE TABLE `SpotifyClone`.`usuario` (
   `id` INT NOT NULL,
   `nome` VARCHAR(60) NOT NULL,
   `idade` INT NOT NULL,
@@ -35,7 +35,7 @@ INSERT INTO `SpotifyClone`.`usuario` (`id`, `nome`, `idade`, `id_plano`) VALUES
 (3, 'Bill', 20, 3),
 (4, 'Roger', 45, 1);
 
-CREATE TABLE IF NOT EXISTS `SpotifyClone`.`artista` (
+CREATE TABLE `SpotifyClone`.`artista` (
   `id` INT NOT NULL,
   `nome` VARCHAR(50) NOT NULL,
   PRIMARY KEY (`id`))
@@ -47,7 +47,7 @@ INSERT INTO `SpotifyClone`.`artista` (`id`, `nome`) VALUES
 (3, 'Lance Day'),
 (4, 'Freedie Shannon');
 
-CREATE TABLE IF NOT EXISTS `SpotifyClone`.`album` (
+CREATE TABLE `SpotifyClone`.`album` (
   `id` INT NOT NULL,
   `nome` VARCHAR(45) NOT NULL,
   `id_artista` INT NOT NULL,
@@ -67,7 +67,7 @@ INSERT INTO `SpotifyClone`.`album` (`id`, `nome`, `id_artista`) VALUES
 (4, 'Incandescent', 3),
 (5, 'Temporary Culture', 4);
 
-CREATE TABLE IF NOT EXISTS `SpotifyClone`.`cancoes` (
+CREATE TABLE `SpotifyClone`.`cancoes` (
   `id` INT NOT NULL,
   `nome` VARCHAR(45) NOT NULL,
   `id_album` INT NOT NULL,
@@ -100,7 +100,7 @@ INSERT INTO `SpotifyClone`.`cancoes` (`id`, `nome`, `id_album`) VALUES
 (17, 'Words Of Her Life', 5),
 (18, 'Without My Streets', 4);
 
-CREATE TABLE IF NOT EXISTS `SpotifyClone`.`historico_de_reproducoes` (
+CREATE TABLE `SpotifyClone`.`historico_de_reproducoes` (
   `id_usuario` INT NOT NULL,
   `id_cancao` INT NOT NULL,
   PRIMARY KEY (`id_usuario`, `id_cancao`),
@@ -133,7 +133,7 @@ INSERT INTO `SpotifyClone`.`historico_de_reproducoes` (`id_usuario`, `id_cancao`
 (4, 18),
 (4, 11);
 
-CREATE TABLE IF NOT EXISTS `SpotifyClone`.`seguindo_artistas` (
+CREATE TABLE `SpotifyClone`.`seguindo_artistas` (
   `id_usuario` INT NOT NULL,
   `id_artista` INT NOT NULL,
   INDEX `fk_seguindo_artistas_usuario_idx` (`id_usuario` ASC) VISIBLE,
