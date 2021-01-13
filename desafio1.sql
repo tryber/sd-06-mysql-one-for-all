@@ -56,7 +56,7 @@ CREATE TABLE historico_de_reproducoes(
 INSERT INTO planos (plano, preco)
 VALUES
 ('familiar', 7.99),
-('familiar', 0),
+('gratuito', 0),
 ('universitário', 5.99);
 
 INSERT INTO usuarios (usuario, idade, plano_id)
