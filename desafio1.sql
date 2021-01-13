@@ -61,10 +61,10 @@ VALUES
 
 INSERT INTO usuarios (usuario, idade, plano_id)
 VALUES
-('Thati',23, 1),
-('Cintia',35, 2),
+('Thati',23, 2),
+('Cintia',35, 1),
 ('Bill',20, 3),
-('Roger',45, 1);
+('Roger',45, 2);
 
 INSERT INTO artistas (artista)
 VALUES
