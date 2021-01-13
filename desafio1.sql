@@ -34,7 +34,7 @@ CREATE TABLE artistas_seguidos(
     usuario_id INT NOT NULL,
     artista_id INT NOT NULL,
     FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id),
-	FOREIGN KEY (artista_id) REFERENCES artistas(artista_id)
+    FOREIGN KEY (artista_id) REFERENCES artistas(artista_id)
 ) ENGINE = INNODB;
 
 CREATE TABLE cancoes(
@@ -48,7 +48,7 @@ CREATE TABLE historico_reproducoes(
     usuario_id INT NOT NULL,
     cancao_id INT NOT NULL,
     FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id),
-	FOREIGN KEY (cancao_id) REFERENCES cancoes(cancao_id)
+    FOREIGN KEY (cancao_id) REFERENCES cancoes(cancao_id)
 ) ENGINE = INNODB;
 
 INSERT INTO artistas (artista)
@@ -127,4 +127,3 @@ VALUES
   (4, 10),
   (4, 11),
   (4, 12);
-  
