@@ -9,9 +9,9 @@ BEGIN
     artists AS ar
   INNER JOIN
     albums AS al ON al.artist_id = ar.id
-	WHERE ar.artist like artist_name
+  WHERE ar.artist like artist_name
   ORDER BY
-    `album`;
+    al.album;
 END; $$
 
 DELIMITER ;
