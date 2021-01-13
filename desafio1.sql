@@ -11,102 +11,102 @@ DROP TABLE IF EXISTS seguindo;
 DROP TABLE IF EXISTS reproducao;
 
 CREATE TABLE plano(
-	plano_id INT PRIMARY KEY,
-  nome VARCHAR(50) NOT NULL,
-  preco DECIMAL(5,2) NOT NULL
+plano_id INT PRIMARY KEY AUTO_INCREMENT,
+nome VARCHAR(50) NOT NULL,
+preco DECIMAL(5,2) NOT NULL
 ) engine = InnoDB;
 
 CREATE TABLE usuario(
-	usuario_id INT PRIMARY KEY AUTO_INCREMENT,
-  nome VARCHAR(50) NOT NULL,
-  idade INT NOT NULL,
-  plano_id INT NOT NULL,
-  FOREIGN KEY (plano_id) REFERENCES plano(plano_id) 
+usuario_id INT PRIMARY KEY AUTO_INCREMENT,
+nome VARCHAR(50) NOT NULL,
+idade INT NOT NULL,
+plano_id INT NOT NULL,
+FOREIGN KEY (plano_id) REFERENCES plano(plano_id) 
 ) engine = InnoDB;
 
 CREATE TABLE artista(
-	artista_id INT PRIMARY KEY AUTO_INCREMENT,
-  nome VARCHAR(50) NOT NULL
+artista_id INT PRIMARY KEY AUTO_INCREMENT,
+nome VARCHAR(50) NOT NULL
 ) engine = InnoDB;
 
 CREATE TABLE album(
-	album_id INT PRIMARY KEY AUTO_INCREMENT,
-  nome VARCHAR(50) NOT NULL,
-  artista_id INT NOT NULL,
-  FOREIGN KEY (artista_id) REFERENCES artista(artista_id)
+album_id INT PRIMARY KEY AUTO_INCREMENT,
+nome VARCHAR(50) NOT NULL,
+artista_id INT NOT NULL,
+FOREIGN KEY (artista_id) REFERENCES artista(artista_id)
 ) engine = InnoDB;
 
 CREATE TABLE cancao(
-	cancao_id INT PRIMARY KEY AUTO_INCREMENT,
-  nome VARCHAR(50) NOT NULL,
-  album_id INT NOT NULL,
-  FOREIGN KEY (album_id) REFERENCES album(album_id)
+cancao_id INT PRIMARY KEY AUTO_INCREMENT,
+nome VARCHAR(50) NOT NULL,
+album_id INT NOT NULL,
+FOREIGN KEY (album_id) REFERENCES album(album_id)
 ) engine = InnoDB;
 
 CREATE TABLE reproducao(
-	reproducao_id INT PRIMARY KEY,
-  cancao_id INT NOT NULL,
-  usuario_id INT NOT NULL,
-  FOREIGN KEY (cancao_id) REFERENCES cancao(cancao_id),
-  FOREIGN KEY (usuario_id) REFERENCES usuario(usuario_id)
+reproducao_id INT PRIMARY KEY,
+cancao_id INT NOT NULL,
+usuario_id INT NOT NULL,
+FOREIGN KEY (cancao_id) REFERENCES cancao(cancao_id),
+FOREIGN KEY (usuario_id) REFERENCES usuario(usuario_id)
 ) engine = InnoDB;
 
 CREATE TABLE seguindo(
-	seguindo_id INT PRIMARY KEY,
-  artista_id INT NOT NULL,
-  usuario_id INT NOT NULL,
-  FOREIGN KEY (artista_id) REFERENCES artista(artista_id),
-  FOREIGN KEY (usuario_id) REFERENCES usuario(usuario_id)
+seguindo_id INT PRIMARY KEY,
+artista_id INT NOT NULL,
+usuario_id INT NOT NULL,
+FOREIGN KEY (artista_id) REFERENCES artista(artista_id),
+FOREIGN KEY (usuario_id) REFERENCES usuario(usuario_id)
 ) engine = InnoDB;
 
 INSERT INTO plano(plano_id, nome, preco)
 VALUES
-(1, "gratuito", 0.00),
-(2, "universitário", 5.99),
-(3, "familiar", 7.99);
+("gratuito", 0.00),
+("universitário", 5.99),
+("familiar", 7.99);
 
 INSERT INTO usuario(usuario_id, nome, idade, plano_id)
 VALUES
-(1, "Thati", 23, 1),
-(2, "Cintia", 35, 3),
-(3, "Bill", 20, 2),
-(4, "Roger", 45, 1);
+("Thati", 23, 1),
+("Cintia", 35, 3),
+("Bill", 20, 2),
+("Roger", 45, 1);
 
 INSERT INTO artista(artista_id, nome)
 VALUES
-(1, "Walter Phoenix"),
-(2, "Peter Strong"),
-(3, "Lance Day"),
-(4, "Freedie Shanno");
+("Walter Phoenix"),
+("Peter Strong"),
+("Lance Day"),
+("Freedie Shanno");
 
 INSERT INTO album(album_id, nome, artista_id)
 VALUES
-(1, "Envious", 1),
-(2, "Exuberant", 1),
-(3, "Hallowed Steam", 2),
-(4, "Incandescent", 3),
-(5, "Temporary Culture", 4);
+("Envious", 1),
+("Exuberant", 1),
+("Hallowed Steam", 2),
+("Incandescent", 3),
+("Temporary Culture", 4);
 
 INSERT INTO cancao(cancao_id, nome, album_id)
 VALUES
-(1, "Soul For Us", 1),
-(2, "Reflections of Magic", 1),
-(3, "Dance With Her Own", 1),
-(4, "Troubles Of My Inner Fire", 2),
-(5, "Time Fireworks", 2),
-(6, "Magic Circus", 3),
-(7, "Honey, So Do I", 3),
-(8, "Sweetie, Let's Go Wild", 3),
-(9, "She Knows", 3),
-(10, "Fantasy For Me", 4),
-(11, "Celebration of More", 4),
-(12, "Rock His Everything", 4),
-(13, "Home Forever", 4),
-(14, "Diamond Power", 4),
-(15, "Honey, Let's Be Silly", 4),
-(16, "Thang of Thunder", 5),
-(17, "Words Of Her Life", 5),
-(18, "Without My Streets", 5);
+("Soul For Us", 1),
+("Reflections of Magic", 1),
+("Dance With Her Own", 1),
+("Troubles Of My Inner Fire", 2),
+("Time Fireworks", 2),
+("Magic Circus", 3),
+("Honey, So Do I", 3),
+("Sweetie, Let's Go Wild", 3),
+("She Knows", 3),
+("Fantasy For Me", 4),
+("Celebration of More", 4),
+("Rock His Everything", 4),
+("Home Forever", 4),
+("Diamond Power", 4),
+("Honey, Let's Be Silly", 4),
+("Thang of Thunder", 5),
+("Words Of Her Life", 5),
+("Without My Streets", 5);
 
 INSERT INTO reproducao(reproducao_id, cancao_id, usuario_id)
 VALUES
