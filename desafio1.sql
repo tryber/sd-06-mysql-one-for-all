@@ -22,7 +22,7 @@ artista_id INT PRIMARY KEY auto_increment,
 artista VARCHAR(50) NOT NULL
 ) engine = InnoDB;
 
-CREATE TABLE albums(
+CREATE TABLE albuns(
 album_id INT PRIMARY KEY auto_increment,
 album_nome VARCHAR(100) NOT NULL, 
 artista_id INT NOT NULL,
@@ -33,7 +33,7 @@ CREATE TABLE musicas(
 musica_id INT PRIMARY KEY auto_increment,
 musica_nome VARCHAR(300) NOT NULL,
 album_id INT NOT NULL,
-FOREIGN KEY (album_id) REFERENCES albums(album_id)
+FOREIGN KEY (album_id) REFERENCES albuns(album_id)
 ) engine = InnoDB;
 
 CREATE TABLE historico(
@@ -72,7 +72,7 @@ VALUES
 ('Peter Strong'),
 ('Freedie Shannon');
     
-INSERT INTO albums (album_nome, artista_id)
+INSERT INTO albuns (album_nome, artista_id)
 VALUES
 ('Envious', 1),
 ('Exuberant', 1),
