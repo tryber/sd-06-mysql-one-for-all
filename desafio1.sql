@@ -92,7 +92,7 @@ VALUES
 CREATE TABLE Following_Musicians (
 user_id INT NOT NULL,
 musician_id INT NOT NULL,
-FOREIGN KEY (user_id) REFERENCES Users (user_id),
+FOREIGN KEY (user_id) REFERENCES User (user_id),
 FOREIGN KEY (musician_id) REFERENCES Musicians (musician_id),
 PRIMARY KEY (user_id, musician_id)
 );
@@ -112,7 +112,7 @@ VALUES
 CREATE TABLE Reproduction_History (
 user_id INT NOT NULL,
 song_id INT NOT NULL,
-FOREIGN KEY (user_id) REFERENCES Users (user_id),
+FOREIGN KEY (user_id) REFERENCES User (user_id),
 FOREIGN KEY (song_id) REFERENCES Songs (song_id),
 PRIMARY KEY (user_id, song_id)
 );
