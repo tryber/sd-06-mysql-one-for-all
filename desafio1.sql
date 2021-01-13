@@ -41,14 +41,16 @@ CREATE TABLE historico(
 usuario INT NOT NULL,
 musica INT NOT NULL,
 CONSTRAINT `fk_usuario` FOREIGN KEY (usuario) REFERENCES usuarios(usuario_id),
-CONSTRAINT `fk_musica`  FOREIGN KEY (musica) REFERENCES musicas(musica_id)
+CONSTRAINT `fk_musica`  FOREIGN KEY (musica) REFERENCES musicas(musica_id),
+PRIMARY KEY (usuario, musica)
 ) ENGINE = InnoDB;
 
 CREATE TABLE seguindo(
 usuario INT NOT NULL,
 artista INT NOT NULL,
 CONSTRAINT `fk_usuario_seguindo` FOREIGN KEY (usuario) REFERENCES usuarios(usuario_id),
-CONSTRAINT `fk_artista_seguido` FOREIGN KEY (artista) REFERENCES artistas(artista_id)
+CONSTRAINT `fk_artista_seguido` FOREIGN KEY (artista) REFERENCES artistas(artista_id),
+PRIMARY KEY (usuario, artista)
 ) ENGINE = InnoDB;
 
 INSERT INTO plano(tipo, valor) VALUES
