@@ -1,14 +1,8 @@
 DROP SCHEMA IF EXISTS `SpotifyClone` ;
 
--- -----------------------------------------------------
--- Schema SpotifyClone
--- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS `SpotifyClone` ;
 USE `SpotifyClone` ;
 
--- -----------------------------------------------------
--- Table `SpotifyClone`.`plano`
--- -----------------------------------------------------
 DROP TABLE IF EXISTS `SpotifyClone`.`plano` ;
 
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`plano` (
@@ -23,9 +17,6 @@ INSERT INTO `SpotifyClone`.`plano` (`id`, `nome`, `valor`) VALUES
 (2, 'familiar', 7.99),
 (3, 'universitário', 5.99);
 
--- -----------------------------------------------------
--- Table `SpotifyClone`.`usuario`
--- -----------------------------------------------------
 DROP TABLE IF EXISTS `SpotifyClone`.`usuario` ;
 
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`usuario` (
@@ -48,9 +39,6 @@ INSERT INTO `SpotifyClone`.`usuario` (`id`, `nome`, `idade`, `id_plano`) VALUES
 (3, 'Bill', 20, 3),
 (4, 'Roger', 45, 1);
 
--- -----------------------------------------------------
--- Table `SpotifyClone`.`artista`
--- -----------------------------------------------------
 DROP TABLE IF EXISTS `SpotifyClone`.`artista` ;
 
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`artista` (
@@ -65,9 +53,6 @@ INSERT INTO `SpotifyClone`.`artista` (`id`, `nome`) VALUES
 (3, 'Lance Day'),
 (4, 'Freedie Shannon');
 
--- -----------------------------------------------------
--- Table `SpotifyClone`.`album`
--- -----------------------------------------------------
 DROP TABLE IF EXISTS `SpotifyClone`.`album` ;
 
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`album` (
@@ -90,9 +75,6 @@ INSERT INTO `SpotifyClone`.`album` (`id`, `nome`, `id_artista`) VALUES
 (4, 'Incandescent', 3),
 (5, 'Temporary Culture', 4);
 
--- -----------------------------------------------------
--- Table `SpotifyClone`.`cancoes`
--- -----------------------------------------------------
 DROP TABLE IF EXISTS `SpotifyClone`.`cancoes` ;
 
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`cancoes` (
@@ -128,9 +110,6 @@ INSERT INTO `SpotifyClone`.`cancoes` (`id`, `nome`, `id_album`) VALUES
 (17, 'Words Of Her Life', 5),
 (18, 'Without My Streets', 4);
 
--- -----------------------------------------------------
--- Table `SpotifyClone`.`historico_de_reproducoes`
--- -----------------------------------------------------
 DROP TABLE IF EXISTS `SpotifyClone`.`historico_de_reproducoes` ;
 
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`historico_de_reproducoes` (
@@ -166,9 +145,6 @@ INSERT INTO `SpotifyClone`.`historico_de_reproducoes` (`id_usuario`, `id_cancao`
 (4, 18),
 (4, 11);
 
--- -----------------------------------------------------
--- Table `SpotifyClone`.`seguindo_artistas`
--- -----------------------------------------------------
 DROP TABLE IF EXISTS `SpotifyClone`.`seguindo_artistas` ;
 
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`seguindo_artistas` (
