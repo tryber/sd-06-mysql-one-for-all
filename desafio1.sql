@@ -4,31 +4,32 @@ CREATE DATABASE SpotifyClone;
 USE SpotifyClone;
 
 CREATE TABLE planos(
-plano_id INT PRIMARY KEY NOT NULL auto_increment,
+plano_id INT PRIMARY KEY auto_increment,
 plano VARCHAR(50) NOT NULL,
 valor_plano DECIMAL(4,2) NOT NULL
 ) engine = InnoDB;
 
 CREATE TABLE artistas (
-artista_id INT PRIMARY KEY NOT NULL auto_increment,
+artista_id INT PRIMARY KEY auto_increment,
 artista VARCHAR(50) NOT NULL
 ) engine = InnoDB;
 
 CREATE TABLE albuns(
-album_id INT PRIMARY KEY NOT NULL auto_increment,
+album_id INT PRIMARY KEY auto_increment,
 album VARCHAR(50) NOT NULL,
 artista_id INT NOT NULL,
 FOREIGN KEY (artista_id) references artistas (artista_id)
 ) engine = InnoDB;
 
 CREATE TABLE cancoes(
+cancao_id INT PRIMARY KEY auto_increment,
 cancao VARCHAR(50) NOT NULL,
 album_id INT NOT NULL,
 FOREIGN KEY (album_id) references albuns (album_id)
 ) engine = InnoDB;
 
 CREATE TABLE usuario(
-usuario_id INT PRIMARY KEY NOT NULL auto_increment,
+usuario_id INT PRIMARY KEY auto_increment,
 nome VARCHAR(50) NOT NULL,
 idade INT NOT NULL,
 plano_id INT NOT NULL,
@@ -36,15 +37,19 @@ FOREIGN KEY (plano_id) references planos (plano_id)
 ) engine = InnoDB;
 
 CREATE TABLE seguidores(
-seguindo VARCHAR(50) NOT NULL,
 usuario_id INT NOT NULL,
-FOREIGN KEY (usuario_id) references usuario (usuario_id)
+artista_id INT NOT NULL,
+PRIMARY KEY (usuario_id, artista_id)
+FOREIGN KEY (usuario_id) references usuario (usuario_id),
+FOREIGN KEY (artista_id) references artistas (artista_id)
 ) engine = InnoDB;
 
 CREATE TABLE reproducoes(
-historico VARCHAR(50) NOT NULL,
+cancao_id INT NOT NULL,
 usuario_id INT NOT NULL,
+PRIMARY KEY (cancao_id, usuario_id),
 FOREIGN KEY (usuario_id) references usuario (usuario_id)
+FOREIGN KEY (cancao_id) references cancoes (cancao_id)
 ) engine = InnoDB;
 
 INSERT INTO planos (plano_id, plano, valor_plano)
@@ -68,26 +73,26 @@ VALUES
 (4,'Incandescent',3),
 (5,'Temporary Culture',4);
 
-INSERT INTO cancoes (cancao, album_id)
+INSERT INTO cancoes (cancao_id, cancao, album_id)
 VALUES
-("Soul For Us",1),
-("Reflections Of Magic",1),
-("Dance With Her Own",1),
-("Troubles Of My Inner Fire",2),
-("Time Fireworks",2),
-("Magic Circus",3),
-("Honey, So Do I",3),
-("Sweetie, Let's Go Wild",3),
-("She Knows",3),
-("Fantasy For Me",4),
-("Celebration Of More",4),
-("Rock His Everything",4),
-("Home Forever",4),
-("Diamond Power",4),
-("Honey, Let's Be Silly",4),
-("Thang Of Thunder",5),
-( "Words Of Her Life",5),
-("Without My Streets",5);
+(1,'Soul For Us',1),
+(2,'Reflections Of Magic',1),
+(3,'Dance With Her Own',1),
+(4,'Troubles Of My Inner Fire',2),
+(5,'Time Fireworks',2),
+(6,'Magic Circus',3),
+(7,'Honey, So Do I',3),
+(8,"Sweetie, Let's Go Wild",3),
+(9,'She Knows',3),
+(10,'Fantasy For Me',4),
+(11,'Celebration Of More',4),
+(12,'Rock His Everything',4),
+(13,'Home Forever',4),
+(14,'Diamond Power',4),
+(15,"Honey, Let's Be Silly",4),
+(16,'Thang Of Thunder',5),
+(17,'Words Of Her Life',5),
+(18,'Without My Streets',5);
 
 INSERT INTO usuario (usuario_id, nome, idade, plano_id)
 VALUES
@@ -96,30 +101,30 @@ VALUES
 (3,'Bill',20, 3),
 (4,'Roger',45, 1);
 
-INSERT INTO seguidores (seguindo, usuario_id)
+INSERT INTO seguidores (usuario_id, artista_id)
 VALUES
-('Walter Phoenix',1),
-('Freedie Shannon',1),
-('Lance Day',1),
-('Walter Phoenix',2),
-('Lance Day',2),
-('Peter Strong',3),
-('Walter Phoenix',3),
-('Freedie Shannon',4);
+(1,1),
+(1,4),
+(1,3),
+(2,2),
+(2,3),
+(3,2),
+(3,1),
+(4,4);
 
-INSERT INTO reproducoes (historico, usuario_id)
+INSERT INTO reproducoes (usuario_id, cancao_id)
 VALUES
-("Soul For Us",1),
-("Magic Circus",1),
-("Diamond Power",1),
-("Thang Of Thunder",1),
-("Home Forever",2),
-("Words Of Her Life",2),
-("Reflections Of Magic",2),
-("Honey, Let's Be Silly",2),
-("Troubles Of My Inner Fire",3),
-("Thang Of Thunder",3),
-("Magic Circus",3),
-("Dance With Her Own",4),
-("Without My Streets",4),
-("Celebration Of More",4);
+(1,1),
+(1,6),
+(1,14),
+(1,16),
+(2,13),
+(2,17),
+(2,2),
+(2,15),
+(3,4),
+(3,16),
+(3,6),
+(4,3),
+(4,18),
+(4,11);
