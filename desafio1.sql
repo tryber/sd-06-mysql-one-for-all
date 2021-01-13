@@ -39,18 +39,18 @@ FOREIGN KEY (artista_id) REFERENCES artistas(artista_id)
 ) engine = InnoDB;
 
 CREATE TABLE albums(
-album_id INT PRIMARY KEY AUTO_INCREMENT,
-album VARCHAR(18) NOT NULL,
-artista_id INT NOT NULL,
-FOREIGN KEY (artista_id) REFERENCES artistas(artista_id)
+  album_id INT PRIMARY KEY AUTO_INCREMENT,
+  album VARCHAR(18) NOT NULL,
+  artista_id INT NOT NULL,
+  FOREIGN KEY (artista_id) REFERENCES artistas(artista_id)
 ) engine = InnoDB;
 
 CREATE TABLE historico_de_reproducoes(
-usuario_id INT NOT NULL,
-cancao_id INT NOT NULL,
-PRIMARY KEY (usuario_id, cancao_id),
-FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id),
-FOREIGN KEY (cancao_id) REFERENCES cancoes(cancao_id)
+  usuario_id INT NOT NULL,
+  cancao_id INT NOT NULL,
+  PRIMARY KEY (usuario_id, cancao_id),
+  FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id),
+  FOREIGN KEY (cancao_id) REFERENCES cancoes(cancao_id)
 ) engine = InnoDB;
 
 INSERT INTO planos (plano, preco)
