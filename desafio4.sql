@@ -1,4 +1,4 @@
-CREATE VIEW historico_reproducao_usuarios AS (
+CREATE VIEW top_3_artistas AS (
   (
     SELECT A.name AS artista, COUNT(*) AS seguidores
     FROM follows AS F
