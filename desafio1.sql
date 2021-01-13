@@ -71,9 +71,7 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`artista_usuario` (
   `artista_id` INT NOT NULL,
   PRIMARY KEY (`artista_usuario_id`),
     FOREIGN KEY (`usuario_id`)
-    REFERENCES `SpotifyClone`.`usuario` (`usuario_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    REFERENCES `SpotifyClone`.`usuario` (`usuario_id`),
     FOREIGN KEY (`artista_id`)
     REFERENCES `SpotifyClone`.`artista` (`artista_id`)
     ON DELETE NO ACTION
