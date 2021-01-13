@@ -10,3 +10,4 @@ FROM
   SpotifyClone.album AS alb,
   SpotifyClone.cancoes AS can;
   
+  
