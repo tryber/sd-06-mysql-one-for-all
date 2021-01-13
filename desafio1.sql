@@ -5,114 +5,114 @@ CREATE SCHEMA SpotifyClone;
 USE SpotifyClone;
 
 CREATE TABLE plano (
-  `id` INT NOT NULL,
-  `nome` VARCHAR(30) NOT NULL,
-  `valor` DECIMAL(8,2) NOT NULL,
-  PRIMARY KEY (`id`))
+  id INT NOT NULL,
+  nome VARCHAR(30) NOT NULL,
+  valor DECIMAL(8,2) NOT NULL,
+  PRIMARY KEY (id))
 ENGINE = InnoDB;
 
 CREATE TABLE usuario (
-  `id` INT NOT NULL,
-  `nome` VARCHAR(60) NOT NULL,
-  `idade` INT NOT NULL,
-  `id_plano` INT NOT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_usuario_plano1_idx` (`id_plano` ASC) VISIBLE,
-  CONSTRAINT `fk_usuario_plano1`
-    FOREIGN KEY (`id_plano`)
-    REFERENCES `SpotifyClone`.`plano` (`id`)
+  id INT NOT NULL,
+  nome VARCHAR(60) NOT NULL,
+  idade INT NOT NULL,
+  id_plano INT NOT NULL,
+  PRIMARY KEY (id),
+  INDEX fk_usuario_plano1_idx (id_plano ASC) VISIBLE,
+  CONSTRAINT fk_usuario_plano1
+    FOREIGN KEY (id_plano)
+    REFERENCES SpotifyClone.plano (id)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 CREATE TABLE artista (
-  `id` INT NOT NULL,
-  `nome` VARCHAR(50) NOT NULL,
-  PRIMARY KEY (`id`))
+  id INT NOT NULL,
+  nome VARCHAR(50) NOT NULL,
+  PRIMARY KEY (id))
 ENGINE = InnoDB;
 
 CREATE TABLE album (
-  `id` INT NOT NULL,
-  `nome` VARCHAR(45) NOT NULL,
-  `id_artista` INT NOT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_album_1_idx` (`id_artista` ASC) VISIBLE,
-  CONSTRAINT `fk_album_artista`
-    FOREIGN KEY (`id_artista`)
-    REFERENCES `SpotifyClone`.`artista` (`id`)
+  id INT NOT NULL,
+  nome VARCHAR(45) NOT NULL,
+  id_artista INT NOT NULL,
+  PRIMARY KEY (id),
+  INDEX fk_album_1_idx (id_artista ASC) VISIBLE,
+  CONSTRAINT fk_album_artista
+    FOREIGN KEY (id_artista)
+    REFERENCES SpotifyClone.artista (id)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 CREATE TABLE cancoes (
-  `id` INT NOT NULL,
-  `nome` VARCHAR(45) NOT NULL,
-  `id_album` INT NOT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_cancoes_album_idx` (`id_album` ASC) VISIBLE,
-  CONSTRAINT `fk_cancoes_album`
-    FOREIGN KEY (`id_album`)
-    REFERENCES `SpotifyClone`.`album` (`id`)
+  id INT NOT NULL,
+  nome VARCHAR(45) NOT NULL,
+  id_album INT NOT NULL,
+  PRIMARY KEY (id),
+  INDEX fk_cancoes_album_idx (id_album ASC) VISIBLE,
+  CONSTRAINT fk_cancoes_album
+    FOREIGN KEY (id_album)
+    REFERENCES SpotifyClone.album (id)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 CREATE TABLE historico_de_reproducoes (
-  `id_usuario` INT NOT NULL,
-  `id_cancao` INT NOT NULL,
-  PRIMARY KEY (`id_usuario`, `id_cancao`),
-  INDEX `fk_historico_de_reproducoes_cancoes_idx` (`id_cancao` ASC) VISIBLE,
-  CONSTRAINT `fk_historico_de_reproducoes_usuario`
-    FOREIGN KEY (`id_usuario`)
-    REFERENCES `SpotifyClone`.`usuario` (`id`)
+  id_usuario INT NOT NULL,
+  id_cancao INT NOT NULL,
+  PRIMARY KEY (id_usuario, id_cancao),
+  INDEX fk_historico_de_reproducoes_cancoes_idx (id_cancao ASC) VISIBLE,
+  CONSTRAINT fk_historico_de_reproducoes_usuario
+    FOREIGN KEY (id_usuario)
+    REFERENCES SpotifyClone.usuario (id)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_historico_de_reproducoes_cancoes`
-    FOREIGN KEY (`id_cancao`)
-    REFERENCES `SpotifyClone`.`cancoes` (`id`)
+  CONSTRAINT fk_historico_de_reproducoes_cancoes
+    FOREIGN KEY (id_cancao)
+    REFERENCES SpotifyClone.cancoes (id)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 CREATE TABLE seguindo_artistas (
-  `id_usuario` INT NOT NULL,
-  `id_artista` INT NOT NULL,
-  INDEX `fk_seguindo_artistas_usuario_idx` (`id_usuario` ASC) VISIBLE,
-  INDEX `fk_seguindo_artistas_artista_idx` (`id_artista` ASC) VISIBLE,
-  PRIMARY KEY (`id_usuario`, `id_artista`),
-  CONSTRAINT `fk_seguindo_artistas_usuario`
-    FOREIGN KEY (`id_usuario`)
-    REFERENCES `SpotifyClone`.`usuario` (`id`)
+  id_usuario INT NOT NULL,
+  id_artista INT NOT NULL,
+  INDEX fk_seguindo_artistas_usuario_idx (id_usuario ASC) VISIBLE,
+  INDEX fk_seguindo_artistas_artista_idx (id_artista ASC) VISIBLE,
+  PRIMARY KEY (id_usuario, id_artista),
+  CONSTRAINT fk_seguindo_artistas_usuario
+    FOREIGN KEY (id_usuario)
+    REFERENCES SpotifyClone.usuario (id)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_seguindo_artistas_artista`
-    FOREIGN KEY (`id_artista`)
-    REFERENCES `SpotifyClone`.`artista` (`id`)
+  CONSTRAINT fk_seguindo_artistas_artista
+    FOREIGN KEY (id_artista)
+    REFERENCES SpotifyClone.artista (id)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO plano (`id`, `nome`, `valor`)
+INSERT INTO plano (id, nome, valor)
 VALUES
   (1, 'gratuito', 0),
   (2, 'familiar', 7.99),
   (3, 'universitário', 5.99);
 
-INSERT INTO usuario (`id`, `nome`, `idade`, `id_plano`)
+INSERT INTO usuario (id, nome, idade, id_plano)
 VALUES
   (1, 'Thati', 23, 1),
   (2, 'Cintia', 35, 2),
   (3, 'Bill', 20, 3),
   (4, 'Roger', 45, 1);
 
-INSERT INTO artista (`id`, `nome`)
+INSERT INTO artista (id, nome)
 VALUES
   (1, 'Walter Phoenix'),
   (2, 'Peter Strong'),
   (3, 'Lance Day'),
   (4, 'Freedie Shannon');
 
-INSERT INTO album (`id`, `nome`, `id_artista`)
+INSERT INTO album (id, nome, id_artista)
 VALUES
   (1, 'Envious', 1),
   (2, 'Exuberant', 1),
@@ -120,7 +120,7 @@ VALUES
   (4, 'Incandescent', 3),
   (5, 'Temporary Culture', 4);
 
-INSERT INTO cancoes (`id`, `nome`, `id_album`)
+INSERT INTO cancoes (id, nome, id_album)
 VALUES
   (1, 'Soul For Us', 1),
   (2, 'Reflections Of Magic', 1),
@@ -141,7 +141,7 @@ VALUES
   (17, 'Words Of Her Life', 5),
   (18, 'Without My Streets', 5);
 
-INSERT INTO historico_de_reproducoes (`id_usuario`, `id_cancao`)
+INSERT INTO historico_de_reproducoes (id_usuario, id_cancao)
 VALUES
   (1, 1),
   (1, 6),
@@ -158,7 +158,7 @@ VALUES
   (4, 18),
   (4, 11);
 
-INSERT INTO seguindo_artistas (`id_usuario`, `id_artista`)
+INSERT INTO seguindo_artistas (id_usuario, id_artista)
 VALUES
   (1, 1),
   (1, 4),
