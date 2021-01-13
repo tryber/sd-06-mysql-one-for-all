@@ -46,17 +46,19 @@ VALUES
 
 CREATE TABLE Albums (
 album_id INT PRIMARY KEY auto_increment,
-album_name VARCHAR(130)
+album_name VARCHAR(130),
+musician_id INT NOT NULL,
+FOREIGN KEY (musician_id) REFERENCES Musicians (musician_id)
 );
 
 INSERT INTO
-Albums (album_name)
+Albums (album_name, musician_id)
 VALUES
-('Envious'),
-('Exuberant'),
-('Hallowed Steam'),
-('Incandescent'),
-('Temporary Culture');
+('Envious', 4),
+('Exuberant', 4),
+('Hallowed Steam', 3),
+('Incandescent', 2),
+('Temporary Culture', 1);
 
 CREATE TABLE Songs (
 song_id INT PRIMARY KEY auto_increment,
