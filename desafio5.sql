@@ -5,5 +5,5 @@ FROM historic
 INNER JOIN song
 ON SpotifyClone.song.song_id = SpotifyClone.historic.song_id
 GROUP BY SpotifyClone.song.song_name
-ORDER BY reproducoes DESC, artista ASC
+ORDER BY reproducoes DESC, cancao ASC
 LIMIT 2;
