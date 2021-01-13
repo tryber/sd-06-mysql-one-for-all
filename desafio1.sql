@@ -8,7 +8,7 @@ CREATE TABLE plano (
   plano_id INT NOT NULL AUTO_INCREMENT,
   nome VARCHAR(100) NOT NULL,
   valor DECIMAL(5, 2) NOT NULL,
-  PRIMARY KEY (plano_id),
+  PRIMARY KEY (plano_id)
 ) ENGINE = InnoDB;
 
 CREATE TABLE usuario (
