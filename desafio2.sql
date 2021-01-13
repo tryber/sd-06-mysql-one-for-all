@@ -9,4 +9,3 @@ FROM
   SpotifyClone.artista AS art,
   SpotifyClone.album AS alb,
   SpotifyClone.cancoes AS can;
-  
