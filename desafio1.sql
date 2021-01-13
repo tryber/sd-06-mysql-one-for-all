@@ -123,7 +123,7 @@ VALUES
 (3, 2),
 (3, 1),
 (4, 3);
-
+♪ Ghetto ♪
 INSERT INTO History (user_id, song_id)
 VALUES
 (1, 1),
