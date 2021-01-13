@@ -78,7 +78,7 @@ VALUES (4, "Roger", 45, 1);
 -- ARTISTAS
 
 INSERT INTO artistas (artista_id, nome_artista)
-VALUES (1, "Freedie Shanno");
+VALUES (1, "Freedie Shannon");
 
 INSERT INTO artistas (artista_id, nome_artista)
 VALUES (2, "Lance Day");
