@@ -101,15 +101,15 @@ VALUES
 (3,'Bill',20, 3),
 (4,'Roger',45, 1);
 
-INSERT INTO seguidores (usuario_id, artista_id)
+INSERT INTO seguidores (artista_id, usuario_id)
 VALUES
 (1,1),
-(1,4),
-(1,3),
-(2,2),
-(2,3),
-(3,2),
+(4,1),
 (3,1),
+(1,2),
+(3,2),
+(2,3),
+(1,3),
 (4,4);
 
 INSERT INTO reproducoes (usuario_id, cancao_id)
