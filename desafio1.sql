@@ -196,6 +196,16 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`seguindo_artistas` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+INSERT INTO `SpotifyClone`.`seguindo_artistas` (`id_usuario`, `id_artista`) VALUES
+(1, 1),
+(1, 4),
+(1, 3),
+(2, 1),
+(2, 3),
+(3, 2),
+(3, 1),
+(4, 4);
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
