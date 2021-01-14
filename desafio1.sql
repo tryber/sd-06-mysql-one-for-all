@@ -57,7 +57,7 @@ CREATE TABLE Follow (
 
 INSERT INTO Artists(artist_name)
 VALUES
-    ('Walter Phoenix'), ('Peter Strong'), ('Lance Day'), ('Freedie Shanno');
+    ('Walter Phoenix'), ('Peter Strong'), ('Lance Day'), ('Freedie Shannon');
 
 INSERT INTO Subscriptions(subscription, subscription_cost)
 VALUES
