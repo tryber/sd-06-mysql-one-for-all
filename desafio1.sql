@@ -67,7 +67,7 @@ FOREIGN KEY (artista_id) REFERENCES artista(artista_id)
 
 INSERT INTO musica (nome_musica, album_id, artista_id)
 VALUES
-	('Soul For Us', 1, 1),
+    ('Soul For Us', 1, 1),
     ('Reflections Of Magic', 1, 1),
     ('Dance With Her Own', 1, 1),
     ('Troubles Of My Inner Fire', 2, 1),
@@ -145,4 +145,3 @@ VALUES
   ('4','3'),
   ('4','18'),
   ('4','11');
-
