@@ -26,7 +26,6 @@ CREATE TABLE artistas(
 CREATE TABLE seguindo(
   usuario_id INT NOT NULL,
   artista_id INT NOT NULL,
-  PRIMARY KEY (usuario_id, artista_id),
   FOREIGN KEY (artista_id) references artistas(artista_id),
   FOREIGN KEY (usuario_id) references usuarios(usuario_id)
 ) engine = InnoDB;
@@ -40,7 +39,7 @@ CREATE TABLE album(
 
 CREATE TABLE cancoes(
   cancao_id INT PRIMARY KEY auto_increment,
-  cancoes varchar(50) NOT NULL,
+  cancao varchar(50) NOT NULL,
   album_id INT NOT NULL,
   FOREIGN KEY (album_id) references album(album_id)
 ) engine = InnoDB;
@@ -48,7 +47,6 @@ CREATE TABLE cancoes(
 CREATE TABLE reproducoes(
   usuario_id INT NOT NULL,
   cancao_id INT NOT NULL,
-  PRIMARY KEY (usuario_id, cancao_id),
   FOREIGN KEY (cancao_id) references cancoes(cancao_id),
   FOREIGN KEY (usuario_id) references usuarios(usuario_id)
 ) engine = InnoDB;
@@ -92,7 +90,7 @@ VALUES
 ('Incandescent', 3),
 ('Temporary Culture', 4);
   
-INSERT INTO cancoes (cancoes, album_id)
+INSERT INTO cancoes (cancao, album_id)
 VALUES
   ('Soul For Us', '1'),
   ('Reflections Of Magic', '1'),
