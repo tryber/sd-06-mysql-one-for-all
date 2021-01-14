@@ -32,10 +32,10 @@ valor DECIMAL(6,2) NOT NULL
 )engine=InnoDB;
 
 CREATE TABLE usuario(
-usuario_id INT PRIMARY KEY auto_increment,
 nome varchar(150) NOT NULL,
 idade INT NOT NULL,
 plano_id INT NOT NULL,
+usuario_id INT PRIMARY KEY auto_increment,
 FOREIGN KEY(plano_id) references plano(plano_id)
 )engine=InnoDB;
 
@@ -50,7 +50,7 @@ FOREIGN KEY(usuario_id) references usuario(usuario_id)
 CREATE TABLE seguindo_artista(
 artista_id INT NOT NULL,
 usuario_id INT NOT NULL,
-PRIMARY KEY(artista_id, usuario_id)
+PRIMARY KEY(usuario_id, artista_id),
 FOREIGN KEY(usuario_id) REFERENCES usuario(usuario_id),
 FOREIGN KEY(artista_id) REFERENCES artista(artista_id)
 )engine=InnoDB;
@@ -80,16 +80,16 @@ VALUES
 (6, 'Magic Circus', 3),
 (7, 'Honey, So Do I', 3),
 (8, ' Sweetie Lets Go Wild', 3),
-(10, 'She Knows', 3),
-(11, 'Fantasy For Me ', 4),
-(12, 'Celebration Of More ', 4),
-(13, 'Rock His Everything ', 4),
-(14, 'Home Forever ', 4),
-(15, 'Diamond Power ', 4),
-(16, 'Honey, Lets Be Silly ', 4),
-(17, 'Thang Of Thunder', 5),
-(18, 'Words Of Her Life', 5),
-(19, 'Without My Streets', 5);
+(9, 'She Knows', 3),
+(10, 'Fantasy For Me ', 4),
+(11, 'Celebration Of More ', 4),
+(12, 'Rock His Everything ', 4),
+(13, 'Home Forever ', 4),
+(14, 'Diamond Power ', 4),
+(15, 'Honey, Lets Be Silly ', 4),
+(16, 'Thang Of Thunder', 5),
+(17, 'Words Of Her Life', 5),
+(18, 'Without My Streets', 5);
 
 INSERT INTO `plano` (`plano_id`, `tipo`, `valor`)
 VALUES
@@ -108,20 +108,20 @@ INSERT INTO `historico_reproducao` (`usuario_id`, `cancao_id`)
 VALUES
 (1,1),
 (1,6),
-(1,15),
-(1,17),
-(2,14),
-(2,18),
+(1,14),
+(1,16),
+(2,13),
+(2,17),
 (2,2),
-(2,16),
+(2,15),
 (3,4),
-(3,17),
+(3,16),
 (3,6),
 (4,3),
-(4,19),
-(4,12);
+(4,18),
+(4,11);
 
-INSERT INTO  `Seguindo_artista` (`usuario_id`, `artista_id`)
+INSERT INTO  `seguindo_artista` (`usuario_id`, `artista_id`)
 VALUES
 (1, 1),
 (1, 4),
