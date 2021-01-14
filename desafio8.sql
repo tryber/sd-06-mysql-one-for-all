@@ -10,7 +10,3 @@ DELETE FROM seguindo WHERE usuario_id = OLD.usuario_id;
 END $$
 
 DELIMITER ;
-
-SET SQL_SAFE_UPDATES = 0;
-DELETE FROM usuario WHERE nome = "Thati";
-SET SQL_SAFE_UPDATES = 1;

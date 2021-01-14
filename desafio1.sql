@@ -44,7 +44,7 @@ FOREIGN KEY (album_id) REFERENCES album(album_id)
 ) engine = InnoDB;
 
 CREATE TABLE reproducao(
-reproducao_id INT PRIMARY KEY,
+PRIMARY KEY(cancao_id, usuario_id),
 cancao_id INT NOT NULL,
 usuario_id INT NOT NULL,
 FOREIGN KEY (cancao_id) REFERENCES cancao(cancao_id),
@@ -52,34 +52,34 @@ FOREIGN KEY (usuario_id) REFERENCES usuario(usuario_id)
 ) engine = InnoDB;
 
 CREATE TABLE seguindo(
-seguindo_id INT PRIMARY KEY,
+PRIMARY KEY(artista_id, usuario_id),
 artista_id INT NOT NULL,
 usuario_id INT NOT NULL,
 FOREIGN KEY (artista_id) REFERENCES artista(artista_id),
 FOREIGN KEY (usuario_id) REFERENCES usuario(usuario_id)
 ) engine = InnoDB;
 
-INSERT INTO plano(plano_id, nome, preco)
+INSERT INTO plano(nome, preco)
 VALUES
 ("gratuito", 0.00),
 ("universitário", 5.99),
 ("familiar", 7.99);
 
-INSERT INTO usuario(usuario_id, nome, idade, plano_id)
+INSERT INTO usuario(nome, idade, plano_id)
 VALUES
 ("Thati", 23, 1),
 ("Cintia", 35, 3),
 ("Bill", 20, 2),
 ("Roger", 45, 1);
 
-INSERT INTO artista(artista_id, nome)
+INSERT INTO artista(nome)
 VALUES
 ("Walter Phoenix"),
 ("Peter Strong"),
 ("Lance Day"),
 ("Freedie Shanno");
 
-INSERT INTO album(album_id, nome, artista_id)
+INSERT INTO album(nome, artista_id)
 VALUES
 ("Envious", 1),
 ("Exuberant", 1),
@@ -87,7 +87,7 @@ VALUES
 ("Incandescent", 3),
 ("Temporary Culture", 4);
 
-INSERT INTO cancao(cancao_id, nome, album_id)
+INSERT INTO cancao(nome, album_id)
 VALUES
 ("Soul For Us", 1),
 ("Reflections of Magic", 1),
@@ -108,16 +108,16 @@ VALUES
 ("Words Of Her Life", 5),
 ("Without My Streets", 5);
 
-INSERT INTO reproducao(reproducao_id, cancao_id, usuario_id)
+INSERT INTO reproducao(cancao_id, usuario_id)
 VALUES
-(11, 1, 1), (61, 6, 1), (141, 14, 1), (161, 16, 1),
-(132, 13, 2), (172, 17, 2), (22, 2, 2), (152, 15, 2),
-(43, 4, 3), (163, 16, 3), (63, 6, 3),
-(34, 3, 4), (184, 18, 4), (114, 11, 4);
+(1, 1), (6, 1), (14, 1), (16, 1),
+(13, 2), (17, 2), (2, 2), (15, 2),
+(4, 3), (16, 3), (6, 3),
+(3, 4), (18, 4), (11, 4);
 
-INSERT INTO seguindo(seguindo_id, artista_id, usuario_id)
+INSERT INTO seguindo(artista_id, usuario_id)
 VALUES
-(11, 1, 1), (41, 4, 1), (31, 3, 1),
-(12, 1, 2), (32, 3, 2),
-(23, 2, 3), (13, 1, 3),
-(44, 4, 4);
+(1, 1), (4, 1), (3, 1),
+(1, 2), (3, 2),
+(2, 3), (1, 3),
+(4, 4);
