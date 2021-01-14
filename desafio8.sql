@@ -8,6 +8,6 @@ BEGIN
     WHERE History.user_id = OLD.user_id;
   DELETE FROM SpotifyClone.Follow
     WHERE Follow.user_id = OLD.user_id;
-END $$
+END; $$
 
 DELIMITER ;
