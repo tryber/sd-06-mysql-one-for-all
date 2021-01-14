@@ -1,5 +1,3 @@
-DROP VIEW IF EXISTS `historico_reproducao_usuarios`;
-
 CREATE VIEW historico_reproducao_usuarios AS
 SELECT
 nu.nome_usuario AS 'usuario',
