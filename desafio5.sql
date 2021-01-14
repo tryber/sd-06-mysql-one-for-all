@@ -6,5 +6,5 @@ FROM SpotifyClone.cancoes AS can
 INNER JOIN SpotifyClone.historico AS his
 ON can.cancoes_id = his.cancoes_id
 GROUP BY `cancao`
-ORDER BY `reproducoes` DESC, `reproducoes`
+ORDER BY `reproducoes` DESC, `cancao`
 LIMIT 2;
