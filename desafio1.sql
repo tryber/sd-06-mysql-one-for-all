@@ -44,19 +44,19 @@ FOREIGN KEY (album_id) REFERENCES album(album_id)
 ) engine = InnoDB;
 
 CREATE TABLE reproducao(
-PRIMARY KEY(cancao_id, usuario_id),
 cancao_id INT NOT NULL,
 usuario_id INT NOT NULL,
 FOREIGN KEY (cancao_id) REFERENCES cancao(cancao_id),
-FOREIGN KEY (usuario_id) REFERENCES usuario(usuario_id)
+FOREIGN KEY (usuario_id) REFERENCES usuario(usuario_id),
+PRIMARY KEY(cancao_id, usuario_id)
 ) engine = InnoDB;
 
 CREATE TABLE seguindo(
-PRIMARY KEY(artista_id, usuario_id),
 artista_id INT NOT NULL,
 usuario_id INT NOT NULL,
 FOREIGN KEY (artista_id) REFERENCES artista(artista_id),
-FOREIGN KEY (usuario_id) REFERENCES usuario(usuario_id)
+FOREIGN KEY (usuario_id) REFERENCES usuario(usuario_id),
+PRIMARY KEY(artista_id, usuario_id)
 ) engine = InnoDB;
 
 INSERT INTO plano(nome, preco)
@@ -77,7 +77,7 @@ VALUES
 ("Walter Phoenix"),
 ("Peter Strong"),
 ("Lance Day"),
-("Freedie Shanno");
+("Freedie Shannon");
 
 INSERT INTO album(nome, artista_id)
 VALUES
@@ -90,7 +90,7 @@ VALUES
 INSERT INTO cancao(nome, album_id)
 VALUES
 ("Soul For Us", 1),
-("Reflections of Magic", 1),
+("Reflections Of Magic", 1),
 ("Dance With Her Own", 1),
 ("Troubles Of My Inner Fire", 2),
 ("Time Fireworks", 2),
@@ -99,12 +99,12 @@ VALUES
 ("Sweetie, Let's Go Wild", 3),
 ("She Knows", 3),
 ("Fantasy For Me", 4),
-("Celebration of More", 4),
+("Celebration Of More", 4),
 ("Rock His Everything", 4),
 ("Home Forever", 4),
 ("Diamond Power", 4),
 ("Honey, Let's Be Silly", 4),
-("Thang of Thunder", 5),
+("Thang Of Thunder", 5),
 ("Words Of Her Life", 5),
 ("Without My Streets", 5);
 

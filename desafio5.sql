@@ -1,5 +1,5 @@
-USE SpotifyClone;
-DROP VIEW IF EXISTS top_2_hits_do_momento;
+-- USE SpotifyClone;
+-- DROP VIEW IF EXISTS top_2_hits_do_momento;
 
 CREATE VIEW top_2_hits_do_momento AS
 SELECT c.nome AS cancao, COUNT(r.usuario_id) AS reproducoes
@@ -10,4 +10,4 @@ ORDER BY reproducoes DESC, cancao
 LIMIT 2;
 
 
-SELECT * FROM top_2_hits_do_momento;
+-- SELECT * FROM top_2_hits_do_momento;

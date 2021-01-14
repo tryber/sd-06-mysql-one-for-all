@@ -1,5 +1,5 @@
-USE SpotifyClone;
-DROP VIEW IF EXISTS estatisticas_musicais;
+-- USE SpotifyClone;
+-- DROP VIEW IF EXISTS estatisticas_musicais;
 
 CREATE VIEW estatisticas_musicais AS
 SELECT COUNT(nome_cancao) AS cancoes,
@@ -12,4 +12,4 @@ LEFT JOIN cancao AS c ON al.album_id = c.album_id
 LEFT JOIN artista AS a ON al.artista_id = a.artista_id
 ) AS pre_table;
 
-SELECT * FROM estatisticas_musicais;
+-- SELECT * FROM estatisticas_musicais;

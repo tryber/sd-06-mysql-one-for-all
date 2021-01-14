@@ -1,5 +1,5 @@
-USE SpotifyClone;
-DROP VIEW IF EXISTS faturamento_atual;
+-- USE SpotifyClone;
+-- DROP VIEW IF EXISTS faturamento_atual;
 
 CREATE VIEW faturamento_atual AS 
 SELECT MIN(p.preco) AS faturamento_minimo,
@@ -9,4 +9,4 @@ SUM(p.preco) AS faturamento_total
 FROM plano AS p
 INNER JOIN usuario AS u ON p.plano_id = u.plano_id;
 
-SELECT * FROM faturamento_atual;
+-- SELECT * FROM faturamento_atual;

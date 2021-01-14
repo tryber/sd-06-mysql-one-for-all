@@ -1,5 +1,5 @@
-USE SpotifyClone;
-DROP VIEW IF EXISTS perfil_artistas;
+-- USE SpotifyClone;
+-- DROP VIEW IF EXISTS perfil_artistas;
 
 CREATE VIEW perfil_artistas AS 
 SELECT a.nome AS artista, al.nome AS album, ranking.qty AS seguidores
@@ -11,4 +11,4 @@ GROUP BY artista_id
 ) AS ranking ON a.artista_id = ranking.artista_id
 ORDER BY seguidores DESC, artista, album;
 
-SELECT * FROM perfil_artistas;
+-- SELECT * FROM perfil_artistas;

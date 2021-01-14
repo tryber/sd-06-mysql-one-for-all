@@ -1,5 +1,5 @@
-USE SpotifyClone;
-DROP FUNCTION IF EXISTS quantidade_musicas_no_historico;
+-- USE SpotifyClone;
+-- DROP FUNCTION IF EXISTS quantidade_musicas_no_historico;
 
 DELIMITER $$
 CREATE FUNCTION quantidade_musicas_no_historico (id INT)
@@ -11,4 +11,4 @@ BEGIN
 END $$
 DELIMITER ;
 
-SELECT quantidade_musicas_no_historico(3);
+-- SELECT quantidade_musicas_no_historico(3);

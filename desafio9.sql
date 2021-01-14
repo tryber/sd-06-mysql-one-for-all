@@ -1,5 +1,5 @@
-USE SpotifyClone;
-DROP PROCEDURE IF EXISTS albuns_do_artista;
+-- USE SpotifyClone;
+-- DROP PROCEDURE IF EXISTS albuns_do_artista;
 
 DELIMITER $$
 CREATE PROCEDURE albuns_do_artista(IN nome_artista VARCHAR(50))
@@ -12,4 +12,4 @@ BEGIN
 END $$
 DELIMITER ;
 
-CALL albuns_do_artista('Walter Phoenix');
+-- CALL albuns_do_artista('Walter Phoenix');

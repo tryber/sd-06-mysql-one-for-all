@@ -1,5 +1,5 @@
-USE SpotifyClone;
-DROP VIEW IF EXISTS cancoes_premium;
+-- USE SpotifyClone;
+-- DROP VIEW IF EXISTS cancoes_premium;
 
 CREATE VIEW cancoes_premium AS 
 SELECT c.nome AS nome, COUNT(r.cancao_id) AS reproducoes
@@ -14,4 +14,4 @@ INNER JOIN cancao AS c ON r.cancao_id = c.cancao_id
 GROUP BY nome
 ORDER BY nome;
 
-SELECT * FROM cancoes_premium;
+-- SELECT * FROM cancoes_premium;
