@@ -15,7 +15,7 @@ usuario_id INT PRIMARY KEY auto_increment,
 nome VARCHAR(50) NOT NULL,
 idade INT NOT NULL,
 plano_id INT,
-FOREIGN KEY (plano_id) REFERENCES planos(plano_id)
+FOREIGN KEY (plano_id) REFERENCES plano(plano_id)
 )engine=InnoDB;
 
 CREATE TABLE artistas(
@@ -53,27 +53,27 @@ FOREIGN KEY (artista_id) REFERENCES artistas(artista_id),
 PRIMARY KEY (usuario_id, artista_id)
 )engine=InnoDB;
 
-INSERT INTO plano (plano, valor_plano)
+INSERT INTO plano (nome, valor_plano)
 VALUES
 ('gratuito', 0.00),
 ('familiar', 7.99),
 ('universitario', 5.99);
 
-INSERT INTO usuarios (usuario, idade, plano_id)
+INSERT INTO usuarios (nome, idade, plano_id)
 VALUES
 ('Thati', 23, 1),
 ('Cintia', 35, 2),
 ('Bill', 20, 3),
 ('Roger', 45, 1);
 
-INSERT INTO artistas (artista)
+INSERT INTO artistas (nome)
 VALUES
 ('Walter Phoenix'),
 ('Peter Strong'),
 ('Lance Day'),
 ('Freedie Shannon');
 
-INSERT INTO albuns (album, artista_id)
+INSERT INTO albuns (nome, artista_id)
 VALUES
 ('Envious', 1),
 ('Exuberant', 1),
@@ -81,7 +81,7 @@ VALUES
 ('Incandescent', 3),
 ('Temporary Culture', 4);
 
-INSERT INTO cancoes (cancao, album_id)
+INSERT INTO cancoes (nome, album_id)
 VALUES
 ('Soul For Us', 1),
 ('Reflections Of Magic', 1),
