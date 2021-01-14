@@ -8,6 +8,7 @@ SELECT
 FROM spotifyclone.artista AS art
 INNER JOIN spotifyclone.album AS alb
 ON art.artista_id = alb.artista_id AND art.nome = artista
+WHERE art.nome = artista
 ORDER BY album;
 END $$
 
