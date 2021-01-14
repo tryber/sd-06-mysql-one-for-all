@@ -26,6 +26,7 @@ CREATE TABLE artistas(
 CREATE TABLE seguindo(
   usuario_id INT NOT NULL,
   artista_id INT NOT NULL,
+  PRIMARY KEY (usuario_id, artista_id),
   FOREIGN KEY (artista_id) references artistas(artista_id),
   FOREIGN KEY (usuario_id) references usuarios(usuario_id)
 ) engine = InnoDB;
@@ -47,6 +48,7 @@ CREATE TABLE cancoes(
 CREATE TABLE reproducoes(
   usuario_id INT NOT NULL,
   cancao_id INT NOT NULL,
+  PRIMARY KEY (usuario_id, cancao_id),
   FOREIGN KEY (cancao_id) references cancoes(cancao_id),
   FOREIGN KEY (usuario_id) references usuarios(usuario_id)
 ) engine = InnoDB;
