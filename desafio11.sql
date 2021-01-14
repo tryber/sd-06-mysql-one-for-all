@@ -1,5 +1,6 @@
 CREATE VIEW cancoes_premium AS
-SELECT ca.nome_cancao, COUNT(*)
+SELECT ca.nome_cancao AS nome, 
+COUNT(*) AS reproducoes
 FROM cancoes AS ca
 INNER JOIN historico AS hi ON ca.cancao_id = hi.cancao_id
 INNER JOIN usuarios AS u ON hi.usuario_id = u.id
