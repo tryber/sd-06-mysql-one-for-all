@@ -11,18 +11,24 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema SpotifyClone
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `SpotifyClone` DEFAULT CHARACTER SET utf8 ;
+DROP DATABASE `SpotifyClone`;
+CREATE DATABASE IF NOT EXISTS `SpotifyClone` DEFAULT CHARACTER SET utf8 ;
 USE `SpotifyClone` ;
 
 -- -----------------------------------------------------
 -- Table `SpotifyClone`.`planos`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `planos` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `plano` VARCHAR(45) NULL,
-  `valor` FLOAT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE INDEX `plano_id_UNIQUE` (`id` ASC) VISIBLE)
+-- CREATE TABLE IF NOT EXISTS `planos` (
+--   `id` INT NOT NULL AUTO_INCREMENT,
+--   `plano` VARCHAR(45) NULL,
+--   `valor` FLOAT NULL,
+--   PRIMARY KEY (`id`),
+--   UNIQUE INDEX `plano_id_UNIQUE` (`id` ASC) VISIBLE)
+-- ENGINE = InnoDB;
+CREATE TABLE planos (
+id INT PRIMARY KEY AUTO_INCREMENT,
+plano VARCHAR(45) NOT NULL,
+valor DECIMAL NOT NULL)
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
