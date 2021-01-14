@@ -35,7 +35,7 @@ CREATE TABLE artists(
 ) engine = InnoDB;
 
 CREATE TABLE follows(
-  id INT AUTO_INCREMENT PRIMARY KEY,
+  PRIMARY KEY(user_id, artist_id),
   user_id INT NOT NULL,
   artist_id INT NOT NULL,
   created_at DATETIME DEFAULT NOW(),
@@ -75,7 +75,7 @@ CREATE TABLE songs(
 ) engine = InnoDB;
 
 CREATE TABLE song_plays(
-  id INT AUTO_INCREMENT PRIMARY KEY,
+  PRIMARY KEY(user_id, song_id),
   user_id INT NOT NULL,
   song_id INT NOT NULL,
   played_at DATETIME DEFAULT NOW(),
