@@ -1,11 +1,10 @@
-DROP VIEW IF EXISTS `estatisticas_musicais`;
-
 CREATE VIEW `estatisticas_musicais` AS
 SELECT
-  COUNT(DISTINCT(can.nome)) AS `cancoes`,
-  COUNT(DISTINCT(art.nome)) AS `artistas`,
-  COUNT(DISTINCT(alb.nome)) AS `albuns`
+  COUNT(DISTINCT(can.titulo_cancao)) AS `cancoes`,
+  COUNT(DISTINCT(art.nome_artista)) AS `artistas`,
+  COUNT(DISTINCT(alb.titulo_album)) AS `albuns`
 FROM 
-  SpotifyClone.artista AS art,
-  SpotifyClone.album AS alb,
+  SpotifyClone.artistas AS art,
+  SpotifyClone.albuns AS alb,
   SpotifyClone.cancoes AS can;
+  
