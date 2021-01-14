@@ -1,5 +1,4 @@
-CREATE SCHEMA IF NOT EXISTS `SpotifyClone` DEFAULT CHARACTER SET utf8 ;
-USE `SpotifyClone` ;
+CREATE DATABASE IF NOT EXISTS `SpotifyClone`;
 
 -- -----------------------------------------------------
 -- Table `SpotifyClone`.`planos`
