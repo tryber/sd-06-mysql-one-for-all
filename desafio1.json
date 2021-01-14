@@ -1,0 +1,24 @@
+{
+  "coluna_usuario": "usuarios_nome",
+  "tabela_que_contem_usuario": "usuarios",
+  "coluna_plano": "planos_nome",
+  "tabela_que_contem_plano": "planos",
+  "coluna_historico_de_reproducoes": "usuarios_id",
+  "tabela_que_contem_historico_de_reproducoes": "historico",
+  "coluna_seguindo_artistas": "usuarios_id",
+  "tabela_que_contem_seguindo_artistas": "seguindo_artistas",
+  "coluna_artista": "artistas_nome",
+  "tabela_que_contem_artista": "artistas",
+  "coluna_album": "albuns_titulo",
+  "tabela_que_contem_album": "albuns",
+  "coluna_cancoes": "musicas_titulo",
+  "tabela_que_contem_cancoes": "musicas"
+}
+
+// *usuarios = usuarios_id, usuarios_nome, usuarios_idade
+// *planos = planos_id, planos_nome, planos_valor
+// *albuns = albuns_id, albuns_titulo, 
+// *artistas = artistas_id, artistas_nome
+// *musicas = musicas_id, musicas_titulo - cancoes
+// *historico = ***usuarios_id, ***musicas_id - historico_de_reproducoes
+// *seguindo_artistas = ***usuarios_id, ***artistas_id - 
