@@ -5,8 +5,8 @@ BEGIN
 SELECT 
   art.nome AS artista,
   alb.nome AS album
-FROM spotifyclone.artista AS art
-INNER JOIN spotifyclone.album AS alb
+FROM SpotifyClone.artista AS art
+INNER JOIN SpotifyClone.album AS alb
 ON art.artista_id = alb.artista_id AND art.nome = artista
 ORDER BY album;
 END $$
