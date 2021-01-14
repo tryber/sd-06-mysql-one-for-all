@@ -1,4 +1,4 @@
-CREATE VIEW historico_reproducao_usuarios AS
+CREATE VIEW estatisticas_musicais AS
 SELECT
 (SELECT COUNT(cancoes_id) FROM SpotifyClone.cancoes) AS `cancoes`,
 (SELECT COUNT(artista_id) FROM SpotifyClone.artista) AS `artistas`,
