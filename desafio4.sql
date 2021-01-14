@@ -1,4 +1,4 @@
-CREATE VIEW historico_reproducao_usuarios AS
+CREATE VIEW top_3_artistas AS
 SELECT a.artist_name 'artista',
 (
   SELECT COUNT(f.user_id)
