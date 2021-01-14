@@ -41,13 +41,13 @@ CREATE TABLE `Songs` (
 CREATE TABLE `Follow` (
     user_id INTEGER NOT NULL,
     artist_id INTEGER NOT NULL,
-    PRIMARY KEY (user_id, artist_id),
+    `follow_id` PRIMARY KEY (user_id, artist_id),
     FOREIGN KEY (artist_id) REFERENCES `Artists`(artist_id),
     FOREIGN KEY (user_id) REFERENCES `Users`(user_id)
 ) engine = InnoDB;
 
 CREATE TABLE `History` (
-    PRIMARY KEY (user_id, song_id),
+    `history_id` PRIMARY KEY (user_id, song_id),
     user_id INTEGER NOT NULL,
     song_id INTEGER NOT NULL,
     FOREIGN KEY (user_id) REFERENCES `Users`(user_id),
