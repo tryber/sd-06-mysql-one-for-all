@@ -1,5 +1,5 @@
 CREATE VIEW estatisticas_musicais AS
-SELECT
+SELECT 
 COUNT(DISTINCT canc.cancao) AS cancoes,
 COUNT(DISTINCT art.artista) AS artistas,
 COUNT(DISTINCT alb.album) AS albuns
