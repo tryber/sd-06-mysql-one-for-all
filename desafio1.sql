@@ -5,7 +5,7 @@ CREATE DATABASE SpotifyClone;
 USE SpotifyClone;
 
 CREATE TABLE plans(
-  plan_id = INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  plan_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   plan VARCHAR (50) NOT NULL,
   value_plan DECIMAL(5, 2) NOT NULL
 ) engine = InnoDB;
@@ -37,20 +37,20 @@ CREATE TABLE songs(
   FOREIGN KEY (album_id) REFERENCES albums (album_id)
 ) engine = InnoDB;
 
-CREATE TABLE played_history(
-  users_id INT NOT NULL,
-  songs_id INT NOT NULL,
-  PRIMARY KEY (users_id, songs_id),
-  FOREIGN KEY (users_id) REFERENCES users (user_id),
-  FOREIGN KEY (songs_id) REFERENCES songs (song_id)
+CREATE TABLE reproduction_history(
+  user_id INT NOT NULL,
+  song_id INT NOT NULL,
+  PRIMARY KEY (user_id, song_id),
+  FOREIGN KEY (user_id) REFERENCES users (user_id),
+  FOREIGN KEY (song_id) REFERENCES songs (song_id)
 ) engine = InnoDB;
 
-CREATE TABLE follow_artists(
-  users_id INT NOT NULL,
-  artists_id INT NOT NULL,
-  PRIMARY KEY (users_id, artists_id),
-  FOREIGN KEY (users_id) REFERENCES users (user_id),
-  FOREIGN KEY (artists_id) REFERENCES artists (artist_id)
+CREATE TABLE followers(
+  user_id INT NOT NULL,
+  artist_id INT NOT NULL,
+  PRIMARY KEY (user_id, artist_id),
+  FOREIGN KEY (user_id) REFERENCES users (user_id),
+  FOREIGN KEY (artist_id) REFERENCES artists (artist_id)
 ) engine = InnoDB;
 
 INSERT INTO plans(plan, value_plan) VALUES
@@ -97,7 +97,7 @@ INSERT INTO songs(song, album_id) VALUES
 ('Words Of Her Life', 5),
 ('Without My Streets', 5);
 
-INSERT INTO played_history(users_id, songs_id) VALUES
+INSERT INTO reproduction_history(user_id, song_id) VALUES
 (1, 1),
 (1, 6),
 (1, 14),
@@ -113,7 +113,7 @@ INSERT INTO played_history(users_id, songs_id) VALUES
 (4, 11),
 (4, 18);
 
-INSERT INTO follow_artists(users_id, artists_id) VALUES
+INSERT INTO followers(user_id, artist_id) VALUES
 (1, 1),
 (1, 3),
 (1, 4),
