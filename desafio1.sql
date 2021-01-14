@@ -27,7 +27,8 @@ CREATE TABLE seguindo(
 artista_id INT NOT NULL,
 usuario_id INT NOT NULL,
 FOREIGN KEY (artista_id) REFERENCES artistas(artista_id),
-FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id)
+FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id),
+PRIMARY KEY (artista_id, usuario_id)
 )engine=InnoDB;
 
 CREATE TABLE albuns(
