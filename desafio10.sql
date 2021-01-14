@@ -1,4 +1,5 @@
 DELIMITER $$
+
 CREATE FUNCTION quantidade_musicas_no_historico(id VARCHAR(100))
 RETURNS INT DETERMINISTIC
 BEGIN
