@@ -17,7 +17,7 @@ USE `SpotifyClone` ;
 -- -----------------------------------------------------
 -- Table `SpotifyClone`.`planos`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `SpotifyClone`.`planos` (
+CREATE TABLE IF NOT EXISTS `planos` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `plano` VARCHAR(45) NULL,
   `valor` FLOAT NULL,
@@ -28,7 +28,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `SpotifyClone`.`usuarios`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `SpotifyClone`.`usuarios` (
+CREATE TABLE IF NOT EXISTS `usuarios` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `usuario` VARCHAR(80) NULL,
   `idade` INT NULL,
@@ -46,7 +46,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `SpotifyClone`.`artistas`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `SpotifyClone`.`artistas` (
+CREATE TABLE IF NOT EXISTS `artistas` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `artista` VARCHAR(80) NULL,
   PRIMARY KEY (`id`),
@@ -56,7 +56,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `SpotifyClone`.`albuns`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `SpotifyClone`.`albuns` (
+CREATE TABLE IF NOT EXISTS `albuns` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `album` VARCHAR(80) NULL,
   `artistas_id` INT NOT NULL,
@@ -73,7 +73,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `SpotifyClone`.`cancoes`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `SpotifyClone`.`cancoes` (
+CREATE TABLE IF NOT EXISTS `cancoes` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `cancao` VARCHAR(80) NULL,
   `albuns_id` INT NOT NULL,
@@ -90,7 +90,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `SpotifyClone`.`usuarios_has_artistas`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `SpotifyClone`.`usuarios_has_artistas` (
+CREATE TABLE IF NOT EXISTS `usuarios_has_artistas` (
   `usuarios_id` INT NOT NULL,
   `artistas_id` INT NOT NULL,
   PRIMARY KEY (`usuarios_id`, `artistas_id`),
@@ -111,7 +111,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `SpotifyClone`.`usuarios_has_cancoes`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `SpotifyClone`.`usuarios_has_cancoes` (
+CREATE TABLE IF NOT EXISTS `usuarios_has_cancoes` (
   `usuarios_id` INT NOT NULL,
   `cancoes_id` INT NOT NULL,
   PRIMARY KEY (`usuarios_id`, `cancoes_id`),
