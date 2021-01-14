@@ -42,7 +42,7 @@ FOREIGN KEY(plano_id) references plano(plano_id)
 CREATE TABLE historico_reproducao(
 cancao_id INT NOT NULL,
 usuario_id INT NOT NULL,
-PRIMARY KEY(cancao_id, usuario_id),
+PRIMARY KEY(usuario_id, cancao_id ),
 FOREIGN KEY(cancao_id) references cancao(cancao_id),
 FOREIGN KEY(usuario_id) references usuario(usuario_id)
 )engine=InnoDB;
@@ -50,7 +50,7 @@ FOREIGN KEY(usuario_id) references usuario(usuario_id)
 CREATE TABLE Seguindo_artista(
 artista_id INT NOT NULL,
 usuario_id INT NOT NULL,
-PRIMARY KEY(usuario_id, artista_id)
+PRIMARY KEY(artista_id, usuario_id)
 FOREIGN KEY(usuario_id) REFERENCES usuario(usuario_id),
 FOREIGN KEY(artista_id) REFERENCES artista(artista_id)
 )engine=InnoDB;
