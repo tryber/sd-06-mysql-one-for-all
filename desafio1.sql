@@ -63,7 +63,7 @@ VALUES
 
 INSERT INTO Users(user_name, age, subscription_id)
 VALUES
-  ('Thati', 23, 1), ('Cíntia', 35, 3), ('Bill', 20, 2), ('Roger', 45, 1);
+  ('Thati', 23, 1), ('Cintia', 35, 3), ('Bill', 20, 2), ('Roger', 45, 1);
 
 INSERT INTO Albums(album_name, artist_id)
 VALUES
