@@ -3,4 +3,4 @@ SELECT A.nome AS 'artista',
 COUNT(SA.usuario_id) AS 'seguidores'
 FROM artista AS A, seguindo_artistas AS SA
 WHERE A.artista_id = SA.artista_id
-GROUP BY `artista` ORDER BY `seguidores` DESC LIMIT 3;
+GROUP BY `artista` ORDER BY `seguidores` DESC, `artista` LIMIT 3;
