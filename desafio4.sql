@@ -6,5 +6,5 @@ SELECT a.artist_name 'artista',
   WHERE a.artist_id = f.artist_id 
 ) 'seguidores'
 FROM Artists a
-ORDER BY `seguidores` DESC
+ORDER BY `seguidores` DESC, `artista`
 LIMIT 3;
