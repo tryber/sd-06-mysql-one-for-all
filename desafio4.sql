@@ -4,5 +4,5 @@ COUNT(UA.user_id) AS seguidores
 FROM SpotifyClone.artists AS A
 JOIN SpotifyClone.users_follow_artists AS UA ON A.artist_id = UA.artist_id
 GROUP BY A.artist_id
-ORDER BY seguidores DESC
+ORDER BY seguidores DESC, artista
 LIMIT 3;
