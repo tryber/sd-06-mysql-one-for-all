@@ -55,7 +55,7 @@ CREATE TABLE artista_usuario(
 
 INSERT INTO plano(plano_nm, plano_vl)
 VALUES
-  ('gratuito', 0),
+  ('gratuito', 0.00),
   ('familiar', 7.99),
   ('universitário', 5.99);
 
