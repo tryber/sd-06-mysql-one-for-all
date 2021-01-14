@@ -26,7 +26,7 @@ CREATE TABLE cancoes (
 CREATE TABLE planos (
     id_plano INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     plano VARCHAR(20),
-    valor_plano FLOAT NOT NULL
+    valor_plano DECIMAL(4,2) NOT NULL
 )  ENGINE=INNODB;
 
 CREATE TABLE usuarios (
