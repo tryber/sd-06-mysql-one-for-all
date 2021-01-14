@@ -82,24 +82,24 @@ VALUES
     
 INSERT INTO musicas (musica_nome, album_id)
 VALUES 
-('"Celebration Of More"', 4),
-('"Dance With Her Own"', 1),
-('"Diamond Power"', 4),
-('"Fantasy For Me"', 4),
-('"Home Forever"', 4),
-('"Honey, Let´s Be Silly"', 4),
-('"Honey, So Do I"', 3),
-('"Magic Circus"', 3),
-('"Reflections Of Magic"', 1),
-('"Rock His Everything"', 4),
-('"She Knows"', 3),
-('"Soul For Us"', 1),
-('"Sweetie, Let´s Go Wild"', 3),
-('"Thang Of Thunder"', 5),
-('"Time Fireworks"', 2),
-('"Troubles Of My Inner Fire"', 2),
-('"Without My Streets"', 5),
-('"Words Of Her Life"', 5);
+('Celebration Of More', 4),
+('Dance With Her Own', 1),
+('Diamond Power', 4),
+('Fantasy For Me', 4),
+('Home Forever', 4),
+('Honey, Let´s Be Silly', 4),
+('Honey, So Do I', 3),
+('Magic Circus', 3),
+('Reflections Of Magic', 1),
+('Rock His Everything', 4),
+('She Knows', 3),
+('Soul For Us', 1),
+('Sweetie, Let´s Go Wild', 3),
+('Thang Of Thunder', 5),
+('Time Fireworks', 2),
+('Troubles Of My Inner Fire', 2),
+('Without My Streets', 5),
+('Words Of Her Life', 5);
     
 INSERT INTO historico (usuario_id, musica_id)
 VALUES 
