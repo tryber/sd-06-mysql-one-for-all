@@ -7,9 +7,9 @@ AFTER DELETE ON usuarios
 FOR EACH ROW
 
 BEGIN
-DELETE FROM SpotifyClone.follow
+DELETE FROM follow
 WHERE usuario_id = OLD.usuario_id;
-DELETE FROM SpotifyClone.historico
+DELETE FROM historico
 WHERE usuario_id = OLD.usuario_id;
 END $$
 
