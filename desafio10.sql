@@ -1,6 +1,6 @@
 DELIMITER $$
 
-CREATE FUNCTION quantidade_musicas_no_historico(usuario_id VARCHAR(50))
+CREATE FUNCTION quantidade_musicas_no_historico(usuario_id INT)
 RETURNS INT READS SQL DATA
 BEGIN
 DECLARE music_quantity INT;
