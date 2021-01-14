@@ -5,13 +5,13 @@ CREATE DATABASE SpotifyClone;
 USE SpotifyClone;
 
 CREATE TABLE plans (
-  plan_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  plan_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT UNIQUE,
   plan_name VARCHAR(100) NOT NULL,
   plan_value DECIMAL(5,2) NOT NULL
 )engine=InnoDB;
 
 CREATE TABLE users (
-  user_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  user_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT UNIQUE,
   user_name VARCHAR(100) NOT NULL,
   user_age INT(3) NOT NULL,
   plan_id INT NOT NULL,
@@ -19,7 +19,7 @@ CREATE TABLE users (
 )engine=InnoDB;
 
 CREATE TABLE artists (
-  artist_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  artist_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT UNIQUE,
   artist_name VARCHAR(100) NOT NULL
 )engine=InnoDB;
 
@@ -32,14 +32,14 @@ CREATE TABLE users_follow_artists (
 );
 
 CREATE TABLE albums (
-  album_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  album_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT UNIQUE,
   album_name VARCHAR(100) NOT NULL,
   artist_id INT NOT NULL,
   FOREIGN KEY (artist_id) REFERENCES artists(artist_id)
 )engine=InnoDB;
 
 CREATE TABLE songs (
-  song_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  song_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT UNIQUE,
   song_name VARCHAR(100) NOT NULL,
   album_id INT NOT NULL,
   FOREIGN KEY (album_id) REFERENCES albums(album_id)
@@ -89,13 +89,13 @@ VALUES
 INSERT INTO users_follow_artists(user_id, artist_id)
 VALUES
 (1, 1),
-(1, 2),
-(1, 3),
 (1, 4),
+(1, 3),
+(1, 1),
 (2, 1),
 (2, 3),
-(3, 1),
 (3, 2),
+(3, 1),
 (4, 4);
 
 INSERT INTO users_history_songs(user_id, song_id)
