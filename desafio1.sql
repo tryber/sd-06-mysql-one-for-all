@@ -18,39 +18,43 @@ CREATE TABLE `Subscriptions` (
 ) engine = InnoDB;
 
 CREATE TABLE `Artists` (
-    `artist_id` INTEGER PRIMARY KEY AUTO_INCREMENT,
+    artist_id INTEGER PRIMARY KEY AUTO_INCREMENT,
     `artist_name` VARCHAR(64) NOT NULL
-) engine = InnoDB;
-
-CREATE TABLE `Songs` (
-    `song_id` INTEGER PRIMARY KEY AUTO_INCREMENT,
-    `song_name` VARCHAR(64) NOT NULL,
-    `album_id` NOT NULL
 ) engine = InnoDB;
 
 CREATE TABLE `Albums` (
     `album_id` INTEGER PRIMARY KEY AUTO_INCREMENT,
     `album_name` VARCHAR(64) NOT NULL,
-    `artist_id` INTEGER
+    `artist_id` INTEGER,
+    FOREIGN KEY (artist_id) REFERENCES `Artists`(artist_id)
+) engine = InnoDB;
+
+CREATE TABLE `Songs` (
+    `song_id` INTEGER PRIMARY KEY AUTO_INCREMENT,
+    `song_name` VARCHAR(64) NOT NULL,
+    artist_id INTEGER NOT NULL,
+    album_id INTEGER NOT NULL,
+    FOREIGN KEY (album_id) REFERENCES `Albums`(album_id),
+    FOREIGN KEY (artist_id) REFERENCES `Artists`(artist_id)
 ) engine = InnoDB;
 
 CREATE TABLE `Follow` (
-    `follow_id` INTEGER PRIMARY KEY (user_id, artist_id),
-    `user_id` INTEGER NOT NULL,
-    `artist_id` INTEGER NOT NULL
+    user_id INTEGER NOT NULL,
+    artist_id INTEGER NOT NULL,
+    PRIMARY KEY (user_id, artist_id),
+    FOREIGN KEY (artist_id) REFERENCES `Artists`(artist_id),
+    FOREIGN KEY (user_id) REFERENCES `Users`(user_id)
 ) engine = InnoDB;
 
 CREATE TABLE `History` (
-    `history_id` INTEGER PRIMARY KEY (user_id, song_id),
-    `user_id` INTEGER NOT NULL,
-    `song_id` INTEGER NOT NULL
+    PRIMARY KEY (user_id, song_id),
+    user_id INTEGER NOT NULL,
+    song_id INTEGER NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES `Users`(user_id),
+    FOREIGN KEY (song_id) REFERENCES `Songs`(song_id)
 ) engine = InnoDB;
 
 ALTER TABLE `Users` ADD FOREIGN KEY (`subscription_id`) REFERENCES `Subscriptions` (`subscription_id`);
-
-ALTER TABLE `Albums_songs` ADD FOREIGN KEY (`album_id`) REFERENCES `Albums` (`album_id`);
-
-ALTER TABLE `Albums_songs` ADD FOREIGN KEY (`song_id`) REFERENCES `Songs` (`song_id`);
 
 ALTER TABLE `Albums` ADD FOREIGN KEY (`artist_id`) REFERENCES `Artists` (`artist_id`);
 
@@ -74,39 +78,31 @@ INSERT INTO Users(user_name, age, subscription_id)
 VALUES
 ('Thati', 23, 1), ('Cíntia', 35, 2), ('Bill', 20, 3), ('Roger', 45, 1);
 
-INSERT INTO Songs(song_name)
-VALUES
-('Soul For Us'),
-('Reflections Of Magic'),
-('Dance With Her Own'),
-('Troubles Of My Inner Fire'),
-('Time Fireworks'),
-('Magic Circus'),
-('Honey, So Do I'),
-('Sweetie, Let\'s Go Wild'),
-('She Knows'),
-('Fantasy For Me'),
-('Celebration Of More'),
-('Rock His Everything'),
-('Home Forever'),
-('Diamond Power'),
-('Honey, Let\'s Be Silly'),
-('Thang Of Thunder'),
-('Words Of Her Life'),
-('Without My Streets');
-
 INSERT INTO Albums(album_name, artist_id)
 VALUES
 ('Envious', 1), ('Exuberant', 1), ('Hallowed Steam', 2),
 ('Incandescent', 3), ('Temporary Culture', 4);
 
-INSERT INTO Albums_songs(album_id, song_id)
-    VALUE
-    (1, 1), (1, 2), (1, 3),
-    (2, 4), (2, 5),
-    (3, 6), (3, 7), (3, 8), (3, 9),
-    (4, 10), (4, 11), (4, 12), (4, 13), (4, 14), (4, 15),
-    (5, 16), (5, 16), (5, 17);
+INSERT INTO Songs(song_name, artist_id, album_id)
+VALUES
+    ('Soul For Us', 1, 1),
+    ('Reflections Of Magic', 1, 1),
+    ('Dance With Her Own', 1, 1),
+    ('Troubles Of My Inner Fire', 1, 2),
+    ('Time Fireworks', 1, 2),
+    ('Magic Circus', 2, 3),
+    ('Honey, So Do I', 2, 3),
+    ('Sweetie, Let\'s Go Wild', 2, 3),
+    ('She Knows', 2, 3),
+    ('Fantasy For Me', 3, 4),
+    ('Celebration Of More', 3, 4),
+    ('Rock His Everything', 3, 4),
+    ('Home Forever', 3, 4),
+    ('Diamond Power', 3, 4),
+    ('Honey, Let\'s Be Silly', 3, 4),
+    ('Thang Of Thunder', 4, 5),
+    ('Words Of Her Life', 4, 5),
+    ('Without My Streets', 4, 5);
 
 INSERT INTO Follow(user_id, artist_id)
 VALUES
