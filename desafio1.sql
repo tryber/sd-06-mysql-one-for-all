@@ -7,7 +7,7 @@ USE SpotifyClone;
 CREATE TABLE subscriptions(
 id INT PRIMARY KEY AUTO_INCREMENT,
 subscription_plan VARCHAR(50) NOT NULL,
-price DOUBLE NOT NULL,
+price DECIMAL(5, 2) NOT NULL,
 created_at DATETIME DEFAULT NOW()
 ) engine = InnoDB;
 
@@ -64,7 +64,7 @@ FOREIGN KEY (song_id) REFERENCES songs(id)
 
 INSERT INTO artists(name)
 VALUES
-('Walter Phoenix'), ('Peter Strong'),  ('Lance Day'), ('Freedie Shanno');
+('Walter Phoenix'), ('Peter Strong'),  ('Lance Day'), ('Freedie Shannon');
 
 INSERT INTO subscriptions(subscription_plan, price)
 VALUES
@@ -72,7 +72,7 @@ VALUES
 
 INSERT INTO users(name, age, subscription_id)
 VALUES
-('Thati', 23, 1), ('Cíntia', 35, 2), ('Bill', 20, 3), ('Roger', 45, 1);
+('Thati', 23, 1), ('Cintia', 35, 2), ('Bill', 20, 3), ('Roger', 45, 1);
 
 INSERT INTO albums(name, artist_id)
 VALUES
