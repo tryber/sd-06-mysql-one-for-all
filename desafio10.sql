@@ -1,13 +1,6 @@
-DELIMITER $$
-
-CREATE FUNCTION quantidade_musicas_no_historico(userID INT)
-RETURNS INT READS SQL DATA
-BEGIN
-    DECLARE total_reproduction INT;
-    SELECT COUNT(usuario_id)
-    FROM SpotifyClone.historico_reproducoes AS h
-    WHERE h.usuario_id = userID INTO total_reproduction;
-    RETURN total_reproduction;
-END $$
-
-DELIMITER ;
+CREATE VIEW estatisticas_musicais AS
+SELECT 
+COUNT(DISTINCT canc.cancao) AS cancoes,
+COUNT(DISTINCT art.artista) AS artistas,
+COUNT(DISTINCT alb.album) AS albuns
+FROM SpotifyClone.albuns AS alb, SpotifyClone.cancoes AS canc, SpotifyClone.artistas AS art;
