@@ -5,61 +5,61 @@ CREATE DATABASE SpotifyClone;
 USE SpotifyClone;
 
 CREATE TABLE subscriptions(
-	id INT PRIMARY KEY AUTO_INCREMENT,
-    subscription_plan VARCHAR(50) NOT NULL,
-    price DOUBLE NOT NULL,
-    created_at DATETIME DEFAULT NOW()
+id INT PRIMARY KEY AUTO_INCREMENT,
+subscription_plan VARCHAR(50) NOT NULL,
+price DOUBLE NOT NULL,
+created_at DATETIME DEFAULT NOW()
 ) engine = InnoDB;
 
 CREATE TABLE users(
-	id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(50) NOT NULL,
-    age INT NOT NULL,
-    subscription_id INT NOT NULL,
-    created_at DATETIME DEFAULT NOW(),
-    FOREIGN KEY (subscription_id) REFERENCES subscriptions(id)
+id INT PRIMARY KEY AUTO_INCREMENT,
+name VARCHAR(50) NOT NULL,
+age INT NOT NULL,
+subscription_id INT NOT NULL,
+created_at DATETIME DEFAULT NOW(),
+FOREIGN KEY (subscription_id) REFERENCES subscriptions(id)
 ) engine = InnoDB;
 
 CREATE TABLE artists(
-	id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(50) NOT NULL,
-    created_at DATETIME DEFAULT NOW()
+id INT PRIMARY KEY AUTO_INCREMENT,
+name VARCHAR(50) NOT NULL,
+created_at DATETIME DEFAULT NOW()
 ) engine = InnoDB;
 
 CREATE TABLE follows(
-	PRIMARY KEY(user_id, artist_id),
-    user_id INT NOT NULL,
-    artist_id INT NOT NULL,
-    created_at DATETIME DEFAULT NOW(),
-    FOREIGN KEY (user_id) REFERENCES users(id),
-    FOREIGN KEY (artist_id) REFERENCES artists(id)
+PRIMARY KEY(user_id, artist_id),
+user_id INT NOT NULL,
+artist_id INT NOT NULL,
+created_at DATETIME DEFAULT NOW(),
+FOREIGN KEY (user_id) REFERENCES users(id),
+FOREIGN KEY (artist_id) REFERENCES artists(id)
 ) engine = InnoDB;
 
 CREATE TABLE albums(
-	id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(50) NOT NULL,
-    artist_id INT NOT NULL,
-    created_at DATETIME DEFAULT NOW(),
-    FOREIGN KEY (artist_id) REFERENCES artists(id)
+id INT PRIMARY KEY AUTO_INCREMENT,
+name VARCHAR(50) NOT NULL,
+artist_id INT NOT NULL,
+created_at DATETIME DEFAULT NOW(),
+FOREIGN KEY (artist_id) REFERENCES artists(id)
 ) engine = InnoDB;
 
 CREATE TABLE songs(
-	id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(50) NOT NULL,
-    artist_id INT NOT NULL,
-    album_id INT NOT NULL,
-    created_at DATETIME DEFAULT NOW(),
-    FOREIGN KEY (artist_id) REFERENCES artists(id),
-    FOREIGN KEY (album_id) REFERENCES albums(id)
+id INT PRIMARY KEY AUTO_INCREMENT,
+name VARCHAR(50) NOT NULL,
+artist_id INT NOT NULL,
+album_id INT NOT NULL,
+created_at DATETIME DEFAULT NOW(),
+FOREIGN KEY (artist_id) REFERENCES artists(id),
+FOREIGN KEY (album_id) REFERENCES albums(id)
 ) engine = InnoDB;
 
 CREATE TABLE play_history(
-	PRIMARY KEY(user_id, song_id),
-    user_id INT NOT NULL,
-    song_id INT NOT NULL,
-    created_at DATETIME DEFAULT NOW(),
-    FOREIGN KEY (user_id) REFERENCES users(id),
-    FOREIGN KEY (song_id) REFERENCES songs(id)
+PRIMARY KEY(user_id, song_id),
+user_id INT NOT NULL,
+song_id INT NOT NULL,
+created_at DATETIME DEFAULT NOW(),
+FOREIGN KEY (user_id) REFERENCES users(id),
+FOREIGN KEY (song_id) REFERENCES songs(id)
 ) engine = InnoDB;
 
 INSERT INTO artists(name)
