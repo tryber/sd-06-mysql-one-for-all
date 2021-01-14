@@ -7,4 +7,3 @@ FROM
   SpotifyClone.artistas AS art,
   SpotifyClone.albuns AS alb,
   SpotifyClone.cancoes AS can;
-  
