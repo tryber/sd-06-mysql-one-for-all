@@ -4,67 +4,56 @@ CREATE DATABASE SpotifyClone;
 
 USE SpotifyClone;
 
-CREATE TABLE `Users` (
-    `user_id` INTEGER PRIMARY KEY AUTO_INCREMENT,
-    `user_name` VARCHAR(64) NOT NULL,
-    `age` INTEGER NOT NULL,
-    `subscription_id` INTEGER
+CREATE TABLE Subscriptions (
+    subscription_id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    subscription VARCHAR(64) NOT NULL,
+    subscription_cost DECIMAL(10, 2) NOT NULL
 ) engine = InnoDB;
 
-CREATE TABLE `Subscriptions` (
-    `subscription_id` INTEGER PRIMARY KEY AUTO_INCREMENT,
-    `subscription` VARCHAR(64) NOT NULL,
-    `subscription_cost` DOUBLE NOT NULL
+CREATE TABLE Users (
+    user_id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    user_name VARCHAR(64) NOT NULL,
+    age INTEGER NOT NULL,
+    subscription_id INTEGER NOT NULL,
+    FOREIGN KEY (subscription_id) REFERENCES Subscriptions(subscription_id)
 ) engine = InnoDB;
 
-CREATE TABLE `Artists` (
+CREATE TABLE Artists (
     artist_id INTEGER PRIMARY KEY AUTO_INCREMENT,
-    `artist_name` VARCHAR(64) NOT NULL
+    artist_name VARCHAR(128) NOT NULL
 ) engine = InnoDB;
 
-CREATE TABLE `Albums` (
-    `album_id` INTEGER PRIMARY KEY AUTO_INCREMENT,
-    `album_name` VARCHAR(64) NOT NULL,
-    `artist_id` INTEGER,
-    FOREIGN KEY (artist_id) REFERENCES `Artists`(artist_id)
+CREATE TABLE Albums (
+    album_id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    album_name VARCHAR(64) NOT NULL,
+    artist_id INTEGER NOT NULL,
+    FOREIGN KEY (artist_id) REFERENCES Artists(artist_id)
 ) engine = InnoDB;
 
-CREATE TABLE `Songs` (
-    `song_id` INTEGER PRIMARY KEY AUTO_INCREMENT,
-    `song_name` VARCHAR(64) NOT NULL,
+CREATE TABLE Songs (
+    song_id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    song_name VARCHAR(64) NOT NULL,
     artist_id INTEGER NOT NULL,
     album_id INTEGER NOT NULL,
-    FOREIGN KEY (album_id) REFERENCES `Albums`(album_id),
-    FOREIGN KEY (artist_id) REFERENCES `Artists`(artist_id)
+    FOREIGN KEY (album_id) REFERENCES Albums(album_id),
+    FOREIGN KEY (artist_id) REFERENCES Artists(artist_id)
 ) engine = InnoDB;
 
-CREATE TABLE `Follow` (
-    user_id INTEGER NOT NULL,
-    artist_id INTEGER NOT NULL,
-    `follow_id` PRIMARY KEY (user_id, artist_id),
-    FOREIGN KEY (artist_id) REFERENCES `Artists`(artist_id),
-    FOREIGN KEY (user_id) REFERENCES `Users`(user_id)
-) engine = InnoDB;
-
-CREATE TABLE `History` (
-    `history_id` PRIMARY KEY (user_id, song_id),
+CREATE TABLE History (
     user_id INTEGER NOT NULL,
     song_id INTEGER NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES `Users`(user_id),
-    FOREIGN KEY (song_id) REFERENCES `Songs`(song_id)
+    PRIMARY KEY (user_id, song_id),
+    FOREIGN KEY (user_id) REFERENCES Users(user_id),
+    FOREIGN KEY (song_id) REFERENCES Songs(song_id)
 ) engine = InnoDB;
 
-ALTER TABLE `Users` ADD FOREIGN KEY (`subscription_id`) REFERENCES `Subscriptions` (`subscription_id`);
-
-ALTER TABLE `Albums` ADD FOREIGN KEY (`artist_id`) REFERENCES `Artists` (`artist_id`);
-
-ALTER TABLE `Follow` ADD FOREIGN KEY (`user_id`) REFERENCES `Users` (`user_id`);
-
-ALTER TABLE `Follow` ADD FOREIGN KEY (`artist_id`) REFERENCES `Artists` (`artist_id`);
-
-ALTER TABLE `History` ADD FOREIGN KEY (`user_id`) REFERENCES `Users` (`user_id`);
-
-ALTER TABLE `History` ADD FOREIGN KEY (`song_id`) REFERENCES `Songs` (`song_id`);
+CREATE TABLE Follow (
+    user_id INTEGER NOT NULL,
+    artist_id INTEGER NOT NULL,
+    PRIMARY KEY (user_id, artist_id),
+    FOREIGN KEY (user_id) REFERENCES Users(user_id),
+    FOREIGN KEY (artist_id) REFERENCES Artists(artist_id)
+) engine = InnoDB;
 
 INSERT INTO Artists(artist_name)
 VALUES
