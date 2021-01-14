@@ -108,4 +108,3 @@ VALUES
   (6, 'Peter Strong', 3),
   (7, 'Walter Phoenix', 3),
   (8, 'Freedie Shanno', 4);
-  
