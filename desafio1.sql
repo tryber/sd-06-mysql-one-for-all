@@ -4,6 +4,12 @@ CREATE DATABASE SpotifyClone;
 
 USE SpotifyClone;
 
+CREATE TABLE planos(
+plano_id INT PRIMARY KEY auto_increment,
+plano VARCHAR(50) NOT NULL,
+plano_valor DECIMAL(4,2) NOT NULL
+)engine=InnoDB;
+
 CREATE TABLE usuarios(
 usuario_id INT PRIMARY KEY auto_increment,
 nome VARCHAR(20) NOT NULL,
@@ -12,18 +18,9 @@ plano_id INT NOT NULL,
 FOREIGN KEY (plano_id) REFERENCES planos(plano_id)
 )engine=InnoDB;
 
-CREATE TABLE planos(
-plano_id INT PRIMARY KEY auto_increment,
-plano VARCHAR(50) NOT NULL,
-plano_valor DECIMAL(4,2) NOT NULL
-)engine=InnoDB;
-
-CREATE TABLE historico(
-usuario_id INT NOT NULL,
-musica_id INT NOT NULL,
-FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id),
-FOREIGN KEY (musica_id) REFERENCES musicas(musica_id),
-PRIMARY KEY (usuario_id, musica_id)
+CREATE TABLE artistas( 
+artista_id INT PRIMARY KEY auto_increment,
+nome VARCHAR(20) NOT NULL UNIQUE
 )engine=InnoDB;
 
 CREATE TABLE seguindo(
@@ -31,11 +28,6 @@ artista_id INT NOT NULL,
 usuario_id INT NOT NULL,
 FOREIGN KEY (artista_id) REFERENCES artistas(artista_id),
 FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id)
-)engine=InnoDB;
-
-CREATE TABLE artistas( 
-artista_id INT PRIMARY KEY auto_increment,
-nome VARCHAR(20) NOT NULL UNIQUE
 )engine=InnoDB;
 
 CREATE TABLE albuns(
@@ -50,6 +42,14 @@ musica_id INT PRIMARY KEY auto_increment,
 nome VARCHAR(50) NOT NULL,
 album_id INT NOT NULL,
 FOREIGN KEY (album_id) REFERENCES albuns(album_id)
+)engine=InnoDB;
+
+CREATE TABLE historico(
+usuario_id INT NOT NULL,
+musica_id INT NOT NULL,
+FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id),
+FOREIGN KEY (musica_id) REFERENCES musicas(musica_id),
+PRIMARY KEY (usuario_id, musica_id)
 )engine=InnoDB;
 
 INSERT INTO planos (plano, plano_valor)
@@ -71,6 +71,17 @@ VALUES
 ('Peter Strong'),
 ('Lance Day'),
 ('Freedie Shannon');
+
+INSERT INTO seguindo(usuario_id, artista_id)
+VALUES
+(1, 1),
+(1, 4),
+(1, 3),
+(2, 1),
+(2, 3),
+(3, 2),
+(3, 1),
+(4, 4);
 
 INSERT INTO albuns(album, artista_id)
 VALUES
@@ -100,17 +111,6 @@ VALUES
 ('Thang Of Thunder', 5),
 ('Words Of Her Life', 5),
 ('Without My Streets', 5);
-
-INSERT INTO seguindo(usuario_id, artista_id)
-VALUES
-(1, 1),
-(1, 4),
-(1, 3),
-(2, 1),
-(2, 3),
-(3, 2),
-(3, 1),
-(4, 4);
 
 INSERT INTO historico(usuario_id, musica_id)
 VALUES
