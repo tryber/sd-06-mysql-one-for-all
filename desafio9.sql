@@ -4,9 +4,10 @@ BEGIN
   SELECT
     ar.artist_name artista,
     al.album_name album
-  FROM SpotifyClone.Albums al
-    LEFT JOIN SpotifyClone.Artists ar
+  FROM SpotifyClone.Artists ar
+    LEFT JOIN SpotifyClone.Albums al
       ON al.artist_id = ar.artist_id
+  WHERE ar.artist_name = artist
   ORDER BY `album`;
 END $$
 
