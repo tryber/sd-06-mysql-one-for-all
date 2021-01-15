@@ -1,11 +1,11 @@
 DELIMITER $$
 CREATE TRIGGER trigger_usuario_delete
 BEFORE DELETE
-  ON SpotifyClone.Users u
+  ON SpotifyClone.Users
   BEGIN
     DELETE * FROM SpotifyClone.History h,
-    WHERE h.user_id = u.user_id
+    WHERE h.user_id = OLD.user_id
     DELETE * FROM SpotifyClone.Follow f
-    WHERE f.user_id = u.user_id
+    WHERE f.user_id = OLD.user_id
   END; $$
 DELIMITER ;
