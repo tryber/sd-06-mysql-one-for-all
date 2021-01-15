@@ -8,7 +8,7 @@ CREATE TABLE financeiro(
   financeiro_id INT PRIMARY KEY auto_increment,
   plano VARCHAR(100) NOT NULL,
   valor_plano DECIMAL(3, 2)
-)engine=InnoDB;
+);
 
 INSERT INTO financeiro(plano, valor_plano)
 VALUES
@@ -22,7 +22,7 @@ CREATE TABLE usuario(
   idade int NOT NULL,
   financeiro_id INT NOT NULL,
   FOREIGN KEY(financeiro_id) REFERENCES financeiro(financeiro_id)
-)engine=InnoDB;
+);
 
 INSERT INTO usuario(nome, idade, financeiro_id)
 VALUES
@@ -34,7 +34,7 @@ VALUES
 CREATE TABLE artistas(
   artista_id INT PRIMARY KEY auto_increment,
   artista varchar(255) NOT NULL
-)engine=InnoDB;
+);
 
 INSERT INTO artistas(artista)
 VALUES
@@ -49,7 +49,7 @@ CREATE TABLE seguindo_artistas(
   PRIMARY KEY(artista_id, usuario_id),
   FOREIGN KEY(artista_id) REFERENCES artistas(artista_id),
   FOREIGN KEY(usuario_id) REFERENCES usuario(usuario_id)
-)engine=InnoDB;
+);
 
 INSERT INTO seguindo_artistas(artista_id, usuario_id)
 VALUES
@@ -67,7 +67,7 @@ CREATE TABLE album(
   album varchar(255) NOT NULL,
   artista_id INT NOT NULL,
   FOREIGN KEY (artista_id) REFERENCES artistas(artista_id)
-)engine=InnoDB;
+);
 
   INSERT INTO album(album, artista_id)
 VALUES
@@ -82,7 +82,7 @@ CREATE TABLE cancoes(
   cancoes varchar(255) NOT NULL,
   album_id INT NOT NULL,
   FOREIGN KEY (album_id) REFERENCES album(album_id)
-)engine=InnoDB;
+);
 
 INSERT INTO cancoes(cancoes, album_id)
 VALUES
@@ -110,7 +110,7 @@ CREATE TABLE historico_de_reproducoes(
   historico_reproducoes VARCHAR(255) NOT NULL,
   usuario_id INT NOT NULL,
   FOREIGN KEY (usuario_id) REFERENCES usuario(usuario_id)
-)engine=InnoDB;
+);
 
   INSERT INTO historico_de_reproducoes(historico_reproducoes)
 VALUES
