@@ -8,5 +8,3 @@ JOIN SpotifyClone.songs AS S ON H.song_id = S.song_id
 WHERE P.plan_id <> 1
 GROUP BY S.song_name
 ORDER BY S.song_name;
-
-SELECT * FROM cancoes_premium;
