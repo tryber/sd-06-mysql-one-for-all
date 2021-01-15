@@ -1,4 +1,4 @@
-CREATE PROCEDURE albuns_do_artista(Artist VARCHAR(50)) BEGIN
+DELIMITER $ CREATE PROCEDURE albuns_do_artista(Artist VARCHAR(50)) BEGIN
 SELECT
   artist.artist_name AS artista,
   album.album_title AS album
@@ -9,4 +9,4 @@ HAVING
   artista = Artist
 ORDER BY
   album
-END;
+END $ DELIMITER;
