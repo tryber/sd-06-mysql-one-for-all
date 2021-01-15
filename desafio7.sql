@@ -8,4 +8,4 @@ ON t1.id = t2.artistas_id
 INNER JOIN usuarios_has_artistas AS t3
 ON t1.id = t3.artistas_id
 GROUP BY t2.id
-ORDER BY seguidores DESC, artista;
+ORDER BY seguidores DESC, artista, album;
