@@ -95,7 +95,7 @@ INSERT INTO usuarios (usuario, idade, planos_id)
 VALUES ('Thati', 23, 1),('Cintia', 35, 2),('Bill', 20, 3),('Roger', 45, 1);
 
 INSERT INTO artistas (artista)
-VALUES ('Walter Phoenix'), ('Petter Strong'), ('Lance Day'), ('Freedie Shannon');
+VALUES ('Walter Phoenix'), ('Peter Strong'), ('Lance Day'), ('Freedie Shannon');
 
 INSERT INTO albuns (album, artistas_id)
 VALUES ('Envious', 1),('Exuberant', 1),('Hallowed Steam', 2),('Incandescent', 3),('Temporary Culture', 4);
