@@ -73,7 +73,7 @@ VALUES
 INSERT INTO  `cancao` (`cancao_id`, `titulo_cancao`, `album_id`)
 VALUES
 (1, "Soul For Us", 1), 
-(2, "Reflections Of Magi", 1), 
+(2, "Reflections Of Magic", 1), 
 (3, "Dance With Her Own", 1), 
 (4, "Troubles Of My Inner Fire", 2), 
 (5, "Time Fireworks", 2), 
