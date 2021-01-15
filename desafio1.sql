@@ -20,7 +20,7 @@ VALUES
 CREATE TABLE planos(
 plano_id INT PRIMARY KEY AUTO_INCREMENT,
 nome_plano VARCHAR(50) NOT NULL,
-valor_plano DECIMAL(4,2) NOT NULL
+valor_plano DECIMAL(5,2) NOT NULL
 )engine=InnoDB;
 
 INSERT INTO planos (nome_plano, valor_plano)
