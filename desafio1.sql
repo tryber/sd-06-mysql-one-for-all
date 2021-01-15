@@ -62,8 +62,9 @@ ENGINE = InnoDB;
 -- Table `SpotifyClone`.`usuarios_has_artistas`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS usuarios_has_artistas (
-  usuarios_id INT PRIMARY KEY,
-  artistas_id INT PRIMARY KEY,
+  usuarios_id INT NOT NULL,
+  artistas_id INT NOT NULL,
+  PRIMARY KEY (usuarios_id, artistas_id),
   CONSTRAINT fk_usuarios_has_artistas_usuarios1
     FOREIGN KEY (usuarios_id)
     REFERENCES SpotifyClone.usuarios (id),
@@ -76,9 +77,9 @@ ENGINE = InnoDB;
 -- Table `SpotifyClone`.`usuarios_has_cancoes`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS usuarios_has_cancoes (
-  usuarios_id INT PRIMARY KEY,
-  cancoes_id INT PRIMARY KEY,
-
+  usuarios_id INT NOT NULL,
+  cancoes_id INT NOT NULL,
+  PRIMARY KEY (`usuarios_id`, `cancoes_id`),
   CONSTRAINT fk_usuarios_has_cancoes_usuarios1
     FOREIGN KEY (usuarios_id)
     REFERENCES SpotifyClone.usuarios (id),
