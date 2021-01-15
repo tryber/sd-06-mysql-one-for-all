@@ -7,3 +7,4 @@ CREATE VIEW historico_reproducao_usuarios AS SELECT
  INNER JOIN song_list
  ON play_history.song_list_id = song_list.id
  ORDER BY usuario, nome;
+ 
