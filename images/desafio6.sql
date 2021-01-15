@@ -4,4 +4,6 @@ CREATE VIEW faturamento_atual
     ROUND(MAX(s.subscription_cost), 2) faturamento_maximo,
     ROUND(AVG(s.subscription_cost), 2) faturamento_medio,
     ROUND(SUM(s.subscription_cost), 2) faturamento_total
-  FROM SpotifyClone.Subscriptions s;
+  FROM SpotifyClone.Subscriptions s
+  INNER JOIN SpotifyClone.Users u
+    ON u.subscription_id = s.subscription_id;
