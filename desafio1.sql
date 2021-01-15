@@ -5,13 +5,6 @@ USE SpotifyClone ;
 -- -----------------------------------------------------
 -- Table `SpotifyClone`.`planos`
 -- -----------------------------------------------------
--- CREATE TABLE IF NOT EXISTS `planos` (
---   `id` INT NOT NULL AUTO_INCREMENT,
---   `plano` VARCHAR(45) NULL,
---   `valor` FLOAT NULL,
---   PRIMARY KEY (`id`),
---   UNIQUE INDEX `plano_id_UNIQUE` (`id` ASC) VISIBLE)
--- ENGINE = InnoDB;
 CREATE TABLE planos (
 id INT PRIMARY KEY AUTO_INCREMENT,
 plano VARCHAR(45) NOT NULL,
@@ -69,9 +62,8 @@ ENGINE = InnoDB;
 -- Table `SpotifyClone`.`usuarios_has_artistas`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS usuarios_has_artistas (
-  usuarios_id INT NOT NULL,
-  artistas_id INT NOT NULL,
-  PRIMARY KEY (usuarios_id, artistas_id),
+  usuarios_id INT PRIMARY KEY,
+  artistas_id INT PRIMARY KEY,
   CONSTRAINT fk_usuarios_has_artistas_usuarios1
     FOREIGN KEY (usuarios_id)
     REFERENCES SpotifyClone.usuarios (id),
@@ -84,9 +76,8 @@ ENGINE = InnoDB;
 -- Table `SpotifyClone`.`usuarios_has_cancoes`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS usuarios_has_cancoes (
-  usuarios_id INT NOT NULL,
-  cancoes_id INT NOT NULL,
-  PRIMARY KEY (`usuarios_id`, `cancoes_id`),
+  usuarios_id INT PRIMARY KEY,
+  cancoes_id INT PRIMARY KEY,
 
   CONSTRAINT fk_usuarios_has_cancoes_usuarios1
     FOREIGN KEY (usuarios_id)
