@@ -1,1 +1,16 @@
-desafio1.json
+{
+  "coluna_usuario": "usuario_id",
+  "tabela_que_contem_usuario": "usertable",
+  "coluna_plano": "plan_id",
+  "tabela_que_contem_plano": "plantable",
+  "coluna_historico_de_reproducoes": "reproduction_id",
+  "tabela_que_contem_historico_de_reproducoes": "reproductiontable",
+  "coluna_seguindo_artistas": "followers_id",
+  "tabela_que_contem_seguindo_artistas": "followerstable",
+  "coluna_artista": "artist_id",
+  "tabela_que_contem_artista": "artisttable",
+  "coluna_album": "album_id",
+  "tabela_que_contem_album": "albumtable",
+  "coluna_cancoes": "songstable",
+  "tabela_que_contem_cancoes": "songs_id"
+}
