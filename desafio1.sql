@@ -7,15 +7,17 @@ USE SpotifyClone;
 CREATE TABLE usuario(
 usuario_id INT PRIMARY KEY AUTO_INCREMENT,
 nome VARCHAR(50) NOT NULL,
-idade INT NOT NULL
+idade INT NOT NULL,
+plano_id INT NOT NULL,
+FOREIGN KEY (plano_id) REFERENCES planos(plano_id)
 )engine=InnoDB;
 
 INSERT INTO usuario (nome, idade)
 VALUES
-  ('Thati', '23'),
-  ('Cintia', '35'),
-  ('Bill', '20'),
-  ('Roger', '45');
+  ('Thati', '23',1),
+  ('Cintia', '35',2),
+  ('Bill', '20',3),
+  ('Roger', '45',1);
 
 CREATE TABLE planos(
 plano_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -86,21 +88,6 @@ VALUES
     ('Words Of Her Life', 5, 4),
     ('Without My Streets', 5, 4);
     
-
-CREATE TABLE contratacoes(
-usuario_id INT AUTO_INCREMENT,
-plano_id INT NOT NULL,
-PRIMARY KEY (usuario_id, plano_id),
-FOREIGN KEY (usuario_id) REFERENCES usuario(usuario_id),
-FOREIGN KEY (plano_id) REFERENCES planos(plano_id)
-)engine=InnoDB;
-
-INSERT INTO contratacoes (usuario_id, plano_id)
-VALUES
-  ('1','1'),
-  ('2','2'),
-  ('3','3'),
-  ('4','1');
 
 CREATE TABLE seguir_historico(
 usuario_id INT AUTO_INCREMENT,
