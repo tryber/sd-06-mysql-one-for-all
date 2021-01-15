@@ -1,11 +1,11 @@
 CREATE VIEW SpotifyClone.perfil_artistas AS
     SELECT 
-        ar.artista, al.album, COUNT(se.id_artista) AS 'seguidores'
+        art.artista, alb.album, COUNT(seg.id_artista) AS 'seguidores'
     FROM
-        albuns al
+        albuns alb
             INNER JOIN
-        artistas ar ON al.id_artista = ar.id_artista
+        artistas art ON alb.id_artista = art.id_artista
             INNER JOIN
-        seguindo se ON ar.id_artista = se.id_artista
-    GROUP BY al.id_album
-    ORDER BY `seguidores` DESC , ar.artista , al.album;
+        seguindo seg ON art.id_artista = seg.id_artista
+    GROUP BY alb.id_album
+    ORDER BY `seguidores` DESC , art.artista , alb.album;

@@ -1,10 +1,10 @@
 CREATE VIEW SpotifyClone.top_2_hits_do_momento AS
     SELECT 
-        cancoes.cancao, COUNT(tocadas.id_cancao) AS 'reproducoes'
+        can.cancao, COUNT(his.id_cancao) AS 'reproducoes'
     FROM
-        cancoes cancoes
+        cancoes can
             INNER JOIN
-        historicos tocadas ON cancoes.id_cancao = tocadas.id_cancao
-    GROUP BY cancoes.cancao
-    ORDER BY `reproducoes` DESC , cancoes.cancao
+        historicos his ON can.id_cancao = his.id_cancao
+    GROUP BY can.cancao
+    ORDER BY `reproducoes` DESC , can.cancao
     LIMIT 2;
