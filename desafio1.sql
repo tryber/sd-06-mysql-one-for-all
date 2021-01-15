@@ -10,7 +10,7 @@ CREATE TABLE financeiro(
   valor_plano DECIMAL(3, 2)
 )engine=InnoDB;
 
-INSERT INTO financeiro (plano, valor_plano)
+INSERT INTO financeiro(plano, valor_plano)
 VALUES
   ('gratuito', 0),
   ('familiar', 7.99),
@@ -24,7 +24,7 @@ CREATE TABLE usuario(
   FOREIGN KEY(financeiro_id) REFERENCES financeiro(financeiro_id)
 )engine=InnoDB;
 
-INSERT INTO usuario (nome, idade, financeiro_id)
+INSERT INTO usuario(nome, idade, financeiro_id)
 VALUES
   ('Thati', 23, 1, 1),
   ('Cintia', 35, 2, 2),
@@ -36,7 +36,7 @@ CREATE TABLE artistas(
   artista varchar(255) NOT NULL
 )engine=InnoDB;
 
-INSERT INTO artistas (artista)
+INSERT INTO artistas(artista)
 VALUES
   ('Walter Phoenix'),
   ('Peter Strong'),
@@ -51,7 +51,7 @@ CREATE TABLE seguindo_artistas(
   FOREIGN KEY(usuario_id) REFERENCES usuario(usuario_id)
 )engine=InnoDB;
 
-INSERT INTO seguindo_artistas (artista_id, usuario_id)
+INSERT INTO seguindo_artistas(artista_id, usuario_id)
 VALUES
   (1, 1),
   (4, 1),
@@ -69,7 +69,7 @@ CREATE TABLE album(
   FOREIGN KEY (artista_id) REFERENCES artistas(artista_id)
 )engine=InnoDB;
 
- INSERT INTO album (album, artista_id)
+ INSERT INTO album(album, artista_id)
 VALUES
   ('Envious', 1),
   ('Exuberant', 1),
@@ -84,7 +84,7 @@ CREATE TABLE cancoes(
   FOREIGN KEY (album_id) REFERENCES album(album_id)
 )engine=InnoDB;
 
-INSERT INTO cancoes (cancoes, album_id)
+INSERT INTO cancoes(cancoes, album_id)
 VALUES
   ('Soul For Us', 1),
   ('Reflections  Of Magic', 1),
@@ -106,27 +106,25 @@ VALUES
   ('Without My  Streets', 5);
 
 CREATE TABLE historico_de_reproducoes(
+  historico_reproducoes_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  historico_reproducoes VARCHAR(255) NOT NULL,
   usuario_id INT NOT NULL,
-  cancoes_id INT NOT NULL,
-  PRIMARY KEY (usuario_id, cancoes_id)
-  FOREIGN KEY(usuario_id) REFERENCES usuario(usuario_id),
-  FOREIGN KEY(cancoes_id) REFERENCES cancoes(cancoes_id)
-);
+  FOREIGN KEY (usuario_id) REFERENCES usuario(usuario_id)
+)engine=InnoDB;
 
- INSERT INTO historico_reproducoes (usuario_id, cancoes_id)
+ INSERT INTO historico_de_reproducoes(historico_reproducoes)
 VALUES
-  (1, 1),
-  (1, 6),
-  (1, 14),
-  (1, 16),
-  (2, 13),
-  (2, 17),
-  (2, 2),
-  (2, 15),
-  (3, 4),
-  (3, 16),
-  (3, 6),
-  (4, 3),
-  (4, 17),
-  (4, 11);
-  
+  ('Soul For Us', 1),
+  ('Magic Circus', 1),
+  ('Diamond Power', 1),
+  ('Thang of Thunder', 1),
+  ('Home Forever', 2),
+  ('Words Of Her Life', 2),
+  ('Reflections Of Magic', 2),
+  ('Honey, Let’s Be Silly', 2),
+  ('Troubles Of Inner Fire', 3),
+  ('Thang of Thunder', 3),
+  ('Magic Circus', 3),
+  ('Dance With Her Own', 4),
+  ('Without My Streets', 4),
+  ('Celebration Of More', 4);
