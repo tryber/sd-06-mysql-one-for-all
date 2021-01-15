@@ -2,6 +2,7 @@ DELIMITER $$
 CREATE TRIGGER trigger_usuario_delete
 BEFORE DELETE
   ON Users
+  FOR EACH ROW
   BEGIN
     DELETE FROM History,
     WHERE History.user_id = OLD.user_id
