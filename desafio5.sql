@@ -6,5 +6,5 @@ CREATE VIEW top_2_hits_do_momento
     INNER JOIN SpotifyClone.Songs s
       ON h.song_id = s.song_id
   GROUP BY h.song_id
-  ORDER BY `reproducoes` DESC
+  ORDER BY `reproducoes` DESC, `cancao`
 LIMIT 2;
