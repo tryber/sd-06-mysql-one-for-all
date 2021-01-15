@@ -4,7 +4,7 @@ BEFORE DELETE
   ON Users
   FOR EACH ROW
   BEGIN
-    DELETE FROM History,
+    DELETE FROM History
     WHERE History.user_id = OLD.user_id;
     DELETE FROM Follow
     WHERE Follow.user_id = OLD.user_id;
