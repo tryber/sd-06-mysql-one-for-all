@@ -42,7 +42,7 @@ CREATE TABLE seguindo(
   artista_id INT NOT NULL,
   PRIMARY KEY (usuario_id, artista_id),
   FOREIGN KEY (usuario_id) references usuarios(usuario_id),
-	FOREIGN KEY (artista_id) references artistas(artista_id)
+FOREIGN KEY (artista_id) references artistas(artista_id)
 ) engine = InnoDB;
 
 CREATE TABLE historico(
@@ -50,7 +50,7 @@ CREATE TABLE historico(
   cancao_id INT NOT NULL,
   PRIMARY KEY (usuario_id, cancao_id),
   FOREIGN KEY (usuario_id) references usuarios(usuario_id),
-	FOREIGN KEY (cancao_id) references cancoes(cancao_id)
+FOREIGN KEY (cancao_id) references cancoes(cancao_id)
 ) engine = InnoDB;
 
 INSERT INTO planos(plano, valor_plano)
