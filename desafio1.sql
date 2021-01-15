@@ -12,7 +12,7 @@ plano_id INT NOT NULL,
 FOREIGN KEY (plano_id) REFERENCES planos(plano_id)
 )engine=InnoDB;
 
-INSERT INTO usuario (nome, idade)
+INSERT INTO usuario (nome, idade, plano_id)
 VALUES
   ('Thati', '23',1),
   ('Cintia', '35',2),
