@@ -3,7 +3,7 @@ CREATE DATABASE SpotifyClone;
 
 USE SpotifyClone;
 
-CREATE TABLE `usertable` (
+CREATE TABLE usertable (
   `usuario_id` int NOT NULL AUTO_INCREMENT,
   `userName` varchar(255) NOT NULL,
   `age` int NOT NULL,
@@ -13,20 +13,20 @@ CREATE TABLE `usertable` (
   CONSTRAINT `usertable_ibfk_1` FOREIGN KEY (`plan_id`) REFERENCES `plantable` (`plan_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-CREATE TABLE `plantable` (
+CREATE TABLE plantable (
   `plan_id` int NOT NULL AUTO_INCREMENT,
   `planName` varchar(255) NOT NULL,
   `planPrice` int NOT NULL,
   PRIMARY KEY (`plan_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-CREATE TABLE `artisttable` (
+CREATE TABLE artisttable (
   `artist_id` int NOT NULL AUTO_INCREMENT,
   `artistName` varchar(255) NOT NULL,
   PRIMARY KEY (`artist_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-CREATE TABLE `albumtable` (
+CREATE TABLE albumtable (
   `album_id` int NOT NULL AUTO_INCREMENT,
   `albumName` varchar(255) NOT NULL,
   `artist_id` int NOT NULL,
@@ -35,7 +35,7 @@ CREATE TABLE `albumtable` (
   CONSTRAINT `albumtable_ibfk_1` FOREIGN KEY (`artist_id`) REFERENCES `artisttable` (`artist_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-CREATE TABLE `songstable` (
+CREATE TABLE songstable (
   `songs_id` int NOT NULL AUTO_INCREMENT,
   `songsname` varchar(255) NOT NULL,
   `album_id` int NOT NULL,
@@ -44,7 +44,7 @@ CREATE TABLE `songstable` (
   CONSTRAINT `album_id` FOREIGN KEY (`album_id`) REFERENCES `albumtable` (`album_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-CREATE TABLE `reproductiontable` (
+CREATE TABLE reproductiontable (
   `reproduction_id` int NOT NULL AUTO_INCREMENT,
   `usuario_id` int NOT NULL,
   `songs_id` int NOT NULL,
@@ -55,7 +55,7 @@ CREATE TABLE `reproductiontable` (
   CONSTRAINT `usuario_id` FOREIGN KEY (`usuario_id`) REFERENCES `usertable` (`usuario_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-CREATE TABLE `followerstable` (
+CREATE TABLE followerstable (
   `followers_id` int NOT NULL AUTO_INCREMENT,
   `artist_id` int NOT NULL,
   `usuario_id` int NOT NULL,
