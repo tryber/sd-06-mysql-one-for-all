@@ -20,7 +20,7 @@ VALUES
   ('Roger', '45',1);
 
 CREATE TABLE planos(
-plano_id INT PRIMARY KEY AUTO_INCREMENT,
+plano_id INT PRIMARY KEY AUTO_INCREMENT UNIQUE,
 nome_plano VARCHAR(50) NOT NULL,
 valor_plano DECIMAL(5,2) NOT NULL
 )engine=InnoDB;
