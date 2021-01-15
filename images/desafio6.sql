@@ -3,5 +3,5 @@ CREATE VIEW faturamento_atual
     MIN(s.subscription_cost) faturamento_minimo,
     MAX(s.subscription_cost) faturamento_maximo,
     ROUND(AVG(s.subscription_cost), 2) faturamento_medio,
-    ROUND(SUM(s.subscription_cost)) faturamento_total
+    ROUND(SUM(s.subscription_cost), 2) faturamento_total
   FROM SpotifyClone.Subscriptions s;
