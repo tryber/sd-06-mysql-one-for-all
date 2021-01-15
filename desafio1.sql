@@ -5,51 +5,51 @@ CREATE DATABASE SpotifyClone;
 USE SpotifyClone;
 
 CREATE TABLE planos(
-    plano_id INT PRIMARY KEY auto_increment,
-    plano varchar(30),
-    valor_plano decimal(3,2)
+  plano_id INT PRIMARY KEY auto_increment,
+  plano varchar(30),
+  valor_plano decimal(3,2)
 ) engine = InnoDB;
 
 CREATE TABLE artistas(
-    artista_id INT PRIMARY KEY auto_increment,
-    artista varchar(80)
+  artista_id INT PRIMARY KEY auto_increment,
+  artista varchar(80)
 ) engine = InnoDB;
 
 CREATE TABLE albuns(
-    album_id INT PRIMARY KEY auto_increment,
-    album varchar(60),
-    artista_id INT NOT NULL,
-    FOREIGN KEY (artista_id) references artistas(artista_id)
+  album_id INT PRIMARY KEY auto_increment,
+  album varchar(60),
+  artista_id INT NOT NULL,
+  FOREIGN KEY (artista_id) references artistas(artista_id)
 ) engine = InnoDB;
 
 CREATE TABLE cancoes(
-    cancao_id INT PRIMARY KEY auto_increment,
-    cancao varchar(100),
-    album_id INT NOT NULL,
-    FOREIGN KEY (album_id) references albuns(album_id)
+  cancao_id INT PRIMARY KEY auto_increment,
+  cancao varchar(100),
+  album_id INT NOT NULL,
+  FOREIGN KEY (album_id) references albuns(album_id)
 ) engine = InnoDB;
 
 CREATE TABLE usuarios(
-    usuario_id INT PRIMARY KEY auto_increment,
-    usuario varchar(20),
-    idade INT NOT NULL,
-    plano_id INT NOT NULL,
-    FOREIGN KEY (plano_id) references planos(plano_id)
+  usuario_id INT PRIMARY KEY auto_increment,
+  usuario varchar(20),
+  idade INT NOT NULL,
+  plano_id INT NOT NULL,
+  FOREIGN KEY (plano_id) references planos(plano_id)
 ) engine = InnoDB;
 
 CREATE TABLE seguindo(
-    usuario_id INT NOT NULL,
-    artista_id INT NOT NULL,
-    PRIMARY KEY (usuario_id, artista_id),
-    FOREIGN KEY (usuario_id) references usuarios(usuario_id),
+  usuario_id INT NOT NULL,
+  artista_id INT NOT NULL,
+  PRIMARY KEY (usuario_id, artista_id),
+  FOREIGN KEY (usuario_id) references usuarios(usuario_id),
 	FOREIGN KEY (artista_id) references artistas(artista_id)
 ) engine = InnoDB;
 
 CREATE TABLE historico(
-    usuario_id INT NOT NULL,
-    cancao_id INT NOT NULL,
-    PRIMARY KEY (usuario_id, cancao_id),
-    FOREIGN KEY (usuario_id) references usuarios(usuario_id),
+  usuario_id INT NOT NULL,
+  cancao_id INT NOT NULL,
+  PRIMARY KEY (usuario_id, cancao_id),
+  FOREIGN KEY (usuario_id) references usuarios(usuario_id),
 	FOREIGN KEY (cancao_id) references cancoes(cancao_id)
 ) engine = InnoDB;
 
@@ -129,3 +129,4 @@ VALUES
   (4, 10),
   (4, 11),
   (4, 12);
+  
