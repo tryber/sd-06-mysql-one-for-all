@@ -43,21 +43,23 @@ VALUES
   ('Freedie Shanno');
 
 CREATE TABLE seguindo_artistas(
-  seguindo_artistas_id INT PRIMARY KEY auto_increment,
-  seguindo_artistas varchar(255),
+  artista_id INT NOT NULL,
+  usuario_id INT NOT NULL,
+  PRIMARY KEY(artista_id, usuario_id),
+  FOREIGN KEY(artista_id) REFERENCES artistas(artista_id),
   FOREIGN KEY(usuario_id) REFERENCES usuario(usuario_id)
 );
 
-INSERT INTO seguindo_artistas (seguindo_artistas, usuario_id)
+INSERT INTO seguindo_artistas (artista_id, usuario_id)
 VALUES
-  ('Walter Phoenix', 1),
-  ('Freedie Shanno', 1),
-  ('Lance Day', 1),
-  ('Walter Phoenix', 2),
-  ('Lance Day', 2),
-  ('Peter Strong', 3),
-  ('Walter Phoenix', 3),
-  ('Freedie Shanno', 4);
+  (1, 1),
+  (4, 1),
+  (3, 1),
+  (1, 2),
+  (3, 2),
+  (2, 3),
+  (1, 3),
+  (4, 4);
 
 CREATE TABLE album(
   album_id INT PRIMARY KEY auto_increment,
@@ -102,9 +104,9 @@ VALUES
   ('Without My  Streets', 5);
 
 CREATE TABLE historico_de_reproducoes(
-  historico_reproducoes_id INT PRIMARY KEY auto_increment,
   usuario_id INT NOT NULL,
   cancoes_id INT NOT NULL,
+  PRIMARY KEY (usuario_id, cancoes_id)
   FOREIGN KEY(usuario_id) REFERENCES usuario(usuario_id),
   FOREIGN KEY(cancoes_id) REFERENCES cancoes(cancoes_id)
 );
