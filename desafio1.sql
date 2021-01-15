@@ -71,27 +71,26 @@ INSERT INTO plantable(planName, planprice) VALUES
 ('gratuito', 0.00),
 ('universitário', 5.99),
 ('familiar', 7.99);
- 
+
 INSERT INTO usertable(username, age, plan_id) VALUES
 ('Thati', 23, 1),
 ('Cintia', 35, 3),
 ('Bill', 20, 2),
 ('Roger', 45, 1);
- 
+
 INSERT INTO artisttable(artistname) VALUES 
 ('Walter Phoenix'),
 ('Peter Strong'),
 ('Lance Day'),
 ('Freedie Shannon');
- 
+
 INSERT INTO albumtable(albumname, artist_id) VALUES
 ('Envious', 1),
 ('Exuberant', 1),
 ('Hallowed Steam', 2),
 ('Incandescent', 3),
 ('Temporary Culture', 4);
- 
- 
+
 INSERT INTO songstable(songsname, album_id) VALUES
 ('Soul For Us', 1),
 ('Reflections Of Magic', 1),
@@ -111,7 +110,7 @@ INSERT INTO songstable(songsname, album_id) VALUES
 ('Thang Of Thunder', 5),
 ('Words Of Her Life', 5),
 ('Without My Streets', 5);
- 
+
 INSERT INTO reproductiontable(usuario_id, songs_id) VALUES
 (1, 1),
 (1, 6),
@@ -127,7 +126,7 @@ INSERT INTO reproductiontable(usuario_id, songs_id) VALUES
 (4, 3),
 (4, 11),
 (4, 18);
- 
+
 INSERT INTO followerstable(usuario_id, artist_id) VALUES
 (1, 1),
 (1, 3),
