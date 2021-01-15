@@ -69,7 +69,7 @@ CREATE TABLE album(
   FOREIGN KEY (artista_id) REFERENCES artistas(artista_id)
 )engine=InnoDB;
 
- INSERT INTO album(album, artista_id)
+  INSERT INTO album(album, artista_id)
 VALUES
   ('Envious', 1),
   ('Exuberant', 1),
@@ -112,7 +112,7 @@ CREATE TABLE historico_de_reproducoes(
   FOREIGN KEY (usuario_id) REFERENCES usuario(usuario_id)
 )engine=InnoDB;
 
- INSERT INTO historico_de_reproducoes(historico_reproducoes)
+  INSERT INTO historico_de_reproducoes(historico_reproducoes)
 VALUES
   ('Soul For Us', 1),
   ('Magic Circus', 1),
