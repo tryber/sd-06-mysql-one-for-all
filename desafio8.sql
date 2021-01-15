@@ -5,8 +5,8 @@ BEFORE DELETE
   FOR EACH ROW
   BEGIN
     DELETE FROM History,
-    WHERE History.user_id = OLD.user_id
+    WHERE History.user_id = OLD.user_id;
     DELETE FROM Follow
-    WHERE Follow.user_id = OLD.user_id
+    WHERE Follow.user_id = OLD.user_id;
   END; $$
 DELIMITER ;
