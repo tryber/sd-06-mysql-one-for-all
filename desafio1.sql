@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS SpotifyClone.usuarios(
   `nome` varchar(255) NOT NULL,
   `idade` int NOT NULL,
   `financeiro_id` INT NOT NULL,
-  FOREIGN KEY(`financeiro_id`) REFERENCES `Spotify`.`financeiro`(`financeiro_id`)
+  FOREIGN KEY(`financeiro_id`) REFERENCES Spotify.financeiro(`financeiro_id`)
   ON DELETE NO ACTION
   ON UPDATE NO ACTION
 )engine=InnoDB;
@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS SpotifyClone.album(
   `album_id` INT PRIMARY KEY auto_increment,
   `album` varchar(255) NOT NULL,
   `artista_id` INT NOT NULL,
-  FOREIGN KEY(`artista_id`) REFERENCES `Spotify`.`artistas`(`artista_id`)
+  FOREIGN KEY(`artista_id`) REFERENCES Spotify.artistas(`artista_id`)
   ON DELETE NO ACTION
   ON UPDATE NO ACTION
 )engine=InnoDB;
@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS SpotifyClone.cancoes(
   `cancoes_id` INT PRIMARY KEY auto_increment,
   `cancao` varchar(255) NOT NULL,
   `album_id` INT NOT NULL,
-  FOREIGN KEY (`album_id`) REFERENCES `Spotify`.`album`(`album_id`)
+  FOREIGN KEY (`album_id`) REFERENCES Spotify.album(`album_id`)
   ON DELETE NO ACTION
   ON UPDATE NO ACTION
 )engine=InnoDB;
@@ -98,8 +98,8 @@ CREATE TABLE IF NOT EXISTS SpotifyClone.historico_de_reproducoes(
   `usuario_id` INT NOT NULL,
   `cancoes_id` INT NOT NULL,
   PRIMARY KEY (`usuario_id`, `cancoes_id`)
-  FOREIGN KEY (`usuario_id`) REFERENCES `Spotify`.`usuario`(`usuario_id`),
-  FOREIGN KEY (`cancoes_id`) REFERENCES `Spotify`.`cancoes`(`cancoes_id`)
+  FOREIGN KEY (`usuario_id`) REFERENCES Spotify.usuario(`usuario_id`),
+  FOREIGN KEY (`cancoes_id`) REFERENCES Spotify.cancoes(`cancoes_id`)
   ON DELETE NO ACTION
   ON UPDATE NO ACTION
 )engine=InnoDB;
@@ -125,8 +125,8 @@ CREATE TABLE IF NOT EXISTS SpotifyClone.seguindo_artistas(
   `usuario_id` INT NOT NULL,
   `artista_id` INT NOT NULL,
   PRIMARY KEY(`usuario_id`, `artista_id`),
-  FOREIGN KEY(`usuario_id`) REFERENCES `Spotify`.`usuario`(`usuario_id`),
-  FOREIGN KEY(`artista_id`) REFERENCES `Spotify`.`artista`(`artista_id`)
+  FOREIGN KEY(`usuario_id`) REFERENCES Spotify.usuario(`usuario_id`),
+  FOREIGN KEY(`artista_id`) REFERENCES Spotify.artista(`artista_id`)
   ON DELETE NO ACTION
   ON UPDATE NO ACTION
 )engine=InnoDB;
