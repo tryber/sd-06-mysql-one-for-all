@@ -51,13 +51,11 @@ VALUES
 ('Cintia', 35, 3),
 ('Bill', 20, 2),
 ('Roger', 45, 1);
-
 INSERT INTO artista(artista_name) VALUES 
 ('Walter Phoenix'),
 ('Peter Strong'),
 ('Lance Day'),
 ('Freedie Shannon');
-
 INSERT INTO album(album_name, artista_id)
 VALUES
   ('Envious', 1),
@@ -85,7 +83,6 @@ VALUES
 ('Thang Of Thunder', 5),
 ('Words Of Her Life', 5),
 ('Without My Streets', 5);
-
 INSERT INTO historico(usuario_id, cancoes_id)
 VALUES
   (1, 1),
@@ -112,4 +109,3 @@ VALUES
   (3, 3),
   (3, 1),
   (4, 4);
-  
