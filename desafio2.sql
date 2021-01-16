@@ -4,5 +4,5 @@ CREATE VIEW estatisticas_musicais AS
   count(distinct al.album) as albuns
   from SpotifyClone.cancoes as c
   inner join SpotifyClone.artistas as a
-  inner join SpotifyClone.albums as al; 
-  
+  inner join SpotifyClone.albums as al;
+    

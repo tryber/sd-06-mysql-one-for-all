@@ -6,4 +6,3 @@ create view top_3_artistas AS
   group by a.artista_id
   order by seguidores desc, artista
   limit 3;
-  

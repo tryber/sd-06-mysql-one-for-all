@@ -6,4 +6,4 @@ create view top_2_hits_do_momento as
   group by c.cancoes_id
   order by reproducoes desc, cancao
   limit 2;
-  
+ 
