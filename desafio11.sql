@@ -1,6 +1,6 @@
 CREATE VIEW cancoes_premium AS
 SELECT c.cancao AS nome,
-COUNT(u.cancoes_id) AS reporoducoes
+COUNT(u.cancoes_id) AS reproducoes
 FROM cancoes AS c
 INNER JOIN usuarios_has_cancoes AS u
 ON c.id = cancoes_id
