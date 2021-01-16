@@ -4,7 +4,7 @@ CREATE DATABASE SpotifyClone;
 
 USE SpotifyClone;
 
-CREATE TABLE IF NOT EXISTS `SpotifyClone.financeiro`(
+CREATE TABLE IF NOT EXISTS `SpotifyClone`.`financeiro`(
   financeiro_id INT PRIMARY KEY auto_increment,
   plano VARCHAR(100) NOT NULL,
   valor_plano DECIMAL(3, 2)
@@ -18,7 +18,7 @@ VALUES
   ('familiar', 7.99),
   ('universitario', 5.99);
 
-CREATE TABLE IF NOT EXISTS `SpotifyClone.usuarios`(
+CREATE TABLE IF NOT EXISTS `SpotifyClone`.`usuarios`(
   usuario_id INT PRIMARY KEY auto_increment,
   nome varchar(255) NOT NULL,
   idade int NOT NULL,
@@ -35,7 +35,7 @@ VALUES
   ('Bill', 20, 3, 3),
   ('Roger', 45, 1, 1);
 
-CREATE TABLE IF NOT EXISTS `SpotifyClone.artistas`(
+CREATE TABLE IF NOT EXISTS `SpotifyClone`.`artistas`(
   artista_id INT PRIMARY KEY auto_increment,
   artista varchar(255) NOT NULL
   ON DELETE NO ACTION
@@ -49,7 +49,7 @@ VALUES
   ('Lance Day'),
   ('Freedie Shanno');
 
-CREATE TABLE IF NOT EXISTS `SpotifyClone.album`(
+CREATE TABLE IF NOT EXISTS `SpotifyClone`.`album`(
   album_id INT PRIMARY KEY auto_increment,
   album varchar(255) NOT NULL,
   artista_id INT NOT NULL,
@@ -66,7 +66,7 @@ VALUES
   ('Incandescent', 3),
   ('Temporary Culture', 4);
 
-CREATE TABLE IF NOT EXISTS `SpotifyClone.cancoes`(
+CREATE TABLE IF NOT EXISTS `SpotifyClone`.`cancoes`(
   cancoes_id INT PRIMARY KEY auto_increment,
   cancao varchar(255) NOT NULL,
   album_id INT NOT NULL,
@@ -96,7 +96,7 @@ VALUES
   ('Words Of Her Life', 5),
   ('Without My  Streets', 5);
 
-CREATE TABLE IF NOT EXISTS `SpotifyClone.historico_de_reproducoes`(
+CREATE TABLE IF NOT EXISTS `SpotifyClone`.`historico_de_reproducoes`(
   usuario_id INT NOT NULL,
   cancoes_id INT NOT NULL,
   PRIMARY KEY (usuario_id, cancoes_id)
@@ -123,7 +123,7 @@ VALUES
   (4, 18),
   (4, 11);
 
-CREATE TABLE IF NOT EXISTS `SpotifyClone.seguindo_artistas`(
+CREATE TABLE IF NOT EXISTS `SpotifyClone`.`seguindo_artistas`(
   usuario_id INT NOT NULL,
   artista_id INT NOT NULL,
   PRIMARY KEY(usuario_id, artista_id),
