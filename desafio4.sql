@@ -1,13 +1,14 @@
--- DROP VIEW IF EXISTS `historico_reproducao_usuarios`;
--- CREATE VIEW historico_reproducao_usuarios AS
--- SELECT
--- SpotifyClone.usuarios.usuarios_nome AS 'usuario',
--- SpotifyClone.musicas.musicas_titulo AS 'nome'
--- FROM SpotifyClone.historicos, SpotifyClone.usuarios, SpotifyClone.musicas
+DROP VIEW IF EXISTS `top_3_artistas`;
+CREATE VIEW top_3_artistas AS
+SELECT
+SpotifyClone.artistas.artistas_nome AS 'artista',
+COUNT(SpotifyClone.seguindo_artistas.usuarios_id) AS `seguidores`
+FROM SpotifyClone.seguindo_artistas, SpotifyClone.artistas,
 
--- WHERE 
--- SpotifyClone.usuarios.usuarios_id = SpotifyClone.historicos.usuarios_id
--- AND
--- SpotifyClone.musicas.musicas_id = SpotifyClone.historicos.musicas_id
+WHERE
+SpotifyClone.artistas.artistas_id = SpotifyClone.seguindo_artistas.artistas_id
 
--- ORDER BY SpotifyClone.usuarios.usuarios_nome, SpotifyClone.musicas.musicas_titulo;
+ORDER BY `seguidores` DESC, SpotifyClone.artistas.artistas_nome
+LIMIT 3;
+
+-- correto usar ou tem outra forma?
