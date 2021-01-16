@@ -1,6 +1,6 @@
 DELIMITER $$
 CREATE TRIGGER trigger_usuario_delete
-AFTER DELETE ON Users
+BEFORE DELETE ON Users
 FOR EACH ROW
 BEGIN
 DELETE FROM Users_Reprod_History
