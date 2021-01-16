@@ -1,9 +1,7 @@
--- SELECT jobs.JOB_TITLE AS 'Cargo',
--- CASE
---   WHEN MAX_SALARY BETWEEN 5000 AND 10000 THEN 'Baixo'
---   WHEN MAX_SALARY BETWEEN 10001 AND 20000 THEN 'Médio'
---   WHEN MAX_SALARY BETWEEN 20001 AND 30000 THEN 'Alto'
---   ELSE 'Altíssimo'
--- END AS 'Nível'
--- FROM hr.jobs
--- ORDER BY jobs.JOB_TITLE;
+DROP VIEW IF EXISTS `estatisticas_musicais`;
+CREATE VIEW estatisticas_musicais AS
+SELECT
+COUNT(DISTINCT SpotifyClone.musicas.musicas_titulo) AS 'cancoes',
+COUNT(DISTINCT SpotifyClone.artistas.artistas_nome) AS 'artistas',
+COUNT(DISTINCT SpotifyClone.albuns.albuns_titulo) AS 'albuns'
+FROM  SpotifyClone.musicas, SpotifyClone.artistas, SpotifyClone.albuns;
