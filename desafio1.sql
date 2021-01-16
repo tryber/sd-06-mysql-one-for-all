@@ -118,7 +118,7 @@ INSERT INTO SpotifyClone.albuns VALUES (4, 'Incandescent', 3);
 INSERT INTO SpotifyClone.albuns VALUES (5, 'Temporary Culture', 4);
 
 INSERT INTO SpotifyClone.cancoes VALUES(1,"Soul For Us",1);
-INSERT INTO SpotifyClone.cancoes VALUES(2,"Reflections of Magic",1);
+INSERT INTO SpotifyClone.cancoes VALUES(2,"Reflections Of Magic",1);
 INSERT INTO SpotifyClone.cancoes VALUES(3,"Dance With Her Own",1);
 INSERT INTO SpotifyClone.cancoes VALUES(4,"Troubles Of My Inner Fire",2);
 INSERT INTO SpotifyClone.cancoes VALUES(5,"Time Fireworks",2);
@@ -131,7 +131,7 @@ INSERT INTO SpotifyClone.cancoes VALUES(11,"Celebration Of More",4);
 INSERT INTO SpotifyClone.cancoes VALUES(12,"Rock His Everything",4);
 INSERT INTO SpotifyClone.cancoes VALUES(13,"Home Forever",4);
 INSERT INTO SpotifyClone.cancoes VALUES(14,"Diamond Power",4);
-INSERT INTO SpotifyClone.cancoes VALUES(15,"Honey,Let's Be Silly",4);
+INSERT INTO SpotifyClone.cancoes VALUES(15,"Honey, Let's Be Silly",4);
 INSERT INTO SpotifyClone.cancoes VALUES(16,"Thang Of Thunder",5);
 INSERT INTO SpotifyClone.cancoes VALUES(17,"Words Of Her Life",5);
 INSERT INTO SpotifyClone.cancoes VALUES(18,"Without My Streets",5);
