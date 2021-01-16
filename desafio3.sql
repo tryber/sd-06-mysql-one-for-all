@@ -3,4 +3,4 @@
   from SpotifyClone.historico_de_reproducoes as HR
   inner join SpotifyClone.cancoes as c on HR.cancoes_id = c.cancoes_id
   inner join SpotifyClone.usuarios as n on HR.usuario_id = n.usuario_id
-  order by usuario, nome;
+  order by usuario asc, nome asc;
