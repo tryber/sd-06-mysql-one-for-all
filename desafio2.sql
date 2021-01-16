@@ -5,4 +5,4 @@ CREATE VIEW estatisticas_musicais AS
   from SpotifyClone.cancoes as c
   inner join SpotifyClone.artistas as a
   inner join SpotifyClone.albums as al;
-    
+ 
