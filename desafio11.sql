@@ -1,0 +1,10 @@
+CREATE VIEW cancoes_premium AS
+SELECT S.song_name AS nome,
+COUNT(RH.user_id) AS reproducoes
+FROM SpotifyClone.songs AS S,
+SpotifyClone.reproduction_history AS RH,
+SpotifyClone.users AS U
+WHERE U.user_id = RH.user_id AND RH.song_id = S.song_id
+AND U.plan_id BETWEEN 2 AND 3
+GROUP BY nome
+ORDER BY nome;
