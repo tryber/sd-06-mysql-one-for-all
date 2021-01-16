@@ -7,4 +7,3 @@
   inner join SpotifyClone.seguindo_artistas as SA on SA.artista_id = al.artista_id
   group by al.album_id
   order by seguidores desc, artista, album;
- 
