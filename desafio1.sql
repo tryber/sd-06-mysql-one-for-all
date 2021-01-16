@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS seguindo_artistas (
 CREATE TABLE IF NOT EXISTS historico_de_reproducoes (
   usuario_id INT NOT NULL,
   cancoes_id INT NOT NULL,
-  PRIMARY KEY (usuario_id, cancoes_id)
+  PRIMARY KEY (usuario_id, cancoes_id),
   FOREIGN KEY (usuario_id) REFERENCES usuario(usuario_id),
   FOREIGN KEY (cancoes_id) REFERENCES cancoes(cancoes_id)
 )engine=InnoDB;
