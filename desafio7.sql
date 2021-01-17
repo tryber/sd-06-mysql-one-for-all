@@ -1,7 +1,7 @@
 USE SpotifyClone;
 CREATE VIEW perfil_artistas AS
 SELECT a2.artist_name 'artista',
-   a.album_name 'album',
+  a.album_name 'album',
 (
   SELECT COUNT(f.user_id)
   FROM SpotifyClone.Follow f
