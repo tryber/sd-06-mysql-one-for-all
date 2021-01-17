@@ -10,3 +10,4 @@ BEGIN
     WHERE follows.user_id = OLD.user_id;
 END; $$
 DELIMETER ;
+-- Ajuda do Risso no discord na estrutura --
