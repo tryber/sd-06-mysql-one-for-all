@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS Usuarios (
   usuario_id INT NOT NULL AUTO_INCREMENT,
   usuario VARCHAR(45) NOT NULL,
   plano_id INT NOT NULL,
-	PRIMARY KEY(usuario_id),
+  PRIMARY KEY(usuario_id),
     FOREIGN KEY(plano_id)
     REFERENCES Planos (planos_id)
     );
@@ -32,10 +32,10 @@ CREATE TABLE IF NOT EXISTS Albuns (
   album_id INT NOT NULL AUTO_INCREMENT,
   titulo VARCHAR(60) NOT NULL,
   artista_id INT NOT NULL,
-	PRIMARY KEY(album_id),
+  PRIMARY KEY(album_id),
 	FOREIGN KEY(artista_id)
     REFERENCES Artistas (artista_id)
- )
+)
 ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS Musicas (
@@ -43,18 +43,18 @@ CREATE TABLE IF NOT EXISTS Musicas (
   nome VARCHAR(100) NOT NULL,
   album_id INT NOT NULL,
   artista_id INT NOT NULL,
-	PRIMARY KEY(musica_id),
+  PRIMARY KEY(musica_id),
     FOREIGN KEY(album_id)
     REFERENCES Albuns (album_id),
     FOREIGN KEY(artista_id)
     REFERENCES Artistas (artista_id)
     
-    );
+);
 
 CREATE TABLE IF NOT EXISTS Historico_de_reproducoes (
   musica_id INT NOT NULL,
   usuario_id INT NOT NULL,
-	PRIMARY KEY(musica_id, usuario_id),
+  PRIMARY KEY(musica_id, usuario_id),
     FOREIGN KEY(usuario_id)
     REFERENCES Usuarios (usuario_id),
     FOREIGN KEY(musica_id)
@@ -65,7 +65,7 @@ CREATE TABLE IF NOT EXISTS Artistas_seguidos (
   id_favoritos INT NOT NULL AUTO_INCREMENT,
   artista_id INT NOT NULL,
   usuario_id INT NOT NULL,
-	PRIMARY KEY(id_favoritos),
+  PRIMARY KEY(id_favoritos),
     FOREIGN KEY(usuario_id)
     REFERENCES Usuarios (usuario_id),
     FOREIGN KEY(artista_id)
