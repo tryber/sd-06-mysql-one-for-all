@@ -86,7 +86,6 @@ VALUES
   (18, "Time Fireworks", 2);
 
 CREATE TABLE SpotifyClone.user_song (
-  user_song_id INT PRIMARY KEY AUTO_INCREMENT,
   user_id INT NOT NULL,
   song_id INT NOT NULL,
   FOREIGN KEY (user_id) REFERENCES SpotifyClone.users(user_id),
@@ -111,7 +110,6 @@ VALUES
   (4, 3);
   
 CREATE TABLE SpotifyClone.user_artist (
-  user_artist_id INT PRIMARY KEY AUTO_INCREMENT,
   user_id INT NOT NULL,
   artist_id INT NOT NULL,
   FOREIGN KEY (user_id) REFERENCES SpotifyClone.users(user_id),
