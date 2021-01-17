@@ -1,5 +1,5 @@
 CREATE VIEW historico_reproducao_usuarios AS
-SELECT usuario_nome AS usuario, nome AS nome
+SELECT U.usuario_nome AS usuario, M.nome AS nome
 FROM historico as H
 INNER JOIN usuarios AS U
 ON U.usuario_id = H.usuario_id
