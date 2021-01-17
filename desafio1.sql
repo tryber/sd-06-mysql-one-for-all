@@ -4,6 +4,8 @@ CREATE DATABASE SpotifyClone;
 
 USE SpotifyClone;
 
+DROP TABLE IF EXISTS plano;
+
 CREATE TABLE plano(
     plano_id int(11) PRIMARY KEY AUTO_INCREMENT,
     plano_nome varchar(20) NOT NULL,
@@ -15,6 +17,8 @@ VALUES
   ('gratuito', '0'),
   ('universitário', '5,99'),
   ('familiar', '7,99');
+
+DROP TABLE IF EXISTS usuario;
 
 CREATE TABLE usuario(
     usuario_id int(11) PRIMARY KEY AUTO_INCREMENT,
@@ -31,6 +35,8 @@ VALUES
   ('Bill', '20', '2'),
   ('Roger', '45', '1');
 
+DROP TABLE IF EXISTS artistas;
+
 CREATE TABLE artistas(
     artista_id int(11) PRIMARY KEY AUTO_INCREMENT,
     artista_nome varchar(80) NOT NULL,
@@ -42,6 +48,8 @@ VALUES
   ('Peter Strong'),
   ('Lance Day'),
   ('Freedie Shannon');
+
+DROP TABLE IF EXISTS album;
 
 CREATE TABLE album(
     album_id int(11) PRIMARY KEY AUTO_INCREMENT,
@@ -56,6 +64,8 @@ VALUES
   ('Hallowed Steam'	'2'),
   ('Incandescent'	'3'),
   ('Temporary Culture', '4');
+
+DROP TABLE IF EXISTS cancoes;
 
 CREATE TABLE cancoes(
     cancao_id int(11) PRIMARY KEY AUTO_INCREMENT,
@@ -86,6 +96,8 @@ VALUES
   ('Words Of Her Life',	'4',	'5'),
   ('Without My Streets'	'4'	'5');
 
+DROP TABLE IF EXISTS historico_de_reproducoes;
+
 CREATE TABLE historico_de_reproducoes(
     reproducao_id int(11) PRIMARY KEY AUTO_INCREMENT,
     cancao_nome varchar(80) NOT NULL,
@@ -112,6 +124,8 @@ VALUES
   ('Dance With Her Own',	'4',	'1'),
   ('Without My Streets',	'4',	'5'),
   ('Celebration Of More',	'4',	'4');
+
+DROP TABLE IF EXISTS seguindo_artista;
 
 CREATE TABLE seguindo_artista(
     usuario_id int(11) NOT NULL,
