@@ -8,7 +8,7 @@ DELETE FROM historico
 WHERE usuario_id = OLD.usuario_id;
 DELETE FROM seguindo
 WHERE usuario_id = OLD.usuario_id;
-END
+END $$
 DELIMITER ;
 
 DELETE FROM usuarios
