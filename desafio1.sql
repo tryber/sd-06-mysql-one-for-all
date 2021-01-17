@@ -62,10 +62,9 @@ CREATE TABLE IF NOT EXISTS Historico_de_reproducoes (
 );
 
 CREATE TABLE IF NOT EXISTS Artistas_seguidos (
-  id_favoritos INT NOT NULL AUTO_INCREMENT,
   artista_id INT NOT NULL,
   usuario_id INT NOT NULL,
-  PRIMARY KEY(id_favoritos),
+  PRIMARY KEY(artista_id, usuario_id),
   FOREIGN KEY(usuario_id)
   REFERENCES Usuarios (usuario_id),
   FOREIGN KEY(artista_id)
