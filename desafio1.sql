@@ -119,7 +119,7 @@ VALUES
   (4, 18),
   (4, 11);
 
-INSERT INTO seguindo_artistas(artista_id, usuario_id)
+INSERT INTO seguindo_artistas(usuario_id, artista_id)
 VALUES
   (1, 1),
   (1, 4),
