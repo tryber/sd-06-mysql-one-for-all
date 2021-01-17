@@ -6,5 +6,5 @@ FROM SpotifyClone.artists art
 JOIN SpotifyClone.followings flw
 ON art.artist_id = flw.artist_id
 GROUP BY artista
-ORDER BY seguidores DESC
+ORDER BY seguidores DESC, artista
 LIMIT 3;
