@@ -109,4 +109,4 @@ INSERT INTO followers(user_id, artist_id) VALUES
 (2, 3),
 (3, 1),
 (3, 2),
-(4, 4); 
+(4, 4);
