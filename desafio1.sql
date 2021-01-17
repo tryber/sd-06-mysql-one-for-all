@@ -88,6 +88,7 @@ VALUES
 CREATE TABLE SpotifyClone.user_song (
   user_id INT NOT NULL,
   song_id INT NOT NULL,
+  PRIMARY KEY (user_id, song_id),
   FOREIGN KEY (user_id) REFERENCES SpotifyClone.users(user_id),
   FOREIGN KEY (song_id) REFERENCES SpotifyClone.songs(song_id)
 ) ENGINE = Innodb;
@@ -112,7 +113,7 @@ VALUES
 CREATE TABLE SpotifyClone.user_artist (
   user_id INT NOT NULL,
   artist_id INT NOT NULL,
-  CONSTRAINT PK_user_follows PRIMARY KEY (user_id, artist_id),
+  PRIMARY KEY (user_id, artist_id),
   FOREIGN KEY (user_id) REFERENCES SpotifyClone.users(user_id),
   FOREIGN KEY (artist_id) REFERENCES SpotifyClone.artists(artist_id)
 ) ENGINE = Innodb;
