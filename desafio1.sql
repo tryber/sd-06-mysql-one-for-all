@@ -5,10 +5,10 @@ CREATE DATABASE IF NOT EXISTS SpotifyClone;
 USE SpotifyClone;
 
 CREATE TABLE IF NOT EXISTS Planos (
-  planos_id INT NOT NULL AUTO_INCREMENT,
-  plano VARCHAR(45) NOT NULL,
-  valor_plano DECIMAL(4,2) NOT NULL,
-  PRIMARY KEY (planos_id)
+    planos_id INT NOT NULL AUTO_INCREMENT,
+    plano VARCHAR(45) NOT NULL,
+    valor_plano DECIMAL(4 , 2 ) NOT NULL,
+    PRIMARY KEY (planos_id)
 );
 
 CREATE TABLE IF NOT EXISTS Usuarios (
