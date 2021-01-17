@@ -213,6 +213,12 @@ VALUES
 -- https://www.devmedia.com.br/triggers-pl-sql-saiba-quando-e-por-que-usar/30011
 -- https://www.mssqltips.com/sqlservertip/5909/sql-server-trigger-example/
 -- https://www.mysqltutorial.org/mysql-triggers/mysql-before-delete-trigger/
+-- https://pastebin.com/dV5m4UVb
+-- https://www.sqlservertutorial.net/
+-- https://www.w3schools.com/sql/default.asp
+-- https://www.tutorialspoint.com/sql/index.htm
+-- YOUTUBE = "tantaum" de videos
+-- GITHUB = Havyner
 
 -- CONSTRAINT `fk_historicos_usuarios_id` - qual caso uso isso para chamar? pra q serve a constraint?
 -- poso deixar o `fk_historicos_usuarios_id` somente como `fk_usuarios_id` ou é recomendado/obrigatorio manter a tabela referencia?
