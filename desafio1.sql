@@ -54,7 +54,8 @@ DROP TABLE IF EXISTS album;
 CREATE TABLE album(
     album_id int(11) PRIMARY KEY AUTO_INCREMENT,
     album_nome varchar(20) NOT NULL,
-    artista_id int(11) NOT NULL
+    artista_id int(11) NOT NULL,
+    FOREIGN KEY (artista_id) REFERENCES artistas(artista_id)
 ) engine = InnoDB;
 
 INSERT INTO album (album_nome, artista_id)
