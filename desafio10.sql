@@ -5,9 +5,10 @@ RETURNS INT READS SQL DATA
 BEGIN
 DECLARE total_songs INT;
 SELECT
-COUNT(*)
+COUNT(song_id)
 FROM playback_history
-WHERE user_id = id
+GROUP BY user_id
+HAVING user_id = id
 INTO total_songs;
 RETURN total_songs;
 END $$
