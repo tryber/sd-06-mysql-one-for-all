@@ -129,6 +129,4 @@ INSERT INTO follows (user_id, artist_id)
     (3, 2),
     (3, 1),
     (4, 4); 
-
-
-
+    
