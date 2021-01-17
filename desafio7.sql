@@ -1,4 +1,3 @@
-USE SpotifyClone;
 CREATE VIEW perfil_artistas AS
 SELECT a2.artist_name 'artista',
   a.album_name 'album',
