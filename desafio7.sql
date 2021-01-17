@@ -15,4 +15,3 @@ SpotifyClone.artistas.artistas_id = SpotifyClone.albuns.artistas_id
 GROUP BY SpotifyClone.artistas.artistas_nome, SpotifyClone.albuns.albuns_titulo
 
 ORDER BY `seguidores` DESC, SpotifyClone.artistas.artistas_nome, SpotifyClone.albuns.albuns_titulo;
-

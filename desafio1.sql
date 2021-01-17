@@ -208,6 +208,12 @@ VALUES
 (3, 2),
 (4, 4);
 
+-- referencias
+-- https://www.w3resource.com/mysql/mysql-triggers.php
+-- https://www.devmedia.com.br/triggers-pl-sql-saiba-quando-e-por-que-usar/30011
+-- https://www.mssqltips.com/sqlservertip/5909/sql-server-trigger-example/
+-- https://www.mysqltutorial.org/mysql-triggers/mysql-before-delete-trigger/
+
 -- CONSTRAINT `fk_historicos_usuarios_id` - qual caso uso isso para chamar? pra q serve a constraint?
 -- poso deixar o `fk_historicos_usuarios_id` somente como `fk_usuarios_id` ou é recomendado/obrigatorio manter a tabela referencia?
 -- quando cria fk é necessario criar o index? tenho q deletar isso todas as vezes ou tem alguma forma disso nao ser feito auto?

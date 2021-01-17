@@ -1,8 +1,11 @@
--- SELECT w3schools.customers.ContactName AS 'Nome de contato',
--- w3schools.shippers.ShipperName AS 'Empresa que fez o envio',
--- w3schools.orders.OrderDate AS 'Data do pedido'
--- FROM w3schools.customers, w3schools.shippers, w3schools.orders
--- WHERE w3schools.customers.CustomerID = w3schools.orders.CustomerID
--- AND w3schools.shippers.ShipperID = w3schools.orders.ShipperID
--- AND w3schools.shippers.ShipperID IN (1, 2)
--- ORDER BY w3schools.customers.ContactName, w3schools.shippers.ShipperName, w3schools.orders.OrderDate;
+DELIMITER $$
+DROP TRIGGER IF EXISTS `trigger_usuario_delete`;
+CREATE TRIGGER trigger_usuario_delete
+BEFORE DELETE ON SpotifyClone.usuarios
+FOR EACH ROW
+BEGIN
+  DELETE FROM SpotifyClone.seguindo_artistas WHERE usuarios_id = OLD.usuarios_id;
+  DELETE FROM SpotifyClone.historicos WHERE usuarios_id = OLD.usuarios_id;
+END $$
+
+DELIMITER ;
