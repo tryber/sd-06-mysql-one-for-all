@@ -20,7 +20,7 @@ CREATE TABLE users (
     user_name VARCHAR(20) NOT NULL,
     user_age INTEGER NOT NULL,
     subscription_id INTEGER NOT NULL,
-    FOREIGN KEY (subscription_id) REFERENCES Subscriptions(subscription_id)
+    FOREIGN KEY (subscription_id) REFERENCES subscriptions(subscription_id)
 ) engine = InnoDB;
 
 CREATE TABLE albuns (
@@ -53,13 +53,13 @@ CREATE TABLE histories (
     FOREIGN KEY(song_id) REFERENCES songs(song_id)
 ) engine = InnoDB;
 
-INSERT TO subscriptions (subscription_name, subscription_cost)
+INSERT INTO subscriptions (subscription_name, subscription_cost)
     VALUES
     ('gratuito', 0.00),
     ('familiar', 7.99),
     ('universitário', 5.99);
 
-INSERT TO artists (artist_name)
+INSERT INTO artists (artist_name)
     VALUES
     ('Walter Phoenix'),
     ('Peter Strong'),
