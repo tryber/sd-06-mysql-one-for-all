@@ -44,68 +44,71 @@ CREATE TABLE artista_usuario(
   PRIMARY KEY (usuario_id, artista_id)
 ) ENGINE = InnoDB;
 INSERT INTO plano(plano_name, plano_valor)
+VALUES ('gratuito', 0), ('familiar', 7.99), ('universitário', 5.99);
+INSERT INTO usuario(usuario_name, idade,plano_id) 
 VALUES
-  ('gratuito', 0), ('familiar', 7.99), ('universitário', 5.99);
-  INSERT INTO usuario(usuario_name, idade,plano_id) VALUES
-  ('Thati', 23, 1),
-  ('Cintia', 35, 3),
-  ('Bill', 20, 2),
-  ('Roger', 45, 1);
-INSERT INTO artista(artista_name) VALUES 
-  ('Walter Phoenix'),
-  ('Peter Strong'),
-  ('Lance Day'),
-  ('Freedie Shannon');
+('Thati', 23, 1),
+('Cintia', 35, 3),
+('Bill', 20, 2),
+('Roger', 45, 1);
+INSERT INTO artista(artista_name) 
+VALUES 
+('Walter Phoenix'),
+('Peter Strong'),
+('Lance Day'),
+('Freedie Shannon');
 INSERT INTO album(album_name, artista_id)
 VALUES
-  ('Envious', 1),
-  ('Exuberant', 1),
-  ('Hallowed Steam', 3),
-  ('Incandescent', 2), 
-  ('Temporary Culture', 4);
-  INSERT INTO cancoes(cancoes_name, album_id)
+('Envious', 1),
+('Exuberant', 1),
+('Hallowed Steam', 3),
+('Incandescent', 2), 
+('Temporary Culture', 4);
+INSERT INTO cancoes(cancoes_name, album_id)
 VALUES 
-  ('Soul For Us', 1),
-  ('Reflections Of Magic', 1),
-  ('Dance With Her Own', 1),
-  ('Troubles Of My Inner Fire', 2),
-  ('Time Fireworks', 2),
-  ('Magic Circus', 3),
-  ('Honey, So Do I', 3),
-  ("Sweetie, Let's Go Wild", 3),
-  ('She Knows', 3),
-  ('Fantasy For Me', 4),
-  ('Celebration Of More', 4),
-  ('Rock His Everything', 4),
-  ('Home Forever', 4),
-  ('Diamond Power', 4),
-  ("Honey, Let's Be Silly", 4),
-  ('Thang Of Thunder', 5),
-  ('Words Of Her Life', 5),
-  ('Without My Streets', 5);
+('Soul For Us', 1),
+('Reflections Of Magic', 1),
+('Dance With Her Own', 1),
+('Troubles Of My Inner Fire', 2),
+('Time Fireworks', 2),
+('Magic Circus', 3),
+('Honey, So Do I', 3),
+("Sweetie, Let's Go Wild", 3),
+('She Knows', 3),
+('Fantasy For Me', 4),
+('Celebration Of More', 4),
+('Rock His Everything', 4),
+('Home Forever', 4),
+('Diamond Power', 4),
+("Honey, Let's Be Silly", 4),
+('Thang Of Thunder', 5),
+('Words Of Her Life', 5),
+('Without My Streets', 5);
+
 INSERT INTO historico(usuario_id, cancoes_id)
 VALUES
-  (1, 1),
-  (1, 6),
-  (1, 14),
-  (1, 16),
-  (2, 13),
-  (2, 17),
-  (2, 2),
-  (2, 15),
-  (3, 4),
-  (3, 16),
-  (3, 6),
-  (4, 3),
-  (4, 18),
-  (4, 11);
+(1, 1),
+(1, 6),
+(1, 14),
+(1, 16),
+(2, 13),
+(2, 17),
+(2, 2),
+(2, 15),
+(3, 4),
+(3, 16),
+(3, 6),
+(4, 3),
+(4, 18),
+(4, 11);
+
 INSERT INTO artista_usuario (usuario_id, artista_id)
 VALUES
-  (1, 1),
-  (1, 2),
-  (1, 4),
-  (2, 1),
-  (2, 2),
-  (3, 3),
-  (3, 1),
-  (4, 4);
+(1, 1),
+(1, 2),
+(1, 4),
+(2, 1),
+(2, 2),
+(3, 3),
+(3, 1),
+(4, 4);
