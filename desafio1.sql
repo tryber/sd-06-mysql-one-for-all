@@ -122,7 +122,7 @@ VALUES
     (3, 16),
     (3, 6),
     (4, 3),
-    (4, 17),
+    (4, 18),
     (4, 11);
 
 CREATE TABLE IF NOT EXISTS followings(
