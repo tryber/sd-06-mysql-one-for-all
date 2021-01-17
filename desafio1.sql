@@ -42,7 +42,7 @@ CREATE TABLE albuns (
   id_album INT PRIMARY KEY AUTO_INCREMENT,
   nome_album VARCHAR(200) NOT NULL,
   artista_associado INT NOT NULL,
-  CONSTRAINT `fk_album_artista` FOREIGN KEY (artista_associado) REFERENCES artistas(id_artista) 
+  FOREIGN KEY (artista_associado) REFERENCES artistas(id_artista) 
 ) engine = InnoDB;
 
 -- Cria a tabela cancoes
@@ -53,7 +53,7 @@ CREATE TABLE cancoes (
   id_cancao INT PRIMARY KEY AUTO_INCREMENT,
   nome_cancao VARCHAR(200) NOT NULL,
   album_associado INT NOT NULL,
-  CONSTRAINT `fk_cancao_album` FOREIGN KEY (album_associado) REFERENCES albuns(id_album)
+  FOREIGN KEY (album_associado) REFERENCES albuns(id_album)
 ) engine = InnoDB;
 
 -- Cria a tabela historico
