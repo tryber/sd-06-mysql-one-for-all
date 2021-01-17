@@ -1,15 +1,8 @@
-DELIMITER $$
-
-CREATE FUNCTION quantidade_musicas_no_historico (usuario int)
-RETURNS INT READS SQL DATA
-BEGIN
-DECLARE quantidade_musicas_no_historico int;
-SELECT COUNT(*) 
-FROM SpotifyClone.historico_de_reproducoes
-WHERE historico_de_reproducoes.usuario_id = usuario
-GROUP BY historico_de_reproducoes.usuario_id
-INTO quantidade_musicas_no_historico;
-RETURN quantidade_musicas_no_historico;
-END $$
-
-DELIMITER ;
+create view cancoes_premium as
+select c.cancao as nome, count(hr.usuario_id) as reproducoes
+from SpotifyClone.historico_de_reproducoes as hr
+inner join SpotifyClone.cancoes as c on hr.cancoes_id = c.cancoes_id
+inner join SpotifyClone.usuarios as us on hr.usuarios_id = us.usuarios_id
+where us.financeiro_id between 2 and 3
+group by hr.cancoes_id
+order by `nome`;
