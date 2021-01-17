@@ -27,14 +27,14 @@ CREATE TABLE albuns (
     album_id INT PRIMARY KEY AUTO_INCREMENT,
     album_name VARCHAR(50) NOT NULL,
     artist_id INT,
-    FOREIGN KEY(artist_id) REFERENCES artist(artist_id)
+    FOREIGN KEY(artist_id) REFERENCES artists(artist_id)
 ) engine = InnoDB;
 
 CREATE TABLE songs (
     song_id INT PRIMARY KEY AUTO_INCREMENT,
     song_name VARCHAR(80) NOT NULL,
     album_id INT,
-    FOREIGN KEY(album_id) REFERENCES album(album_id)
+    FOREIGN KEY(album_id) REFERENCES albuns(album_id)
 ) engine = InnoDB;
 
 CREATE TABLE follows (
@@ -42,7 +42,7 @@ CREATE TABLE follows (
     artist_id INT,
     PRIMARY KEY(user_id, artist_id),
     FOREIGN KEY(user_id) REFERENCES users(user_id),
-    FOREIGN KEY(artist_id) REFERENCES artist(artist_id)
+    FOREIGN KEY(artist_id) REFERENCES artists(artist_id)
 ) engine = InnoDB;
 
 CREATE TABLE histories (
@@ -50,7 +50,7 @@ CREATE TABLE histories (
     song_id INT,
     PRIMARY KEY(user_id, song_id),
     FOREIGN KEY(user_id) REFERENCES users(user_id),
-    FOREIGN KEY(song_id) REFERENCES song(song_id)
+    FOREIGN KEY(song_id) REFERENCES songs(song_id)
 ) engine = InnoDB;
 
 INSERT TO subscriptions (subscription_name, subscription_cost)
