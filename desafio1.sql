@@ -12,7 +12,7 @@ plano_valor DECIMAL(4,2) NOT NULL
 
 CREATE TABLE usuarios(
 usuario_id INT PRIMARY KEY auto_increment,
-nome VARCHAR(20) NOT NULL,
+usuario_nome VARCHAR(20) NOT NULL,
 idade INT NOT NULL,
 plano_id INT NOT NULL,
 FOREIGN KEY (plano_id) REFERENCES planos(plano_id)
@@ -59,7 +59,7 @@ VALUES
 ('familiar', 7.99),
 ('universitário', 5.99);
 
-INSERT INTO usuarios(nome, idade, plano_id)
+INSERT INTO usuarios(usuario_nome, idade, plano_id)
 VALUES
 ('Thati', 23, 1),
 ('Cintia', 35, 2),
