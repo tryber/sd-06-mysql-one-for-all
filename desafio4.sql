@@ -1,4 +1,4 @@
- create view top_3_artistas as
+  create view top_3_artistas as
 select a.artista as artista,
 count(sa.usuario_id) as seguidores
 from SpotifyClone.artistas as a
