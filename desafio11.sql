@@ -10,3 +10,5 @@ LEFT JOIN cancoes AS C ON HR.cancao_id = C.cancao_id
 WHERE P.nome_plano IN ('familiar', 'universitário')
 GROUP BY HR.cancao_id
 ORDER BY `nome`;
+
+SELECT * FROM cancoes_premium;
