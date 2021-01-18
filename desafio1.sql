@@ -39,21 +39,21 @@ VALUES ('Walter Phoenix'),
 ('Freedie Shannon');
 
 CREATE TABLE followers(
-artist_id INT NOT NULL,
 user_id INT NOT NULL,
-PRIMARY KEY (artist_id, user_id),
-FOREIGN KEY (artist_id) REFERENCES artists(artist_id),
-FOREIGN KEY (user_id) REFERENCES users(user_id)
+artist_id INT NOT NULL,
+PRIMARY KEY (user_id, artist_id),
+FOREIGN KEY (user_id) REFERENCES users(user_id),
+FOREIGN KEY (artist_id) REFERENCES artists(artist_id)
 );
 
-INSERT INTO followers(artist_id, user_id)
+INSERT INTO followers(user_id, artist_id)
 VALUES (1, 1),
-(4, 1),
-(3, 1),
-(1, 2),
-(3, 2),
-(2, 3),
+(1, 4),
 (1, 3),
+(2, 1),
+(2, 3),
+(3, 2),
+(3, 1),
 (4, 4);
 
 CREATE TABLE albums(
