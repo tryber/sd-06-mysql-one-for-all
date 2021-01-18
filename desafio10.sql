@@ -7,7 +7,7 @@ DECLARE cancoes_historico INT;
 SELECT COUNT(cancoes_id)
 FROM SpotifyClone.historico_execucoes
 GROUP BY usuario_id
-HAVING usuario_id = id INTO cancoes_historico;
+HAVING SpotifyClone.historico_execucoes.usuario_id = id INTO cancoes_historico;
 RETURN cancoes_historico;
 END $$
 DELIMITER ; 
