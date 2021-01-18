@@ -112,10 +112,10 @@ VALUES (18, "Without My Streets", 5);
 
 CREATE TABLE SpotifyClone.historico_de_reproducoes(
 usuario_id INT NOT NULL,
-cancao_id INT NOT NULL,
-PRIMARY KEY (usuario_id, cancao_id)
+cancoes_id INT NOT NULL,
+PRIMARY KEY (usuario_id, cancoes_id)
 FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id),
-FOREIGN KEY (cancao_id) REFERENCES cancoes(cancao_id),
+FOREIGN KEY (cancoes_id) REFERENCES cancoes(cancoes_id),
 )engine = InnoDB;
 
 INSERT INTO SpotifyClone.historico_de_reproducoes(usuario_id, cancoes_id)
