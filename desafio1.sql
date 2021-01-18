@@ -4,9 +4,9 @@ CREATE DATABASE SpotifyClone;
 USE SpotifyClone;
 
 CREATE TABLE plano (
-   plano_id INT PRIMARY KEY AUTO_INCREMENT,
-   plano VARCHAR(50) NOT NULL,
-   valor DECIMAL(5,2) NOT NULL
+  plano_id INT PRIMARY KEY AUTO_INCREMENT,
+  plano VARCHAR(50) NOT NULL,
+  valor DECIMAL(5,2) NOT NULL
 ) engine = InnoDB;
 
 CREATE TABLE usuario (
