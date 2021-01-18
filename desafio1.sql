@@ -3,19 +3,6 @@ DROP DATABASE IF EXISTS SpotifyClone;
 
 CREATE DATABASE SpotifyClone;
 
-CREATE TABLE SpotifyClone.usuarios(
-usuario_id INT PRIMARY KEY AUTO_INCREMENT,
-usuario_nome VARCHAR(50) NOT NULL,
-plano_id INT NOT NULL,
-idade INT NOT NULL,
-FOREIGN KEY (plano_id) REFERENCES SpotifyClone.planos (plano_id)
-)engine = InnoDB;
-
-INSERT INTO SpotifyClone.usuarios (usuario_nome,idade) VALUES ('Thati',23);
-INSERT INTO SpotifyClone.usuarios (usuario_nome,idade) VALUES ('Cintia',35);
-INSERT INTO SpotifyClone.usuarios (usuario_nome,idade) VALUES ('Bill',20);
-INSERT INTO SpotifyClone.usuarios (usuario_nome,idade) VALUES ('Roger',45);
-
 CREATE TABLE SpotifyClone.planos(
 plano_id INT PRIMARY KEY AUTO_INCREMENT,
 plano_nome VARCHAR(20) NOT NULL,
@@ -25,6 +12,19 @@ valor VARCHAR(20) NOT NULL
 INSERT INTO SpotifyClone.planos (plano_nome,valor) VALUES ('Gratuito',0);
 INSERT INTO SpotifyClone.planos (plano_nome,valor) VALUES ('Familiar',7.99);
 INSERT INTO SpotifyClone.planos (plano_nome,valor) VALUES ('Universitário',5.99);
+
+CREATE TABLE SpotifyClone.usuarios(
+usuario_id INT PRIMARY KEY AUTO_INCREMENT,
+usuario_nome VARCHAR(50) NOT NULL,
+plano_id INT NOT NULL,
+idade INT NOT NULL,
+FOREIGN KEY (plano_id) REFERENCES SpotifyClone.planos (plano_id)
+)engine = InnoDB;
+
+INSERT INTO SpotifyClone.usuarios (usuario_nome,idade) VALUES ('Thati',23,1);
+INSERT INTO SpotifyClone.usuarios (usuario_nome,idade) VALUES ('Cintia',35,2);
+INSERT INTO SpotifyClone.usuarios (usuario_nome,idade) VALUES ('Bill',20,3);
+INSERT INTO SpotifyClone.usuarios (usuario_nome,idade) VALUES ('Roger',45,1);
 
 CREATE TABLE SpotifyClone.plano_usuario(
 planos_usuario_id INT PRIMARY KEY AUTO_INCREMENT,
