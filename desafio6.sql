@@ -1,4 +1,4 @@
-DROP VIEW IF EXISTS `faturamento_atual`;
+-- DROP VIEW IF EXISTS `faturamento_atual`;
 CREATE VIEW faturamento_atual AS
 SELECT
 ROUND(MIN(SpotifyClone.planos.planos_valor), 2) AS 'faturamento_minimo',

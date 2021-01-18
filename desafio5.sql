@@ -1,4 +1,4 @@
-DROP VIEW IF EXISTS `top_2_hits_do_momento`;
+-- DROP VIEW IF EXISTS `top_2_hits_do_momento`;
 CREATE VIEW top_2_hits_do_momento AS
 SELECT
 SpotifyClone.musicas.musicas_titulo AS 'cancao',

@@ -1,4 +1,4 @@
-DROP VIEW IF EXISTS `cancoes_premium`;
+-- DROP VIEW IF EXISTS `cancoes_premium`;
 CREATE VIEW cancoes_premium AS
 SELECT
 SpotifyClone.musicas.musicas_titulo AS 'nome',

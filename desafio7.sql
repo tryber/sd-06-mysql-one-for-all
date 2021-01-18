@@ -1,4 +1,4 @@
-DROP VIEW IF EXISTS `perfil_artistas`;
+-- DROP VIEW IF EXISTS `perfil_artistas`;
 CREATE VIEW perfil_artistas AS
 SELECT
 SpotifyClone.artistas.artistas_nome AS 'artista',

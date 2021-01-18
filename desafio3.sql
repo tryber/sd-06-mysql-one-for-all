@@ -1,4 +1,4 @@
-DROP VIEW IF EXISTS `historico_reproducao_usuarios`;
+-- DROP VIEW IF EXISTS `historico_reproducao_usuarios`;
 CREATE VIEW historico_reproducao_usuarios AS
 SELECT
 SpotifyClone.usuarios.usuarios_nome AS 'usuario',
