@@ -1,4 +1,3 @@
-use SpotityClone;
 CREATE VIEW perfil_artistas AS
 SELECT a.nome AS `artista`, 
 al.nome AS `album`,

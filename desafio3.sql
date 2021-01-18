@@ -1,4 +1,3 @@
-use SpotityClone;
 CREATE VIEW historico_reproducao_usuarios AS
 SELECT u.nome AS `usuario`,  c.nome AS `nome`
 FROM usuario AS u
