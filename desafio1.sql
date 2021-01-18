@@ -1,13 +1,13 @@
 
 DROP DATABASE IF EXISTS SpotifyClone;
+
 CREATE DATABASE SpotifyClone;
-USE SpotifyClone;
 
 CREATE TABLE SpotifyClone.usuarios(
 usuario_id INT PRIMARY KEY AUTO_INCREMENT,
 usuario_nome VARCHAR(50) NOT NULL,
 idade INT NOT NULL
-);
+)engine = InnoDB;
 
 INSERT INTO SpotifyClone.usuarios (usuario_nome,idade) VALUES ('Thati',23);
 INSERT INTO SpotifyClone.usuarios (usuario_nome,idade) VALUES ('Cintia',35);
@@ -18,7 +18,7 @@ CREATE TABLE SpotifyClone.planos(
 planos_id INT PRIMARY KEY AUTO_INCREMENT,
 plano_nome VARCHAR(20) NOT NULL,
 valor VARCHAR(20) NOT NULL
-);
+)engine = InnoDB;
 
 INSERT INTO SpotifyClone.planos (plano_nome,valor) VALUES ('Gratuito',0);
 INSERT INTO SpotifyClone.planos (plano_nome,valor) VALUES ('Familiar',7.99);
@@ -30,7 +30,7 @@ usuario_id INT NOT NULL,
 plano_id INT NOT NULL,
 FOREIGN KEY (usuario_id) REFERENCES SpotifyClone.usuarios (usuario_id),
 FOREIGN KEY (plano_id) REFERENCES SpotifyClone.planos (planos_id)
-);
+)engine = InnoDB;
 
 INSERT INTO SpotifyClone.plano_usuario (usuario_id,plano_id) VALUES (1,1);
 INSERT INTO SpotifyClone.plano_usuario (usuario_id,plano_id) VALUES (2,2);
@@ -40,7 +40,7 @@ INSERT INTO SpotifyClone.plano_usuario (usuario_id,plano_id) VALUES (4,1);
 CREATE TABLE SpotifyClone.artista(
 artista_id INT PRIMARY KEY AUTO_INCREMENT,
 artista_nome VARCHAR(50) NOT NULL
-);
+)engine = InnoDB;
 
 INSERT INTO SpotifyClone.artista (artista_nome) VALUES ('Walter Phoenix');
 INSERT INTO SpotifyClone.artista (artista_nome) VALUES ('Peter Strong');
@@ -53,7 +53,7 @@ usuario_id INT NOT NULL,
 FOREIGN KEY (usuario_id) REFERENCES SpotifyClone.usuarios (usuario_id),
 FOREIGN KEY (artista_id) REFERENCES SpotifyClone.artista (artista_id),
 PRIMARY KEY (artista_id, usuario_id)
-);
+)engine = InnoDB;
 
 INSERT INTO SpotifyClone.usuario_segue (usuario_id, artista_id) VALUES (1,1);
 INSERT INTO SpotifyClone.usuario_segue (usuario_id, artista_id) VALUES (1,4);
@@ -69,7 +69,7 @@ album_id INT PRIMARY KEY AUTO_INCREMENT,
 album_nome VARCHAR(50) NOT NULL,
 artista_id INT NOT NULL,
 FOREIGN KEY (artista_id) REFERENCES SpotifyClone.artista (artista_id)
-);
+)engine = InnoDB;
 
 INSERT INTO SpotifyClone.albuns (album_nome, artista_id) VALUES ('Envious',1);
 INSERT INTO SpotifyClone.albuns (album_nome, artista_id) VALUES ('Exuberant',1);
@@ -83,7 +83,7 @@ cancao_id INT PRIMARY KEY AUTO_INCREMENT,
 cancao_nome VARCHAR(50) NOT NULL,
 album_id INT NOT NULL,
 FOREIGN KEY (album_id) REFERENCES SpotifyClone.albuns(album_id)
-);
+)engine = InnoDB;
 
 INSERT INTO SpotifyClone.cancoes (cancao_nome, album_id) VALUES ('Soul For Us',1);
 INSERT INTO SpotifyClone.cancoes (cancao_nome, album_id) VALUES ('Reflections Of Magic',1);
@@ -109,7 +109,7 @@ cancao_id INT NOT NULL,
 FOREIGN KEY (usuario_id) REFERENCES SpotifyClone.usuarios (usuario_id),
 FOREIGN KEY (cancao_id) REFERENCES SpotifyClone.cancoes(cancao_id),
 PRIMARY KEY (usuario_id, cancao_id)
-);
+)engine = InnoDB;
 
 INSERT INTO SpotifyClone.historico_reproducao (usuario_id, cancao_id) VALUES (1,1);
 INSERT INTO SpotifyClone.historico_reproducao (usuario_id, cancao_id) VALUES (1,6);
