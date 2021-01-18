@@ -1,4 +1,3 @@
-USE SpotifyClone;
 CREATE VIEW faturamento_atual AS
 SELECT MIN(P.valor_plano) AS 'faturamento_minimo',
 MAX(P.valor_plano) AS 'faturamento_maximo',

@@ -1,4 +1,3 @@
-USE SpotifyClone;
 CREATE VIEW top_2_hits_do_momento AS
 SELECT C.cancao_nome AS 'cancao',
 COUNT(DISTINCT U.usuario_id) AS 'reproducoes'
