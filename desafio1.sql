@@ -43,7 +43,7 @@ VALUES
   (23, "Thati", 1),
   (35, "Cintia", 3),
   (20, "Bill", 2),
-  (45, "ROGER", 1);
+  (45, "Roger", 1);
 DROP TABLE IF EXISTS preferencias;
 CREATE TABLE preferencias(
     `USUARIO_ID` INT NOT NULL,
@@ -104,10 +104,10 @@ VALUES
   ("Fantasy For Me", 3, 4),
   ("Celebration Of More", 3, 4),
   ("Rock His Everything", 3, 4),
-  ("Home Forever ", 3, 4),
+  ("Home Forever", 3, 4),
   ("Diamond Power", 3, 4),
-  ("Honey, Let`s Be Silly", 3, 4),
-  (" Thang Of Thunder ", 4, 5),
+  ("Honey, Let's Be Silly", 3, 4),
+  ("Thang Of Thunder", 4, 5),
   ("Words Of Her Life", 4, 5),
   ("Without My Streets", 4, 5);
 DROP TABLE IF EXISTS historico;
@@ -130,7 +130,7 @@ VALUES
   (2, 2),
   (2, 15),
   (3, 4),
-  (3, 15),
+  (3, 16),
   (3, 6),
   (4, 3),
   (4, 18),
