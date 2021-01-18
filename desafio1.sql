@@ -40,8 +40,8 @@ FOREIGN KEY (artista_id) REFERENCES SpotifyClone.artista (artista_id)
 CREATE TABLE SpotifyClone.cancoes(
 cancao_id INT PRIMARY KEY AUTO_INCREMENT,
 cancao_nome VARCHAR(50) NOT NULL,
-album_id INT NOT NULL,
-FOREIGN KEY (album_id) REFERENCES SpotifyClone.albuns(album_id)
+cancoes_album_id INT NOT NULL,
+FOREIGN KEY (cancoes_album_id) REFERENCES SpotifyClone.albuns(album_id)
 )engine = InnoDB;
 
 CREATE TABLE SpotifyClone.historico_reproducao(
@@ -82,23 +82,23 @@ INSERT INTO SpotifyClone.albuns (album_nome, artista_id) VALUES ('Hallowed Steam
 INSERT INTO SpotifyClone.albuns (album_nome, artista_id) VALUES ('Incandescent',3);
 INSERT INTO SpotifyClone.albuns (album_nome, artista_id) VALUES ('Temporary Culture',4);
 
-INSERT INTO SpotifyClone.cancoes (cancao_nome, album_id) VALUES ('Soul For Us',1);
-INSERT INTO SpotifyClone.cancoes (cancao_nome, album_id) VALUES ('Reflections Of Magic',1);
-INSERT INTO SpotifyClone.cancoes (cancao_nome, album_id) VALUES ('Dance With Her Own',1);
-INSERT INTO SpotifyClone.cancoes (cancao_nome, album_id) VALUES ('Troubles Of My Inner Fire',2);
-INSERT INTO SpotifyClone.cancoes (cancao_nome, album_id) VALUES ('Time Fireworks',2);
-INSERT INTO SpotifyClone.cancoes (cancao_nome, album_id) VALUES ('Magic Circus',3);
-INSERT INTO SpotifyClone.cancoes (cancao_nome, album_id) VALUES ('Honey, So Do I',3);
-INSERT INTO SpotifyClone.cancoes (cancao_nome, album_id) VALUES ("Sweetie, Let's Go Wild",3);
-INSERT INTO SpotifyClone.cancoes (cancao_nome, album_id) VALUES ('She Knows',3);
-INSERT INTO SpotifyClone.cancoes (cancao_nome, album_id) VALUES ('Fantasy For Me',4);
-INSERT INTO SpotifyClone.cancoes (cancao_nome, album_id) VALUES ('Celebration Of More',4);
-INSERT INTO SpotifyClone.cancoes (cancao_nome, album_id) VALUES ('Rock His Everything',4);
-INSERT INTO SpotifyClone.cancoes (cancao_nome, album_id) VALUES ('Home Forever',4);
-INSERT INTO SpotifyClone.cancoes (cancao_nome, album_id) VALUES ('Diamond Power',4);
-INSERT INTO SpotifyClone.cancoes (cancao_nome, album_id) VALUES ("Honey, Let's Be Silly",4);
-INSERT INTO SpotifyClone.cancoes (cancao_nome, album_id) VALUES ('Thang Of Thunder',5);
-INSERT INTO SpotifyClone.cancoes (cancao_nome, album_id) VALUES ('Words Of Her Life',5);
+INSERT INTO SpotifyClone.cancoes (cancao_nome, cancoes_album_id) VALUES ('Soul For Us',1);
+INSERT INTO SpotifyClone.cancoes (cancao_nome, cancoes_album_id) VALUES ('Reflections Of Magic',1);
+INSERT INTO SpotifyClone.cancoes (cancao_nome, cancoes_album_id) VALUES ('Dance With Her Own',1);
+INSERT INTO SpotifyClone.cancoes (cancao_nome, cancoes_album_id) VALUES ('Troubles Of My Inner Fire',2);
+INSERT INTO SpotifyClone.cancoes (cancao_nome, cancoes_album_id) VALUES ('Time Fireworks',2);
+INSERT INTO SpotifyClone.cancoes (cancao_nome, cancoes_album_id) VALUES ('Magic Circus',3);
+INSERT INTO SpotifyClone.cancoes (cancao_nome, cancoes_album_id) VALUES ('Honey, So Do I',3);
+INSERT INTO SpotifyClone.cancoes (cancao_nome, cancoes_album_id) VALUES ("Sweetie, Let's Go Wild",3);
+INSERT INTO SpotifyClone.cancoes (cancao_nome, cancoes_album_id) VALUES ('She Knows',3);
+INSERT INTO SpotifyClone.cancoes (cancao_nome, cancoes_album_id) VALUES ('Fantasy For Me',4);
+INSERT INTO SpotifyClone.cancoes (cancao_nome, cancoes_album_id) VALUES ('Celebration Of More',4);
+INSERT INTO SpotifyClone.cancoes (cancao_nome, cancoes_album_id) VALUES ('Rock His Everything',4);
+INSERT INTO SpotifyClone.cancoes (cancao_nome, cancoes_album_id) VALUES ('Home Forever',4);
+INSERT INTO SpotifyClone.cancoes (cancao_nome, cancoes_album_id) VALUES ('Diamond Power',4);
+INSERT INTO SpotifyClone.cancoes (cancao_nome, cancoes_album_id) VALUES ("Honey, Let's Be Silly",4);
+INSERT INTO SpotifyClone.cancoes (cancao_nome, cancoes_album_id) VALUES ('Thang Of Thunder',5);
+INSERT INTO SpotifyClone.cancoes (cancao_nome, cancoes_album_id) VALUES ('Words Of Her Life',5);
 
 INSERT INTO SpotifyClone.historico_reproducao (usuario_id, cancao_id) VALUES (1,1);
 INSERT INTO SpotifyClone.historico_reproducao (usuario_id, cancao_id) VALUES (1,6);
