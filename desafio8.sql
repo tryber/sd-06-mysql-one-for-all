@@ -1,3 +1,4 @@
+use SpotityClone;
 DELIMITER $$
 CREATE TRIGGER trigger_usuario_delete
 AFTER DELETE ON usuario

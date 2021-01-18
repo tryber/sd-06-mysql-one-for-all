@@ -1,3 +1,4 @@
+use SpotityClone;
 CREATE VIEW top_3_artistas AS
 SELECT a.nome AS `artista`,  count(s.artista_id) AS `seguidores`
 FROM artista AS a
