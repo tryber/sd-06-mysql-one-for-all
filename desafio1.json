@@ -14,11 +14,3 @@
   "coluna_cancoes": "musicas_titulo",
   "tabela_que_contem_cancoes": "musicas"
 }
-
-// *usuarios = usuarios_id, usuarios_nome, usuarios_idade
-// *planos = planos_id, planos_nome, planos_valor
-// *albuns = albuns_id, albuns_titulo, 
-// *artistas = artistas_id, artistas_nome
-// *musicas = musicas_id, musicas_titulo - cancoes
-// *historico = ***usuarios_id, ***musicas_id - historico_de_reproducoes
-// *seguindo_artistas = ***usuarios_id, ***artistas_id - 
