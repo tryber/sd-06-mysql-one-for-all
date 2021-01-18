@@ -7,7 +7,7 @@ DECLARE total_songs INT;
 SELECT
 COUNT(*)
 FROM playback_history
-WHERE playback_history.user_id = id
+WHERE user_id = id
 INTO total_songs;
 RETURN total_songs;
 END $$
