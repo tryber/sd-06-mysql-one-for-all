@@ -3,6 +3,6 @@ SELECT c.nome AS `cancão`,  count(h.cancoes_id) AS `reproducoes`
 FROM cancoes AS c
 INNER JOIN historico AS h
 ON c.id = h.cancoes_id	
-group by `cancão`
+group by `cancao`
 ORDER BY `reproducoes` DESC, `cancão`
 LIMIT 2;
