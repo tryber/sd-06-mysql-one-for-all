@@ -4,4 +4,5 @@ FROM artista AS a
 INNER JOIN seguindo AS s
 ON a.id = s.artista_id	
 GROUP BY `artista`
-ORDER BY `seguidores` DESC, `artista`;
+ORDER BY `seguidores` DESC, `artista`
+LIMIT 3;
