@@ -1,8 +1,9 @@
 CREATE VIEW top_3_artistas AS
-SELECT art.song_name AS artista,
-COUNT(seg.user_id) AS seguidores
-FROM singers AS art 
-INNER JOIN following_singer AS seg
-ON art.singer_id = seg.singer_id
-GROUP BY seg.singer_id ORDER BY seguidores 
-DESC, artista ASC LIMIT 3;
+SELECT s.singer_name AS artista,
+COUNT(F.user_id) AS seguidores
+FROM singers AS s
+INNER JOIN following_singer AS F
+ON s.singer_id = F.singer_id
+GROUP BY F.singer_id
+ORDER BY seguidores DESC, artista ASC
+LIMIT 3;
