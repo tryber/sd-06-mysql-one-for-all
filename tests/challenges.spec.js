@@ -232,7 +232,7 @@ describe('Queries de seleção', () => {
     });
   });
 
-  describe.only('Exibe top 3 artistas com maior quantidade de pessoas seguidoras', () => {
+  describe('Exibe top 3 artistas com maior quantidade de pessoas seguidoras', () => {
     it('Verifica o desafio 4', async () => {
       const challengeQuery = readFileSync('desafio4.sql', 'utf8');
 
@@ -249,7 +249,7 @@ describe('Queries de seleção', () => {
     });
   });
 
-  describe('Exibe top 2 hits mais tocados no momento', () => {
+  describe.only('Exibe top 2 hits mais tocados no momento', () => {
     it('Verifica o desafio 5', async () => {
       const challengeQuery = readFileSync('desafio5.sql', 'utf8');
 
