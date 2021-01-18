@@ -10,3 +10,5 @@ BEGIN
     WHERE usuario_id = old.id;
 END; $$
 DELIMITER ;
+delete from usuario
+where nome = 'Thati';
