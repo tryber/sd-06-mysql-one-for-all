@@ -8,6 +8,6 @@ from
 group by
   pref.Author_ID
 order by
-  seguidores desc
+  seguidores desc, artista
 LIMIT
   3
