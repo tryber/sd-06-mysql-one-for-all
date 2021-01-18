@@ -16,9 +16,9 @@ nome VARCHAR(200) NOT NULL
 )engine = InnoDB;
 INSERT INTO artista (nome) VALUES
 ('Walter Phoenix'),
-('Peter strong'),
-('Lancy Day'),
-('Freedle Shannon');
+('Peter Strong'),
+('Lance Day'),
+('Freedie Shannon');
 create table album(
 id INT PRIMARY KEY auto_increment,
 nome VARCHAR(200) NOT NULL,
