@@ -77,8 +77,8 @@ VALUES
   ("Envious", 1),
   ("Exuberant", 1),
   ("Hallowed Steam", 2),
-  ("Lance Day", 3),
-  ("Freedie Shannon", 4);
+  ("Incandescent", 3),
+  ("Temporary Culture", 4);
 DROP TABLE IF EXISTS musicas;
 CREATE TABLE musicas(
     `MUSICA_ID` INT NOT NULL AUTO_INCREMENT,
