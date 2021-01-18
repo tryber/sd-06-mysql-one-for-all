@@ -1,0 +1,7 @@
+DELIMITER\\
+CREATE TRIGGER trigger_usuario_delete BEFORE DELETE SpotifyClone.usuario FOR EACH ROW
+BEGIN 
+DELETE FROM SpotifyClone.historico WHERE USUARIO_ID = OLD.USUARIO_ID 
+DELETE FROM SpotifyClone.preferencias WHERE USUARIO_ID = OLD.USUARIO_ID
+END\\
+DELIMITER ;
