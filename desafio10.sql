@@ -5,9 +5,9 @@ RETURNS INT READS SQL DATA
 BEGIN
 DECLARE total_songs INT;
 SELECT
-COUNT(user_id)
+COUNT(*)
 FROM playback_history
-WHERE user_id = id
+WHERE playback_history.user_id = id
 INTO total_songs;
 RETURN total_songs;
 END $$
