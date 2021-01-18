@@ -10,16 +10,16 @@ CREATE TABLE `planos` (
   `planos_valor` DECIMAL(3, 2) NOT NULL)
 ENGINE = InnoDB;
 
-CREATE TABLE `SpotifyClone`.`usuarios` (
+CREATE TABLE `usuarios` (
   `usuarios_id` INT PRIMARY KEY AUTO_INCREMENT,
   `usuarios_nome` VARCHAR(75) NOT NULL,
-  `usuarios_idade` INT NULL,
-  `planos_id` INT NULL,
+  `usuarios_idade` INT NOT NULL,
+  `planos_id` INT,
     FOREIGN KEY (`planos_id`)
     REFERENCES `SpotifyClone`.`planos` (`planos_id`))
 ENGINE = InnoDB;
 
-CREATE TABLE `SpotifyClone`.`artistas` (
+CREATE TABLE `artistas` (
   `artistas_id` INT PRIMARY KEY AUTO_INCREMENT,
   `artistas_nome` VARCHAR(45) NOT NULL)
 ENGINE = InnoDB;
@@ -27,22 +27,22 @@ ENGINE = InnoDB;
 CREATE TABLE `albuns` (
   `albuns_id` INT PRIMARY KEY AUTO_INCREMENT,
   `albuns_titulo` VARCHAR(75) NOT NULL,
-  `artistas_id` INT NOT NULL,
+  `artistas_id` INT,
     FOREIGN KEY (`artistas_id`)
     REFERENCES `SpotifyClone`.`artistas` (`artistas_id`))
 ENGINE = InnoDB;
 
-CREATE TABLE `SpotifyClone`.`musicas` (
+CREATE TABLE `musicas` (
   `musicas_id` INT PRIMARY KEY AUTO_INCREMENT,
   `musicas_titulo` VARCHAR(75) NOT NULL,
-  `albuns_id` INT NOT NULL,
+  `albuns_id` INT,
     FOREIGN KEY (`albuns_id`)
     REFERENCES `SpotifyClone`.`albuns` (`albuns_id`))
 ENGINE = InnoDB;
 
-CREATE TABLE `SpotifyClone`.`historicos` (
-  `usuarios_id` INT NOT NULL,
-  `musicas_id` INT NOT NULL,
+CREATE TABLE `historicos` (
+  `usuarios_id` INT,
+  `musicas_id` INT,
   PRIMARY KEY (`usuarios_id`, `musicas_id`),
     FOREIGN KEY (`usuarios_id`)
     REFERENCES `SpotifyClone`.`usuarios` (`usuarios_id`),
@@ -50,9 +50,9 @@ CREATE TABLE `SpotifyClone`.`historicos` (
     REFERENCES `SpotifyClone`.`musicas` (`musicas_id`))
 ENGINE = InnoDB;
 
-CREATE TABLE `SpotifyClone`.`seguindo_artistas` (
-  `usuarios_id` INT NOT NULL,
-  `artistas_id` INT NOT NULL,
+CREATE TABLE `seguindo_artistas` (
+  `usuarios_id` INT,
+  `artistas_id` INT,
   PRIMARY KEY (`usuarios_id`, `artistas_id`),
     FOREIGN KEY (`usuarios_id`)
     REFERENCES `SpotifyClone`.`usuarios` (`usuarios_id`),
@@ -63,6 +63,7 @@ ENGINE = InnoDB;
 -- ----------------------------------------------
 -- INSERT 
 -- ----------------------------------------------
+
 INSERT INTO planos (planos_nome, planos_valor)
 VALUES ('gratuito', 0.00), ('universitário', 5.99), ('familiar', 7.99);
 
