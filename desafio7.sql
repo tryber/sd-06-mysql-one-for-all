@@ -1,3 +1,5 @@
+CREATE VIEW `perfil_artistas` AS
+SELECT artiststable.artist_name AS `artista`,
 albunstable.album_name AS `album`,
 count(followerstable.artist_id) AS `seguidores`
 FROM (((followerstable
