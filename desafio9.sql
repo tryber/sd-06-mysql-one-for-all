@@ -1,13 +1,16 @@
+DROP PROCEDURE IF EXISTS albuns_do_artista;
+
+USE SpotifyClone;
 DELIMITER $$
-
-CREATE PROCEDURE albuns_do_artista(IN artista VARCHAR(100))
+CREATE PROCEDURE albuns_do_artista(IN nome VARCHAR(100))
 BEGIN
-SELECT artistas AS artista,
-alb.albuns AS album
-FROM SpotifyClone.artistas AS art
-INNER JOIN SpotifyClone.albuns AS alb
-    ON alb.artista_id = art.artista_id
-WHERE art.artista = artista;
+SELECT A.nome_artista AS 'artista',
+AL.titulo_album AS 'album'
+FROM artistas AS A
+JOIN albuns AS AL ON A.artista_id = AL.artista_id
+WHERE nome = A.nome_artista
+ORDER BY album;
 END $$
-
 DELIMITER ;
+
+CALL albuns_do_artista('Walter Phoenix');
