@@ -249,7 +249,7 @@ describe('Queries de seleção', () => {
     });
   });
 
-  describe.only('Exibe top 2 hits mais tocados no momento', () => {
+  describe('Exibe top 2 hits mais tocados no momento', () => {
     it('Verifica o desafio 5', async () => {
       const challengeQuery = readFileSync('desafio5.sql', 'utf8');
 
@@ -265,7 +265,7 @@ describe('Queries de seleção', () => {
     });
   });
 
-  describe('Exibe o relatório de faturamento da empresa', () => {
+  describe.only('Exibe o relatório de faturamento da empresa', () => {
     it('Verifica o desafio 6', async () => {
       const challengeQuery = readFileSync('desafio6.sql', 'utf8');
 
