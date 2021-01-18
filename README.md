@@ -261,20 +261,20 @@ Para **"entregar"** seu projeto, siga os passos a seguir:
 
 ```json
 {
-  "coluna_usuario": "nome-da-coluna",
-  "tabela_que_contem_usuario": "nome-da-tabela-que-armazena-a-coluna",
-  "coluna_plano": "nome-da-coluna",
-  "tabela_que_contem_plano": "nome-da-tabela-que-armazena-a-coluna",
-  "coluna_historico_de_reproducoes": "nome-da-coluna",
-  "tabela_que_contem_historico_de_reproducoes": "nome-da-tabela-que-armazena-a-coluna",
-  "coluna_seguindo_artistas": "nome-da-coluna",
-  "tabela_que_contem_seguindo_artistas": "nome-da-tabela-que-armazena-a-coluna",
-  "coluna_artista": "nome-da-coluna",
-  "tabela_que_contem_artista": "nome-da-tabela-que-armazena-a-coluna",
-  "coluna_album": "nome-da-coluna",
-  "tabela_que_contem_album": "nome-da-tabela-que-armazena-a-coluna",
-  "coluna_cancoes": "nome-da-coluna",
-  "tabela_que_contem_cancoes": "nome-da-tabela-que-armazena-a-coluna"
+  "coluna_usuario": "usuario_id",
+  "tabela_que_contem_usuario": "usertable",
+  "coluna_plano": "plan_id",
+  "tabela_que_contem_plano": "plantable",
+  "coluna_historico_de_reproducoes": "reproduction_id",
+  "tabela_que_contem_historico_de_reproducoes": "reproductiontable",
+  "coluna_seguindo_artistas": "followers_id",
+  "tabela_que_contem_seguindo_artistas": "followerstable",
+  "coluna_artista": "artist_id",
+  "tabela_que_contem_artista": "artisttable",
+  "coluna_album": "album_id",
+  "tabela_que_contem_album": "albumtable",
+  "coluna_cancoes": "songstable",
+  "tabela_que_contem_cancoes": "songs_id"
 }
 ```
 
