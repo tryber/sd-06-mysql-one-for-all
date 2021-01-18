@@ -100,10 +100,10 @@ VALUES
 DROP TABLE IF EXISTS historico_de_reproducoes;
 
 CREATE TABLE historico_de_reproducoes(
-    reproducao_id int(11) PRIMARY KEY AUTO_INCREMENT,
     cancao_id int(11) NOT NULL,
     usuario_id int(11) NOT NULL,
     album_id int(11) NOT NULL,
+    PRIMARY KEY(cancao_id,  usuario_id)
     FOREIGN KEY (usuario_id) REFERENCES usuario (usuario_id),
     FOREIGN KEY (album_id) REFERENCES album (album_id),
     FOREIGN KEY (cancao_id) REFERENCES cancoes (cancao_id)
