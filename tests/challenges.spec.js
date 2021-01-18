@@ -232,7 +232,7 @@ describe('Queries de seleção', () => {
     });
   });
 
-  describe('Exibe top 3 artistas com maior quantidade de pessoas seguidoras', () => {
+  describe.only('Exibe top 3 artistas com maior quantidade de pessoas seguidoras', () => {
     it('Verifica o desafio 4', async () => {
       const challengeQuery = readFileSync('desafio4.sql', 'utf8');
 
@@ -350,7 +350,7 @@ describe('Queries de seleção', () => {
     });
   });
 
-  describe.only('Crie uma `VIEW` chamada `cancoes_premium` que exiba o nome e a quantidade de vezes que cada canção foi tocada por pessoas usuárias do plano familiar ou universitário', () => {
+  describe('Crie uma `VIEW` chamada `cancoes_premium` que exiba o nome e a quantidade de vezes que cada canção foi tocada por pessoas usuárias do plano familiar ou universitário', () => {
     it('Verifica o desafio 11', async () => {
       const createViewQuery = readFileSync('desafio11.sql', 'utf8').trim();
 
