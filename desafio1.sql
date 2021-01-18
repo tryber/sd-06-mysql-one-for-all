@@ -47,7 +47,7 @@ INSERT INTO cancoes (nome, album_id) VALUES
 ('Sweetie, Lets Go Wild',3),
 ('Honey, So Do I',3),
 ('Magic Circus',3),
-('Honey, Lets Be Silly',4),
+("Honey, Let's Be Silly",4),
 ('Diamond Power',4),
 ('Home Forever',4),
 ('Rock His Everything',4),
@@ -66,7 +66,7 @@ foreign key (plano_id) references plano(id)
 INSERT INTO usuario (nome, idade, plano_id) VALUES
 ('Thati',23,1),
 ('Cintia',35,2),
-('Bili',20,3),
+('Bill',20,3),
 ('Roger',45,1);
 create table historico(
 cancoes_id INT NOT NULL,

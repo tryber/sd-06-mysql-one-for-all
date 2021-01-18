@@ -29,7 +29,7 @@ describe('Queries de seleção', () => {
     sequelize.close();
   });
 
-  describe('Normalize as tabelas para a 3ª Forma Normal', () => {
+  describe.only('Normalize as tabelas para a 3ª Forma Normal', () => {
     const hasForeignKey = async (table, referencedTable) => {
       const [{ REFERENCE_COUNT: referenceCount }] = await sequelize.query(
         `SELECT COUNT(COLUMN_NAME) AS REFERENCE_COUNT
@@ -192,7 +192,7 @@ describe('Queries de seleção', () => {
     });
   });
 
-  describe('Exibe as estatísticas musicais', () => {
+  describe.only('Exibe as estatísticas musicais', () => {
     it('Verifica o desafio 2', async () => {
       const challengeQuery = readFileSync('desafio2.sql', 'utf8');
 
@@ -204,7 +204,7 @@ describe('Queries de seleção', () => {
     });
   });
 
-  describe('Exibe o histórico de reprodução para cada pessoa usuária', () => {
+  describe.only('Exibe o histórico de reprodução para cada pessoa usuária', () => {
     it('Verifica o desafio 3', async () => {
       const challengeQuery = readFileSync('desafio3.sql', 'utf8');
 
@@ -232,7 +232,7 @@ describe('Queries de seleção', () => {
     });
   });
 
-  describe('Exibe top 3 artistas com maior quantidade de pessoas seguidoras', () => {
+  describe.only('Exibe top 3 artistas com maior quantidade de pessoas seguidoras', () => {
     it('Verifica o desafio 4', async () => {
       const challengeQuery = readFileSync('desafio4.sql', 'utf8');
 
@@ -249,7 +249,7 @@ describe('Queries de seleção', () => {
     });
   });
 
-  describe('Exibe top 2 hits mais tocados no momento', () => {
+  describe.only('Exibe top 2 hits mais tocados no momento', () => {
     it('Verifica o desafio 5', async () => {
       const challengeQuery = readFileSync('desafio5.sql', 'utf8');
 
@@ -265,7 +265,7 @@ describe('Queries de seleção', () => {
     });
   });
 
-  describe('Exibe o relatório de faturamento da empresa', () => {
+  describe.only('Exibe o relatório de faturamento da empresa', () => {
     it('Verifica o desafio 6', async () => {
       const challengeQuery = readFileSync('desafio6.sql', 'utf8');
 
@@ -285,7 +285,7 @@ describe('Queries de seleção', () => {
     });
   });
 
-  describe('Exibe uma relação de todos os álbuns produzidos por cada artista', () => {
+  describe.only('Exibe uma relação de todos os álbuns produzidos por cada artista', () => {
     it('Verifica o desafio 7', async () => {
       const challengeQuery = readFileSync('desafio7.sql', 'utf8');
 
@@ -304,7 +304,7 @@ describe('Queries de seleção', () => {
     });
   });
 
-  describe('Crie uma procedure chamada `albuns_do_artista` que, dado o nome da pessoa artista, retorna todos seus álbuns', () => {
+  describe.only('Crie uma procedure chamada `albuns_do_artista` que, dado o nome da pessoa artista, retorna todos seus álbuns', () => {
     it('Verifica o desafio 9', async () => {
       const challengeQuery = readFileSync('desafio9.sql', 'utf8').trim();
       const createProcedureQuery = /CREATE PROCEDURE.*END/si.exec(challengeQuery)[0];
@@ -404,7 +404,7 @@ describe('Queries de deleção', () => {
 
   afterEach(async () => await sequelize.query('DROP DATABASE SpotifyClone;', { type: 'RAW' }));
 
-  describe('Crie uma trigger chamada `trigger_usuario_delete` que deve ser disparada sempre que uma pessoa usuária for excluída do banco de dados, refletindo essa exclusão em todas as tabelas que ela estiver', () => {
+  describe.only('Crie uma trigger chamada `trigger_usuario_delete` que deve ser disparada sempre que uma pessoa usuária for excluída do banco de dados, refletindo essa exclusão em todas as tabelas que ela estiver', () => {
     it('Verifica o desafio 8', async () => {
       const {
         tabela_que_contem_usuario: userTable,
