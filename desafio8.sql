@@ -1,5 +1,5 @@
 DELIMITER $$
-CREATE TRIGGER nome_do_trigger
+CREATE TRIGGER trigger_usuario_delete
 AFTER DELETE ON usuario
 FOR EACH ROW
 BEGIN
