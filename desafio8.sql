@@ -1,7 +1,7 @@
 DELIMITER $$
 
 CREATE TRIGGER trigger_usuario_delete
-AFTER DELETE ON users
+BEFORE DELETE ON users
 FOR EACH ROW
 BEGIN
 DELETE FROM playback_history
