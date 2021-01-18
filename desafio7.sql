@@ -7,5 +7,5 @@ INNER JOIN artiststable
 ON followerstable.artist_id = artiststable.artist_id)
 INNER JOIN albunstable
 ON followerstable.artist_id = albunstable.artist_id)
-group by `artista`, `album` 
-order by `seguidores` desc, `artista` asc;
+group by artiststable.artist_name, albunstable.album_name 
+order by count(followerstable.user_id) desc, artiststable.artist_name asc;
