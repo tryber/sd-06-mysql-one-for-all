@@ -6,7 +6,9 @@ CREATE DATABASE SpotifyClone;
 CREATE TABLE SpotifyClone.usuarios(
 usuario_id INT PRIMARY KEY AUTO_INCREMENT,
 usuario_nome VARCHAR(50) NOT NULL,
-idade INT NOT NULL
+plano_id INT NOT NULL,
+idade INT NOT NULL,
+FOREIGN KEY (plano_id) REFERENCES SpotifyClone.planos (plano_id)
 )engine = InnoDB;
 
 INSERT INTO SpotifyClone.usuarios (usuario_nome,idade) VALUES ('Thati',23);
@@ -15,7 +17,7 @@ INSERT INTO SpotifyClone.usuarios (usuario_nome,idade) VALUES ('Bill',20);
 INSERT INTO SpotifyClone.usuarios (usuario_nome,idade) VALUES ('Roger',45);
 
 CREATE TABLE SpotifyClone.planos(
-planos_id INT PRIMARY KEY AUTO_INCREMENT,
+plano_id INT PRIMARY KEY AUTO_INCREMENT,
 plano_nome VARCHAR(20) NOT NULL,
 valor VARCHAR(20) NOT NULL
 )engine = InnoDB;

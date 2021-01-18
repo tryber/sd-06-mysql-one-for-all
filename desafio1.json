@@ -1,7 +1,7 @@
 {
   "coluna_usuario": "usuario_nome",
   "tabela_que_contem_usuario": "usuarios",
-  "coluna_plano": "planos_id",
+  "coluna_plano": "plano_id",
   "tabela_que_contem_plano": "planos",
   "coluna_historico_de_reproducoes": "usuario_id",
   "tabela_que_contem_historico_de_reproducoes": "historico_reproducao",
