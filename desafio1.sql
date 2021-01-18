@@ -5,52 +5,52 @@ CREATE DATABASE `SpotifyClone`;
 USE `SpotifyClone`;
 
 CREATE TABLE plans(
-	id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, 
-    plan_type VARCHAR(13) NOT NULL,
-    plan_value DECIMAL(10, 2) NOT NULL
+id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, 
+plan_type VARCHAR(13) NOT NULL,
+plan_value DECIMAL(10, 2) NOT NULL
 ) engine = InnoDB;
 
 CREATE TABLE user_table(
-	id INT PRIMARY KEY AUTO_INCREMENT,
-    user_name VARCHAR(50) NOT NULL,
-    age INT NOT NULL,
-    plan_id INT NOT NULL,
-    FOREIGN KEY (plan_id) REFERENCES plans (id)
+id INT PRIMARY KEY AUTO_INCREMENT,
+user_name VARCHAR(50) NOT NULL,
+age INT NOT NULL,
+plan_id INT NOT NULL,
+FOREIGN KEY (plan_id) REFERENCES plans (id)
 ) engine = InnoDB;
 
 CREATE TABLE artists(
-	id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    artist VARCHAR(80) NOT NULL
+id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+artist VARCHAR(80) NOT NULL
 ) engine = InnoDB;
 
 CREATE TABLE albums(
-	id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    album VARCHAR(80) NOT NULL,
-    artist_id INT NOT NULL,
-    FOREIGN KEY (artist_id) REFERENCES artists (id)
+id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+album VARCHAR(80) NOT NULL,
+artist_id INT NOT NULL,
+FOREIGN KEY (artist_id) REFERENCES artists (id)
 ) engine = InnoDB;
 
 CREATE TABLE songs(
-	id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    song VARCHAR(80) NOT NULL,
-    album_id INT NOT NULL,
-    FOREIGN KEY (album_id) REFERENCES albums (id)
+id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+song VARCHAR(80) NOT NULL,
+album_id INT NOT NULL,
+FOREIGN KEY (album_id) REFERENCES albums (id)
 ) engine = InnoDB;
 
 CREATE TABLE `followers`(
-	user_id INT NOT NULL,
-    artist_id INT NOT NULL,
-    PRIMARY KEY (`user_id`, `artist_id`),
-    FOREIGN KEY (user_id) REFERENCES user_table(id),
-    FOREIGN KEY (artist_id) REFERENCES artists(id)
+user_id INT NOT NULL,
+artist_id INT NOT NULL,
+PRIMARY KEY (`user_id`, `artist_id`),
+FOREIGN KEY (user_id) REFERENCES user_table(id),
+FOREIGN KEY (artist_id) REFERENCES artists(id)
 ) engine = InnoDB;
 
 CREATE TABLE `historic`(
-	user_id INT NOT NULL,
-    song_id INT NOT NULL,
-    PRIMARY KEY (`user_id`, `song_id`),
-    FOREIGN KEY (user_id) REFERENCES user_table(id),
-    FOREIGN KEY (song_id) REFERENCES songs(id)
+user_id INT NOT NULL,
+song_id INT NOT NULL,
+PRIMARY KEY (`user_id`, `song_id`),
+FOREIGN KEY (user_id) REFERENCES user_table(id),
+FOREIGN KEY (song_id) REFERENCES songs(id)
 ) engine = InnoDB;
 
 INSERT INTO plans(plan_type, plan_value)
