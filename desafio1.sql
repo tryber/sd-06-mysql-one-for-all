@@ -7,20 +7,12 @@
 -- SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 -- SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
--- -----------------------------------------------------
--- Schema SpotifyClone
--- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `SpotifyClone` ;
+DROP SCHEMA IF EXISTS `SpotifyClone`;
 
--- -----------------------------------------------------
--- Schema SpotifyClone
--- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `SpotifyClone` ;
-USE `SpotifyClone` ;
+CREATE SCHEMA IF NOT EXISTS `SpotifyClone`;
+USE `SpotifyClone`;
 
--- -----------------------------------------------------
 -- Table `SpotifyClone`.`albuns`
--- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`albuns` (
   `albuns_id` INT NOT NULL AUTO_INCREMENT,
   `albuns_titulo` VARCHAR(75) NOT NULL,
@@ -35,9 +27,7 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`albuns` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
--- -----------------------------------------------------
 -- Table `SpotifyClone`.`artistas`
--- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`artistas` (
   `artistas_id` INT NOT NULL AUTO_INCREMENT,
   `artistas_nome` VARCHAR(45) NOT NULL,
@@ -45,9 +35,7 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`artistas` (
   UNIQUE INDEX `artistas_id_UNIQUE` (`artistas_id` ASC) VISIBLE)
 ENGINE = InnoDB;
 
--- -----------------------------------------------------
 -- Table `SpotifyClone`.`historicos`
--- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`historicos` (
   `usuarios_id` INT NOT NULL,
   `musicas_id` INT NOT NULL,
@@ -66,9 +54,7 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`historicos` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
--- -----------------------------------------------------
 -- Table `SpotifyClone`.`musicas`
--- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`musicas` (
   `musicas_id` INT NOT NULL AUTO_INCREMENT,
   `musicas_titulo` VARCHAR(75) NOT NULL,
@@ -83,9 +69,7 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`musicas` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
--- -----------------------------------------------------
 -- Table `SpotifyClone`.`planos`
--- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`planos` (
   `planos_id` INT NOT NULL AUTO_INCREMENT,
   `planos_nome` VARCHAR(45) NOT NULL,
@@ -94,9 +78,7 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`planos` (
   UNIQUE INDEX `planos_id_UNIQUE` (`planos_id` ASC) VISIBLE)
 ENGINE = InnoDB;
 
--- -----------------------------------------------------
 -- Table `SpotifyClone`.`seguindo_artistas`
--- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`seguindo_artistas` (
   `usuarios_id` INT NOT NULL,
   `artistas_id` INT NOT NULL,
@@ -115,9 +97,7 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`seguindo_artistas` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
--- -----------------------------------------------------
 -- Table `SpotifyClone`.`usuarios`
--- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`usuarios` (
   `usuarios_id` INT NOT NULL AUTO_INCREMENT,
   `usuarios_nome` VARCHAR(75) NOT NULL,
@@ -220,9 +200,6 @@ VALUES
 -- YOUTUBE = "tantaum" de videos
 -- GITHUB = Havyner
 
--- CONSTRAINT `fk_historicos_usuarios_id` - qual caso uso isso para chamar? pra q serve a constraint?
--- poso deixar o `fk_historicos_usuarios_id` somente como `fk_usuarios_id` ou é recomendado/obrigatorio manter a tabela referencia?
--- quando cria fk é necessario criar o index? tenho q deletar isso todas as vezes ou tem alguma forma disso nao ser feito auto?
 -- SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 -- SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 -- pra q serve isso na hoa q cria o BD?
