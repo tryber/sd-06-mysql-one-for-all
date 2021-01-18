@@ -9,18 +9,12 @@ plano_id INT PRIMARY KEY auto_increment,
 plano VARCHAR(50) NOT NULL,
 plano_valor DECIMAL(4,2) NOT NULL
 )engine=InnoDB;
-
-CREATE TABLE singers( 
-singer_id INT PRIMARY KEY auto_increment,
-singer_name VARCHAR(20) NOT NULL UNIQUE
-)engine=InnoDB;
-
-CREATE TABLE albuns(
-album_id INT PRIMARY KEY auto_increment,
-album VARCHAR(20) NOT NULL UNIQUE,
-singer_id INT NOT NULL,
-FOREIGN KEY (singer_id) REFERENCES singers(singer_id)
-)engine=InnoDB;
+INSERT INTO 
+planos (plano_id, plano, plano_valor)
+VALUES
+(1, 'gratuito', 0),
+(2, 'familiar', 7.99),
+(3, 'universitário', 5.99);
 
 CREATE TABLE user(
 user_id INT PRIMARY KEY auto_increment,
@@ -29,21 +23,23 @@ idade INT NOT NULL,
 plano_id INT NOT NULL,
 FOREIGN KEY (plano_id) REFERENCES planos(plano_id)
 )engine=InnoDB;
+INSERT INTO user(user_name, idade, plano_id)
+VALUES
+('Thati', 23, 1),
+('Cintia', 35, 2),
+('Bill', 20, 3),
+('Roger', 45, 1);
 
-CREATE TABLE songs(
-song_id INT PRIMARY KEY auto_increment,
-song_name VARCHAR(50) NOT NULL,
-album_id INT NOT NULL,
-FOREIGN KEY (album_id) REFERENCES albuns(album_id)
+CREATE TABLE singers( 
+singer_id INT PRIMARY KEY auto_increment,
+singer_name VARCHAR(20) NOT NULL UNIQUE
 )engine=InnoDB;
-
-CREATE TABLE history(
-user_id INT NOT NULL,
-song_id INT NOT NULL,
-FOREIGN KEY (user_id) REFERENCES user(user_id),
-FOREIGN KEY (musica_id) REFERENCES songs(musica_id),
-PRIMARY KEY (user_id, musica_id)
-)engine=InnoDB;
+INSERT INTO singers(singer_name)
+VALUES
+('Walter Phoenix'),
+('Peter Strong'),
+('Lance Day'),
+('Freedie Shannon');
 
 CREATE TABLE following_singer(
 singer_id INT NOT NULL,
@@ -52,20 +48,23 @@ FOREIGN KEY (singer_id) REFERENCES singers(singer_id),
 FOREIGN KEY (user_id) REFERENCES user(user_id),
 PRIMARY KEY (singer_id, user_id)
 )engine=InnoDB;
-
-INSERT INTO planos (plano, plano_valor)
+INSERT INTO following_singer(user_id, singer_id)
 VALUES
-('gratuito', 0),
-('familiar', 7.99),
-('universitário', 5.99);
+(1, 1),
+(1, 4),
+(1, 3),
+(2, 1),
+(2, 3),
+(3, 2),
+(3, 1),
+(4, 4);
 
-INSERT INTO singers(name)
-VALUES
-('Walter Phoenix'),
-('Peter Strong'),
-('Lance Day'),
-('Freedie Shannon');
-
+CREATE TABLE albuns(
+album_id INT PRIMARY KEY auto_increment,
+album VARCHAR(20) NOT NULL UNIQUE,
+singer_id INT NOT NULL,
+FOREIGN KEY (singer_id) REFERENCES singers(singer_id)
+)engine=InnoDB;
 INSERT INTO albuns(album, singer_id)
 VALUES
 ('Envious', 1),
@@ -74,7 +73,13 @@ VALUES
 ('Incandescent', 3),
 ('Temporary Culture', 4);
 
-INSERT INTO songs(name, album_id)
+CREATE TABLE songs(
+song_id INT PRIMARY KEY auto_increment,
+song_name VARCHAR(50) NOT NULL,
+album_id INT NOT NULL,
+FOREIGN KEY (album_id) REFERENCES albuns(album_id)
+)engine=InnoDB;
+INSERT INTO songs(song_name, album_id)
 VALUES
 ('Soul For Us', 1),
 ('Reflections Of Magic', 1),
@@ -95,14 +100,14 @@ VALUES
 ('Words Of Her Life', 5),
 ('Without My Streets', 5);
 
-INSERT INTO user(user_name, idade, plano_id)
-VALUES
-('Thati', 23, 1),
-('Cintia', 35, 2),
-('Bill', 20, 3),
-('Roger', 45, 1);
-
-INSERT INTO history(user_id, musica_id)
+CREATE TABLE history(
+user_id INT NOT NULL,
+song_id INT NOT NULL,
+FOREIGN KEY (user_id) REFERENCES user(user_id),
+FOREIGN KEY (song_id) REFERENCES songs(song_id),
+PRIMARY KEY (user_id, song_id)
+)engine=InnoDB;
+INSERT INTO history(user_id, song_id)
 VALUES
 (1, 1),
 (1, 6),
@@ -118,14 +123,3 @@ VALUES
 (4, 3),
 (4, 18),
 (4, 11);
-
-INSERT INTO following_singer(user_id, singer_id)
-VALUES
-(1, 1),
-(1, 4),
-(1, 3),
-(2, 1),
-(2, 3),
-(3, 2),
-(3, 1),
-(4, 4);
