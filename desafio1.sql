@@ -17,7 +17,7 @@ valor_plano DECIMAL(4, 2)
 
 CREATE TABLE assinantes(
 usuario_id INT PRIMARY KEY AUTO_INCREMENT,
-assinante VARCHAR(30) NOT NULL,
+assinante VARCHAR(200) NOT NULL,
 idade INT NOT NULL,
 plano_id int,
 FOREIGN KEY(plano_id) REFERENCES pacotes(plano_id)
