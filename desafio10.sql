@@ -7,7 +7,7 @@ BEGIN
 DECLARE quantidade_musicas TINYINT;
 SELECT COUNT(usuario_id)
 FROM SpotifyClone.historico
-WHERE us.usuario_id = usuario_filtro INTO quantidade_musicas;
+WHERE usuario_id = usuario_filtro INTO quantidade_musicas;
   RETURN quantidade_musicas;
 END $$
 
