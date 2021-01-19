@@ -17,7 +17,7 @@ VALUES
 CREATE TABLE SpotifyClone.plans(
   plan_id INT PRIMARY KEY,
   plan_name VARCHAR(50) NOT NULL,
-  plan_value FLOAT
+  plan_value DOUBLE
 ) ENGINE = Innodb;
 
 INSERT INTO SpotifyClone.plans (plan_id, plan_name, plan_value)
