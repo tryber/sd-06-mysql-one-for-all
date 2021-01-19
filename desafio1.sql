@@ -4,85 +4,80 @@ CREATE DATABASE SpotifyClone;
 
 USE SpotifyClone;
 
-CREATE TABLE interpretes(
-artista_id INT PRIMARY KEY AUTO_INCREMENT,
-interprete VARCHAR(100) NOT NULL
+CREATE TABLE plans(
+  plan_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  plan VARCHAR (255) NOT NULL,
+  value_plan DECIMAL(5, 2) NOT NULL
 ) engine = InnoDB;
 
-CREATE TABLE pacotes(
-plano_id INT PRIMARY KEY AUTO_INCREMENT,
-pacote VARCHAR(50) NOT NULL,
-valor_plano DECIMAL(4, 2)
+CREATE TABLE followers(
+  user_id INT NOT NULL,
+  artist_id INT NOT NULL,
+  PRIMARY KEY (user_id, artist_id),
+  FOREIGN KEY (user_id) REFERENCES users (user_id),
+  FOREIGN KEY (artist_id) REFERENCES artists (artist_id)
 ) engine = InnoDB;
 
-CREATE TABLE assinantes(
-usuario_id INT PRIMARY KEY AUTO_INCREMENT,
-assinante VARCHAR(200) NOT NULL,
-idade INT NOT NULL,
-plano_id int,
-FOREIGN KEY(plano_id) REFERENCES pacotes(plano_id)
+CREATE TABLE users(
+  user_id INT PRIMARY KEY AUTO_INCREMENT,
+  user VARCHAR (255) NOT NULL,
+  age INT NOT NULL,
+  plan_id INT,
+  FOREIGN KEY (plan_id) REFERENCES plans(plan_id)
 ) engine = InnoDB;
 
 CREATE TABLE albums(
-album_id INT PRIMARY KEY AUTO_INCREMENT,
-album VARCHAR(255) NOT NULL,
-artista_id INT,
-FOREIGN KEY(artista_id) REFERENCES interpretes(artista_id)
+  album_id INT PRIMARY KEY AUTO_INCREMENT,
+  album VARCHAR (255) NOT NULL,
+  artist_id INT NOT NULL,
+  FOREIGN KEY (artist_id) REFERENCES artists(artist_id)
 ) engine = InnoDB;
 
-CREATE TABLE cd(
-musica_id INT PRIMARY KEY AUTO_INCREMENT,
-musica VARCHAR(255) NOT NULL,
-album_id INT,
-FOREIGN KEY(album_id) REFERENCES albums(album_id)
+CREATE TABLE songs(
+  song_id INT PRIMARY KEY AUTO_INCREMENT,
+  song VARCHAR (255) NOT NULL,
+  album_id INT NOT NULL,
+  FOREIGN KEY (album_id) REFERENCES albums (album_id)
 ) engine = InnoDB;
 
-CREATE TABLE historico(
-usuario_id INT,
-musica_id INT,
-PRIMARY KEY(usuario_id, musica_id),
-FOREIGN KEY(usuario_id) REFERENCES assinantes(usuario_id),
-FOREIGN KEY(musica_id) REFERENCES cd(musica_id)
+CREATE TABLE artists(
+  artist_id INT PRIMARY KEY AUTO_INCREMENT,
+  artist VARCHAR (255) NOT NULL
 ) engine = InnoDB;
 
-CREATE TABLE seguidores(
-usuario_id INT,
-artista_id INT,
-PRIMARY KEY(usuario_id, artista_id),
-FOREIGN KEY(usuario_id) REFERENCES assinantes(usuario_id),
-FOREIGN KEY(artista_id) REFERENCES interpretes(artista_id)
+CREATE TABLE reproduction_history(
+  user_id INT NOT NULL,
+  song_id INT NOT NULL,
+  PRIMARY KEY (user_id, song_id),
+  FOREIGN KEY (user_id) REFERENCES users (user_id),
+  FOREIGN KEY (song_id) REFERENCES songs (song_id)
 ) engine = InnoDB;
 
-INSERT INTO interpretes (interprete)
-VALUES
+INSERT INTO plans(plan, value_plan) VALUES
+('gratuito', 0.00),
+('universitário', 5.99),
+('familiar', 7.99);
+
+INSERT INTO users(user, age, plan_id) VALUES
+('Thati', 23, 1),
+('Cintia', 35, 3),
+('Bill', 20, 2),
+('Roger', 45, 1);
+
+INSERT INTO artists(artist) VALUES 
 ('Walter Phoenix'),
 ('Peter Strong'),
 ('Lance Day'),
 ('Freedie Shannon');
 
-INSERT INTO pacotes (pacote, valor_plano)
-VALUES
-('gratuito', 0.00),
-('familiar', 7.99),
-('universitário', 5.99);
-
-INSERT INTO assinantes (assinante, idade, plano_id)
-VALUES
-('Thati', 23, 1),
-('Cintia', 35, 2),
-('Bill', 20, 3),
-('Roger', 45, 1);
-
-INSERT INTO albums (album, artista_id)
-VALUES
+INSERT INTO albums(album, artist_id) VALUES
 ('Envious', 1),
 ('Exuberant', 1),
 ('Hallowed Steam', 2),
 ('Incandescent', 3),
 ('Temporary Culture', 4);
 
-INSERT INTO cd (musica, album_id)
-VALUES
+INSERT INTO songs(song, album_id) VALUES
 ('Soul For Us', 1),
 ('Reflections Of Magic', 1),
 ('Dance With Her Own', 1),
@@ -102,30 +97,28 @@ VALUES
 ('Words Of Her Life', 5),
 ('Without My Streets', 5);
 
-INSERT INTO historico (usuario_id, musica_id)
-VALUES
+INSERT INTO reproduction_history(user_id, song_id) VALUES
 (1, 1),
 (1, 6),
 (1, 14),
 (1, 16),
-(2, 13),
-(2, 17),
 (2, 2),
+(2, 13),
 (2, 15),
+(2, 17),
 (3, 4),
-(3, 16),
 (3, 6),
+(3, 16),
 (4, 3),
-(4, 18),
-(4, 11);
+(4, 11),
+(4, 18);
 
-INSERT INTO seguidores (usuario_id, artista_id)
-VALUES
+INSERT INTO followers(user_id, artist_id) VALUES
 (1, 1),
-(1, 4),
 (1, 3),
+(1, 4),
 (2, 1),
 (2, 3),
-(3, 2),
 (3, 1),
-(4, 4);
+(3, 2),
+(4, 4); 
