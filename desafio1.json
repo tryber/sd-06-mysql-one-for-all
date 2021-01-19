@@ -1,0 +1,16 @@
+{
+  "coluna_usuario": "assinante",
+  "tabela_que_contem_usuario": "assinantes",
+  "coluna_plano": "pacote",
+  "tabela_que_contem_plano": "pacotes",
+  "coluna_historico_de_reproducoes": "usuario_id",
+  "tabela_que_contem_historico_de_reproducoes": "historico",
+  "coluna_seguindo_artistas": "usuario_id",
+  "tabela_que_contem_seguindo_artistas": "seguidores",
+  "coluna_artista": "interprete",
+  "tabela_que_contem_artista": "interpretes",
+  "coluna_album": "album",
+  "tabela_que_contem_album": "albums",
+  "coluna_cancoes": "musica",
+  "tabela_que_contem_cancoes": "cd"
+}
