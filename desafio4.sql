@@ -5,5 +5,6 @@ FROM user_following AS uf
 INNER JOIN artists AS ar
 ON ar.artist_id = uf.artist_id
 GROUP BY 1
-ORDER BY 2 DESC, 1 LIMIT 3;
+ORDER BY 2 DESC,
+1 LIMIT 3;
  
