@@ -5,8 +5,8 @@ RETURNS TINYINT READS SQL DATA
 
 BEGIN
 DECLARE quantidade_musicas TINYINT;
-SELECT COUNT(hi.musica_id)
-FROM SpotifyClone.historico AS hi 
+SELECT COUNT(usuario_id)
+FROM SpotifyClone.historico
 WHERE us.usuario_id = usuario_filtro INTO quantidade_musicas;
   RETURN quantidade_musicas;
 END $$
