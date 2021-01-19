@@ -1,5 +1,5 @@
 DELIMITER $$
-CREATE PROCEDURE albuns_do_artista(IN artist VARCHAR(50))
+CREATE PROCEDURE albuns_do_artista(IN artist VARCHAR(500))
 BEGIN
 SELECT 
     ar.artist_name AS artista,
