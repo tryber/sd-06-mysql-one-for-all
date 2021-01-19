@@ -9,4 +9,3 @@ s.songs_id = sp.song_id
 GROUP BY `cancao`
 ORDER BY `reproducoes` DESC, `cancao` ASC
 LIMIT 2;
-
