@@ -7,4 +7,3 @@ FROM SpotifyClone.artists AS a
 INNER JOIN SpotifyClone.albuns AS al ON
 a.artist_id = al.artist_id
 ORDER BY `seguidores`DESC, `artista` ASC, `album` ASC;
-
