@@ -14,5 +14,3 @@ WHERE us.usuario = usuario_filtro INTO quantidade_musicas;
 END $$
 
 DELIMITER ;
-
-SELECT quantidade_musicas_no_historico('Bill');
