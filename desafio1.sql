@@ -5,134 +5,134 @@ CREATE DATABASE IF NOT EXISTS SpotifyClone;
 USE SpotifyClone;
 
 DROP TABLE IF EXISTS `plano`;
-CREATE TABLE `plano` (
-`plano_id` INT PRIMARY KEY AUTO_INCREMENT,
-`nome` VARCHAR(50) NOT NULL,
-`valor_plano` DECIMAL(4,2) NOT NULL
-) engine = InnoDb;
+CREATE TABLE `SpotifyClone`.`plano` (
+  `plano_id` INT PRIMARY KEY AUTO_INCREMENT,
+  `nome` VARCHAR(100) NOT NULL,
+  `valor_plano` DECIMAL(4,2) NOT NULL,
+) ENGINE = InnoDB;
+
 
 DROP TABLE IF EXISTS `usuario`;
-CREATE TABLE `usuario` (
-`usuario_id` INT PRIMARY KEY AUTO_INCREMENT,
-`nome` VARCHAR(50) NOT NULL,
-`idade` INT NOT NULL,
-`plano_id` INT NOT NULL,
-FOREIGN KEY (`plano_id`) REFERENCES `plano`(`plano_id`)
-) engine = InnoDB;
+CREATE TABLE `SpotifyClone`.`usuario` (
+  `usuario_id` INT PRIMARY KEY AUTO_INCREMENT,
+  `nome` VARCHAR(100) NOT NULL,
+  `idade` INT NOT NULL,
+  `plano_id` INT NOT NULL,
+  FOREIGN KEY (`plano_id`) REFERENCES `SpotifyClone`.`plano` (`plano_id`)
+) ENGINE = InnoDB;
+
 
 DROP TABLE IF EXISTS `artista`;
-CREATE TABLE `artista` (
-`artista_id` INT PRIMARY KEY AUTO_INCREMENT,
-`nome` VARCHAR(50) NOT NULL
-) engine = InnoDB;
+CREATE TABLE `SpotifyClone`.`artista` (
+  `artista_id` INT PRIMARY KEY AUTO_INCREMENT,
+  `nome` VARCHAR(100) NOT NULL
+) ENGINE = InnoDB;
+
 
 DROP TABLE IF EXISTS `album`;
-CREATE TABLE `album` (
-`album_id` INT PRIMARY KEY AUTO_INCREMENT,
-`nome` VARCHAR(50) NOT NULL,
-`artista_id` INT NOT NULL,
-FOREIGN KEY (`artista_id`) REFERENCES `artista`(`artista_id`)
-) engine = InnoDB;
+CREATE TABLE `SpotifyClone`.`album` (
+  `album_id` INT PRIMARY KEY AUTO_INCREMENT,
+  `nome` VARCHAR(100) NOT NULL,
+  `artista_id` INT NOT NULL,
+  FOREIGN KEY (`artista_id`) REFERENCES `SpotifyClone`.`artista` (`artista_id`)
+) ENGINE = InnoDB;
 
-DROP TABLE IF EXISTS `seguindo_artistas`;
-CREATE TABLE `seguindo_artistas` (
-`usuario_id` INT NOT NULL,
-`artista_id` INT NOT NULL,
-PRIMARY KEY (`usuario_id`, `artista_id`),
-FOREIGN KEY (`usuario_id`) REFERENCES `usuario`(`usuario_id`),
-FOREIGN KEY (`artista_id`) REFERENCES `artista`(`artista_id`)
-) engine = InnoDB;
 
-DROP TABLE IF EXISTS `cancoes`;
-CREATE TABLE `cancoes` (
-`cancoes_id` INT PRIMARY KEY AUTO_INCREMENT,
-`nome` VARCHAR(100) NOT NULL,
-`album_id` INT NOT NULL,
-FOREIGN KEY (`album_id`) REFERENCES `album`(`album_id`)
-) engine = InnoDB;
+DROP TABLE IF EXISTS `segue_artistas`;
+CREATE TABLE `SpotifyClone`.`segue_artistas` (
+  `usuario_id` INT NOT NULL,
+  `artista_id` INT NOT NULL,
+  PRIMARY KEY (`usuario_id`, `artista_id`),
+  FOREIGN KEY (`usuario_id`) REFERENCES `SpotifyClone`.`usuario` (`usuario_id`),
+  FOREIGN KEY (`artista_id`) REFERENCES `SpotifyClone`.`artista` (`artista_id`)
+) ENGINE = InnoDB;
 
-DROP TABLE IF EXISTS `historico_de_reproducao`;
-CREATE TABLE `historico_de_reproducao` (
-`cancoes_id` INT NOT NULL,
-`usuario_id` INT NOT NULL,
-PRIMARY KEY (`cancoes_id`, `usuario_id`),
-FOREIGN KEY (`cancoes_id`) REFERENCES `cancoes`(`cancoes_id`),
-FOREIGN KEY (`usuario_id`) REFERENCES `usuario`(`usuario_id`)
-) engine = InnoDB;
 
-INSERT INTO `plano` (`plano_id`, `nome`, `valor_plano`)
-VALUES
-(1,'gratuito',0),
-(2,'familiar',7.99),
-(3,'universitário',5.99);
+DROP TABLE IF EXISTS `musica`;
+CREATE TABLE `SpotifyClone`.`musica` (
+  `musica_id` INT PRIMARY KEY AUTO_INCREMENT,
+  `nome` VARCHAR(100) NOT NULL,
+  `album_id` INT NOT NULL,
+  FOREIGN KEY (`album_id`) REFERENCES `SpotifyClone`.`album` (`album_id`)
+) ENGINE = InnoDB;
 
-INSERT INTO `usuario` (`usuario_id`, `nome`, `idade`, `plano_id`)
-VALUES
-(1,'Thati',23,1),
-(2,'Cintia',35,2),
-(3,'Bill',20,3),
-(4,'Roger',45,1);
 
-INSERT INTO `artista` (`artista_id`, `nome`)
-VALUES
-(1,'Walter Phoenix'),
-(2,'Peter Strong'),
-(3,'Lance Day'),
-(4,'Freedie Shannon');
+DROP TABLE IF EXISTS `historico_reproducao`;
+CREATE TABLE `SpotifyClone`.`historico_reproducao` (
+  `musica_id` INT NOT NULL,
+  `usuario_id` INT NOT NULL,
+  PRIMARY KEY (`musica_id`, `usuario_id`),
+  FOREIGN KEY (`musica_id`) REFERENCES `SpotifyClone`.`musica` (`musica_id`),
+  FOREIGN KEY (`usuario_id`) REFERENCES `SpotifyClone`.`usuario` (`usuario_id`)
+) ENGINE = InnoDB;
 
-INSERT INTO `album` (`album_id`, `nome`, `artista_id`)
-VALUES
-(1,'Envious',1),
-(2,'Exuberant',1),
-(3,'Hallowed Steam',2),
-(4,'Incandescent',3),
-(5,'Temporary Culture',4);
+-- Inserindo dados nas tabelas
+INSERT INTO `SpotifyClone`.`plano` (`plano_id`, `nome`, `valor_plano`) VALUES
+(1, 'Individual', 16.90),
+(2, 'Duo', 21.90),
+(3, 'Familia', 26.90);
 
-INSERT INTO `seguindo_artistas` (`usuario_id`, `artista_id`)
-VALUES
-(1,1),
-(1,4),
-(1,3),
-(2,1),
-(2,3),
-(3,2),
-(3,1),
-(4,4);
+INSERT INTO `SpotifyClone`.`usuario` (`usuario_id`, `nome`, `idade`, `plano_id`) VALUES
+(1, 'João', 25, 1),
+(2, 'Marcos', 50, 3),
+(3, 'Patricia', 32, 2),
+(4, 'Alana', 29, 1);
 
-INSERT INTO `cancoes` (`cancoes_id`, `nome`, `album_id`)
-VALUES
-(1,'Soul For Us',1),
-(2,'Reflections Of Magic',1),
-(3,'Dance With Her Own',1),
-(4,'Troubles Of My Inner Fire',2),
-(5,'Time Fireworks',2),
-(6,'Magic Circus',3),
-(7,'Honey, So Do I',3),
-(8,"Sweetie, Let's Go Wild",3),
-(9,'She Knows',3),
-(10,'Fantasy For Me',4),
-(11,'Celebration Of More',4),
-(12,'Rock His Everything',4),
-(13,'Home Forever',4),
-(14,'Diamond Power',4),
-(15,"Honey, Let's Be Silly",4),
-(16,'Thang Of Thunder',5),
-(17,'Words Of Her Life',5),
-(18,'Without My Streets',5);
+INSERT INTO `SpotifyClone`.`artista` (`artista_id`, `nome`) VALUES
+(1, 'Dire Straits'),
+(2, 'Metallica'),
+(3, 'Queen'),
+(4, 'Beatles'),
+(5, 'Iron Maiden'),
+(6, 'Bob Marley'),
+(7, 'Jack Johnson'),
 
-INSERT INTO `historico_de_reproducao` (`cancoes_id`, `usuario_id`)
-VALUES
-(1,1),
-(6,1),
-(14,1),
-(16,1),
-(13,2),
-(17,2),
-(2,2),
-(15,2),
-(4,3),
-(16,3),
-(6,3),
-(3,4),
-(18,4),
-(11,4);
+INSERT INTO `SpotifyClone`.`album` (`album_id`, `nome_album`, `artista_id`) VALUES
+(1, 'Jack Johnson Best of', 7),
+(2, 'Legends', 6),
+(3, 'Metallica', 2),
+(4, 'Beatles Best of', 4),
+(5, 'A Night at the Opera', 3),
+(6, 'Brothers in Arms', 1),
+(7, 'Alchemy', 1),
+(8, 'Fear of the Dark', 5);
+
+INSERT INTO `SpotifyClone`.`segue_artista` (`usuario_id`, `artista_id`) VALUES
+(1, 1),
+(1, 2),
+(2, 5),
+(2, 7),
+(3, 3),
+(3, 6),
+(4, 4),
+(4, 1);
+
+INSERT INTO `SpotifyClone`.`musica` (`musica_id`, `nome`, `album_id`) VALUES
+(1, 'Be Quick or Be Dead', 8),
+(2, 'From Here to Eternity', 8),
+(3, 'So Far Away', 6),
+(4, 'Money For Nothing', 6),
+(5, 'Walk of Life', 6),
+(6, 'Lazing On a Sunday Afternoon', 5),
+(7, 'Death on Two Legs', 5),
+(8, 'Banana Pancakes', 1),
+(9, 'In Between Dreams', 1),
+(10, 'Is This Love', 2),
+(11, 'Three Little Birds', 2),
+(12, 'Enter Sadman', 3),
+(13, 'Nothing Else Matters', 3),
+(14, 'Help', 4),
+(15, 'The Night Before', 4),
+(16, 'Expresso Love', 7),
+(17, 'Romeo and Juliet', 7);
+
+
+INSERT INTO `SpotifyClone`.`historico_reproducao` (`musica_id`, `usuario_id`) VALUES
+(1, 1),
+(13, 1),
+(9, 2),
+(7, 2),
+(2, 3),
+(6, 3),
+(15, 4),
+(12, 4);
