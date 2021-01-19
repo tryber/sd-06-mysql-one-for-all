@@ -50,7 +50,7 @@ usuario_id INT,
 artista_id INT,
 PRIMARY KEY(usuario_id, artista_id),
 FOREIGN KEY(usuario_id) REFERENCES assinantes(usuario_id),
-FOREIGN KEY(artista_id) REFERENCES interprete(artista_id)
+FOREIGN KEY(artista_id) REFERENCES interpretes(artista_id)
 ) engine = InnoDB;
 
 INSERT INTO interpretes (interprete)
