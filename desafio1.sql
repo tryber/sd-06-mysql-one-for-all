@@ -9,27 +9,23 @@ CREATE TABLE subscriptions (
     subscription_cost DECIMAL(10, 2) NOT NULL
 ) engine = InnoDB;
 
-INSERT INTO subscriptions (subscription_name, subscription_cost)
-    VALUES ('gratuito', 0.00), ('familiar', 7.99), ('universitário', 5.99);
-
--- ARTISTAS --
+-- USUARIOS --
 CREATE TABLE artists (
     artist_id INT PRIMARY KEY AUTO_INCREMENT,
     artist_name VARCHAR(40) NOT NULL
 ) engine = InnoDB;
 
-
--- USUARIOS --
+-- ARTISTAS --
 CREATE TABLE users (
     user_id INTEGER PRIMARY KEY AUTO_INCREMENT,
-    user_name VARCHAR(30) NOT NULL,
+    user_name VARCHAR(20) NOT NULL,
     user_age INTEGER NOT NULL,
     subscription_id INTEGER NOT NULL,
     FOREIGN KEY (subscription_id) REFERENCES subscriptions(subscription_id)
 ) engine = InnoDB;
 
 -- ALBUNS --
-CREATE TABLE albuns (
+CREATE TABLE Albums (
     album_id INT PRIMARY KEY AUTO_INCREMENT,
     album_name VARCHAR(50) NOT NULL,
     artist_id INT,
@@ -61,6 +57,9 @@ CREATE TABLE histories (
     FOREIGN KEY(user_id) REFERENCES users(user_id),
     FOREIGN KEY(music_id) REFERENCES musics(music_id)
 ) engine = InnoDB;
+
+INSERT INTO subscriptions (subscription_name, subscription_cost)
+    VALUES ('gratuito', 0.00), ('familiar', 7.99), ('universitário', 5.99);
 
 INSERT INTO users (user_name, user_age, subscription_id)
     VALUES ('Thati', 23, 1), ('Cintia', 35, 2), ('Bill', 20, 3), ('Roger', 45, 1);
