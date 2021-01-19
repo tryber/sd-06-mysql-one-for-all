@@ -10,9 +10,9 @@ CREATE VIEW perfil_artistas AS
     SELECT
       artist_id,
       COUNT(artist_id) AS quantity
-	FROM
+	  FROM
       follow
-	GROUP BY
+	  GROUP BY
       artist_id) AS artist_ranking
         ON ar.id = artist_ranking.artist_id
   ORDER BY
