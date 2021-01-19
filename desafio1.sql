@@ -2,6 +2,22 @@ DROP DATABASE IF EXISTS ProjectOneForAll;
 CREATE DATABASE ProjectOneForAll;
 USE ProjectOneForAll;
 
+-- INSCRIÇÕES --
+CREATE TABLE subscriptions (
+    subscription_id INT PRIMARY KEY AUTO_INCREMENT,
+    subscription_name VARCHAR(40) NOT NULL,
+    subscription_cost DECIMAL(10, 2) NOT NULL
+) engine = InnoDB;
+
+INSERT INTO subscriptions (subscription_name, subscription_cost)
+    VALUES ('gratuito', 0.00), ('familiar', 7.99), ('universitário', 5.99);
+
+-- ARTISTAS --
+CREATE TABLE artists (
+    artist_id INT PRIMARY KEY AUTO_INCREMENT,
+    artist_name VARCHAR(40) NOT NULL
+) engine = InnoDB;
+
 
 -- USUARIOS --
 CREATE TABLE users (
@@ -12,21 +28,6 @@ CREATE TABLE users (
     FOREIGN KEY (subscription_id) REFERENCES subscriptions(subscription_id)
 ) engine = InnoDB;
 
-INSERT INTO users (user_name, user_age, subscription_id)
-    VALUES ('Thati', 23, 1), ('Cintia', 35, 2), ('Bill', 20, 3), ('Roger', 45, 1);
--- USUARIOS -- 
-
-
--- ARTISTAS --
-CREATE TABLE artists (
-    artist_id INT PRIMARY KEY AUTO_INCREMENT,
-    artist_name VARCHAR(40) NOT NULL
-) engine = InnoDB;
-
-INSERT INTO artists (artist_name)
-    VALUES ('Walter Phoenix'), ('Peter Strong'), ('Lance Day'), ('Freedie Shannon');
---ARTISTAS --
-
 -- ALBUNS --
 CREATE TABLE albuns (
     album_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -35,21 +36,6 @@ CREATE TABLE albuns (
     FOREIGN KEY(artist_id) REFERENCES artists(artist_id)
 ) engine = InnoDB;
 
-INSERT INTO albuns (album_name, artist_id)
-    VALUES ('Envious', 1), ('Exuberant', 1), ('Hallowed Steam', 2), ('Incandescent', 3), ('Temporary Culture', 4);
--- ALBUNS --
-
--- INSCRIÇÕES --
-CREATE TABLE subscriptions (
-    subscription_id INT PRIMARY KEY AUTO_INCREMENT,
-    subscription_name VARCHAR(40) NOT NULL,
-    subscription_cost DECIMAL(10, 2) NOT NULL
-) engine = InnoDB;
-
-INSERT INTO subscriptions (subscription_name, subscription_cost)
-    VALUES ('gratuito', 0.00), ('familiar', 7.99), ('universitário', 5.99);
--- INSCRIÇÕES --
-
 -- MUSICAS -- 
 CREATE TABLE musics (
     music_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -57,6 +43,33 @@ CREATE TABLE musics (
     album_id INT,
     FOREIGN KEY(album_id) REFERENCES albuns(album_id)
 ) engine = InnoDB;
+
+-- SEGUINDO -- 
+CREATE TABLE follows (
+    user_id INT,
+    artist_id INT,
+    PRIMARY KEY(user_id, artist_id),
+    FOREIGN KEY(user_id) REFERENCES users(user_id),
+    FOREIGN KEY(artist_id) REFERENCES artists(artist_id)
+) engine = InnoDB;
+
+-- HISTORICO --
+CREATE TABLE histories (
+    user_id INT,
+    music_id INT,
+    PRIMARY KEY(user_id, music_id),
+    FOREIGN KEY(user_id) REFERENCES users(user_id),
+    FOREIGN KEY(music_id) REFERENCES musics(music_id)
+) engine = InnoDB;
+
+INSERT INTO users (user_name, user_age, subscription_id)
+    VALUES ('Thati', 23, 1), ('Cintia', 35, 2), ('Bill', 20, 3), ('Roger', 45, 1);
+
+INSERT INTO artists (artist_name)
+    VALUES ('Walter Phoenix'), ('Peter Strong'), ('Lance Day'), ('Freedie Shannon');
+
+INSERT INTO albuns (album_name, artist_id)
+    VALUES ('Envious', 1), ('Exuberant', 1), ('Hallowed Steam', 2), ('Incandescent', 3), ('Temporary Culture', 4);
 
 INSERT INTO musics (music_name, album_id)
     VALUES
@@ -78,16 +91,6 @@ INSERT INTO musics (music_name, album_id)
     ('Thang Of Thunder', 5),
     ('Words Of Her Life', 5),
     ('Without My Streets', 5);
--- MUSICAS --
-
--- HISTORICO --
-CREATE TABLE histories (
-    user_id INT,
-    music_id INT,
-    PRIMARY KEY(user_id, music_id),
-    FOREIGN KEY(user_id) REFERENCES users(user_id),
-    FOREIGN KEY(music_id) REFERENCES musics(music_id)
-) engine = InnoDB;
 
 INSERT INTO histories (user_id, music_id)
     VALUES
@@ -105,16 +108,6 @@ INSERT INTO histories (user_id, music_id)
     (4, 3),
     (4, 18),
     (4, 11);
--- HISTORICO --
-
--- SEGUINDO -- 
-CREATE TABLE follows (
-    user_id INT,
-    artist_id INT,
-    PRIMARY KEY(user_id, artist_id),
-    FOREIGN KEY(user_id) REFERENCES users(user_id),
-    FOREIGN KEY(artist_id) REFERENCES artists(artist_id)
-) engine = InnoDB;
 
 INSERT INTO follows (user_id, artist_id)
     VALUES
@@ -126,4 +119,3 @@ INSERT INTO follows (user_id, artist_id)
     (3, 2),
     (3, 1),
     (4, 4);
--- SEGUINDO --
