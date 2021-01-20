@@ -9,19 +9,10 @@ CREATE TABLE subscriptions (
     subscription_cost DECIMAL(10, 2) NOT NULL
 ) engine = InnoDB;
 
--- USUARIOS --
+-- ARTISTAS --
 CREATE TABLE artists (
     artist_id INT PRIMARY KEY AUTO_INCREMENT,
     artist_name VARCHAR(40) NOT NULL
-) engine = InnoDB;
-
--- ARTISTAS --
-CREATE TABLE users (
-    user_id INTEGER PRIMARY KEY AUTO_INCREMENT,
-    user_name VARCHAR(20) NOT NULL,
-    user_age INTEGER NOT NULL,
-    subscription_id INTEGER NOT NULL,
-    FOREIGN KEY (subscription_id) REFERENCES subscriptions(subscription_id)
 ) engine = InnoDB;
 
 -- ALBUNS --
@@ -32,12 +23,21 @@ CREATE TABLE Albums (
     FOREIGN KEY(artist_id) REFERENCES artists(artist_id)
 ) engine = InnoDB;
 
+-- USUARIOS --
+CREATE TABLE users (
+    user_id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    user_name VARCHAR(20) NOT NULL,
+    user_age INTEGER NOT NULL,
+    subscription_id INTEGER NOT NULL,
+    FOREIGN KEY (subscription_id) REFERENCES subscriptions(subscription_id)
+) engine = InnoDB;
+
 -- MUSICAS -- 
 CREATE TABLE musics (
     music_id INT PRIMARY KEY AUTO_INCREMENT,
     music_name VARCHAR(80) NOT NULL,
     album_id INT,
-    FOREIGN KEY(album_id) REFERENCES albuns(album_id)
+    FOREIGN KEY(album_id) REFERENCES albums(album_id)
 ) engine = InnoDB;
 
 -- SEGUINDO -- 
@@ -61,14 +61,34 @@ CREATE TABLE histories (
 INSERT INTO subscriptions (subscription_name, subscription_cost)
     VALUES ('gratuito', 0.00), ('familiar', 7.99), ('universitário', 5.99);
 
-INSERT INTO users (user_name, user_age, subscription_id)
-    VALUES ('Thati', 23, 1), ('Cintia', 35, 2), ('Bill', 20, 3), ('Roger', 45, 1);
-
 INSERT INTO artists (artist_name)
-    VALUES ('Walter Phoenix'), ('Peter Strong'), ('Lance Day'), ('Freedie Shannon');
+    VALUES
+    ('Walter Phoenix'),
+    ('Peter Strong'),
+    ('Lance Day'),
+    ('Freedie Shannon');
+
+INSERT INTO users (user_name, user_age, subscription_id)
+    VALUES
+    ('Thati', 23, 1),
+    ('Cintia', 35, 2),
+    ('Bill', 20, 3),
+    ('Roger', 45, 1);
+
+INSERT INTO users (user_name, user_age, subscription_id)
+    VALUES
+    ('Thati', 23, 1),
+    ('Cintia', 35, 2),
+    ('Bill', 20, 3),
+    ('Roger', 45, 1);
 
 INSERT INTO albuns (album_name, artist_id)
-    VALUES ('Envious', 1), ('Exuberant', 1), ('Hallowed Steam', 2), ('Incandescent', 3), ('Temporary Culture', 4);
+    VALUES
+    ('Envious', 1),
+    ('Exuberant', 1),
+    ('Hallowed Steam', 2),
+    ('Incandescent', 3),
+    ('Temporary Culture', 4);
 
 INSERT INTO musics (music_name, album_id)
     VALUES
