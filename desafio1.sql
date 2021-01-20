@@ -16,7 +16,7 @@ CREATE TABLE artists (
 ) engine = InnoDB;
 
 -- ALBUNS --
-CREATE TABLE Albums (
+CREATE TABLE albums (
     album_id INT PRIMARY KEY AUTO_INCREMENT,
     album_name VARCHAR(50) NOT NULL,
     artist_id INT,
@@ -82,7 +82,7 @@ INSERT INTO users (user_name, user_age, subscription_id)
     ('Bill', 20, 3),
     ('Roger', 45, 1);
 
-INSERT INTO albuns (album_name, artist_id)
+INSERT INTO albums (album_name, artist_id)
     VALUES
     ('Envious', 1),
     ('Exuberant', 1),
