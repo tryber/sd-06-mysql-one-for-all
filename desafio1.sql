@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS ProjectOneForAll;
-CREATE DATABASE ProjectOneForAll;
-USE ProjectOneForAll;
+DROP DATABASE IF EXISTS SpotifyClone;
+CREATE DATABASE SpotifyClone;
+USE SpotifyClone;
 
 -- INSCRIÇÕES --
 CREATE TABLE subscriptions (
