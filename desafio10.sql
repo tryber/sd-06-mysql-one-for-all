@@ -8,4 +8,4 @@ FROM SpotifyClone.historico_reproducao
 WHERE usuario_id = 3;         
 RETURN result;
 END $$
-DELIMITER ;
+DELIMITER;
