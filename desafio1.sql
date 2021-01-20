@@ -59,12 +59,6 @@ CREATE TABLE seguindo_artistas (
   FOREIGN KEY (artista_id) REFERENCES artista (artista_id)) 
 ENGINE = InnoDB;
 
-INSERT INTO artista(nome) VALUES 
-('Walter Phoenix'),
-('Peter Strong'),
-('Lance Day'),
-('Freedie Shannon');
-
 INSERT INTO plano(nome, valor) VALUES
 ('gratuito', 0.00),
 ('universitário', 5.99),
@@ -75,6 +69,12 @@ INSERT INTO usuario(nome, idade, plano_id) VALUES
 ('Cintia', 35, 3),
 ('Bill', 20, 2),
 ('Roger', 45, 1);
+
+INSERT INTO artista(nome) VALUES 
+('Walter Phoenix'),
+('Peter Strong'),
+('Lance Day'),
+('Freedie Shannon');
 
 INSERT INTO album(nome, artista_id) VALUES
 ('Envious', 1),
@@ -103,16 +103,6 @@ INSERT INTO cancoes(nome, album_id) VALUES
 ('Words Of Her Life', 5),
 ('Without My Streets', 5);
 
-INSERT INTO seguindo_artistas(usuario_id, artista_id) VALUES
-(1, 1),
-(1, 3),
-(1, 4),
-(2, 1),
-(2, 3),
-(3, 1),
-(3, 2),
-(4, 4);
-
 INSERT INTO historico_de_reproducoes(usuario_id, cancoes_id) VALUES
 (1, 1),
 (1, 6),
@@ -128,3 +118,13 @@ INSERT INTO historico_de_reproducoes(usuario_id, cancoes_id) VALUES
 (4, 3),
 (4, 11),
 (4, 18);
+
+INSERT INTO seguindo_artistas(usuario_id, artista_id) VALUES
+(1, 1),
+(1, 3),
+(1, 4),
+(2, 1),
+(2, 3),
+(3, 1),
+(3, 2),
+(4, 4);
