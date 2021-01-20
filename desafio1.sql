@@ -84,7 +84,6 @@ VALUES
 ('Thang Of Thunder', 5),
 ('Words Of Her Life', 5),
 ('Without My Streets', 5);
-
 INSERT INTO historico(usuario_id, cancoes_id)
 VALUES
 (1, 1),
