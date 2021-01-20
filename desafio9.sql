@@ -7,7 +7,7 @@
 -- USE SpotifyClone;
 -- DROP DATABASE IF EXISTS albuns_do_artista;
 DELIMITER $$
-CREATE PROCEDURE albuns_do_artista(IN artista VARCHAR(45))
+CREATE PROCEDURE albuns_do_artista(IN artista VARCHAR(100))
 BEGIN
 SELECT SpotifyClone.artista.album_nome AS artista,
 SpotifyClone.album.album_nome AS album
