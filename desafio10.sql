@@ -4,7 +4,7 @@
 -- USE SpotifyClone;
 -- DROP DATABASE IF EXISTS quantidade_musicas_no_historico;
 DELIMITER $$
-CREATE FUNCTION quantidade_musicas_no_historico(userId INT)
+CREATE FUNCTION quantidade_musicas_no_historico(usuario_id INT)
 RETURNS INT READS SQL DATA
 BEGIN
 DECLARE reproducoes INT;

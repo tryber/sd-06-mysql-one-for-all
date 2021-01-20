@@ -9,7 +9,7 @@
 DELIMITER $$
 CREATE PROCEDURE albuns_do_artista(IN artista VARCHAR(100))
 BEGIN
-SELECT SpotifyClone.artista.album_nome AS artista,
+SELECT SpotifyClone.artista.artista_nome AS artista,
 SpotifyClone.album.album_nome AS album
 FROM SpotifyClone.artista
 INNER JOIN SpotifyClone.album
