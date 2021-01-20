@@ -78,21 +78,15 @@ VALUES
 (1,'Dire Straits'),
 (2,'Metallica'),
 (3,'Queen'),
-(4,'Beatles'),
-(5,'Iron Maiden'),
-(6,'Bob Marley'),
-(7,'Jack Johnson');
+(4,'Beatles');
 
 INSERT INTO `album` (`album_id`, `nome`, `artista_id`)
 VALUES
-(1,'Jack Johnson Best of',7),
-(2,'Legends',6),
-(3,'Metallica',2),
-(4,'Beatles Best of',4),
-(5,'A Night at the Opera',3),
-(6,'Brothers in Arms',1),
-(7,'Alchemy',1),
-(8,'Fear of the Dark',5);
+(1,'Metallica',2),
+(2,'Beatles Best of',4),
+(3,'A Night at the Opera',3),
+(4,'Brothers in Arms',1),
+(5,'Alchemy',1);
 
 INSERT INTO `segue_artistas` (`usuario_id`, `artista_id`)
 VALUES
@@ -123,7 +117,8 @@ VALUES
 (14,'Help',4),
 (15,'The Night Before',4),
 (16,'Expresso Love',5),
-(17,'Romeo and Juliet',5);
+(17,'Mtv',5),
+(18,'Romeo and Juliet',5);
 
 INSERT INTO `historico_reproducao` (`musica_id`, `usuario_id`)
 VALUES
@@ -133,5 +128,11 @@ VALUES
 (7,2),
 (2,3),
 (6,3),
-(15,4),
-(12,4);
+(3,4),
+(8,4),
+(11,4),
+(15,2),
+(18,1),
+(4,3),
+(10,3),
+(5,1);
