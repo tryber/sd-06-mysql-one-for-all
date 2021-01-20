@@ -1,10 +1,11 @@
 DELIMETER $$
-CREATE PROCEDURE albuns_do_artista(IN artists varchar(50)) 
+CREATE PROCEDURE albuns_do_artista(IN artists VARCHAR(40))
 BEGIN
-    select artists.nome AS `artista`,
-    albums.album_name AS `album` 
+    SELECT artists.artist_name AS artista,
+    albuns.album_name AS album
     FROM artists
-    JOIN albums ON albums.artist_id = artists.artist_id
+    JOIN albuns
+    ON albuns.artist_id = artists.artist_id
     WHERE artists.artist_name = artists;
-END $$
+END; $$
 DELIMETER ;
