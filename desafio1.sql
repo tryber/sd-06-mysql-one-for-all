@@ -7,7 +7,7 @@ USE SpotifyClone;
 DROP TABLE IF EXISTS `plano`;
 CREATE TABLE `plano` (
 `plano_id` INT PRIMARY KEY AUTO_INCREMENT,
-`nome` VARCHAR(50) NOT NULL,
+`nome_plano` VARCHAR(50) NOT NULL,
 `valor_plano` DECIMAL(4,2) NOT NULL
 )
 ENGINE = InnoDb;
@@ -15,7 +15,7 @@ ENGINE = InnoDb;
 DROP TABLE IF EXISTS `usuario`;
 CREATE TABLE `usuario` (
 `usuario_id` INT PRIMARY KEY AUTO_INCREMENT,
-`nome` VARCHAR(50) NOT NULL,
+`nome_usuario` VARCHAR(50) NOT NULL,
 `idade` INT NOT NULL,
 `plano_id` INT NOT NULL,
 FOREIGN KEY (`plano_id`) REFERENCES `plano`(`plano_id`)
@@ -25,14 +25,14 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `artista`;
 CREATE TABLE `artista` (
 `artista_id` INT PRIMARY KEY AUTO_INCREMENT,
-`nome` VARCHAR(50) NOT NULL
+`nome_artista` VARCHAR(50) NOT NULL
 )
 ENGINE = InnoDB;
 
 DROP TABLE IF EXISTS `album`;
 CREATE TABLE `album` (
 `album_id` INT PRIMARY KEY AUTO_INCREMENT,
-`nome` VARCHAR(50) NOT NULL,
+`nome_album` VARCHAR(50) NOT NULL,
 `artista_id` INT NOT NULL,
 FOREIGN KEY (`artista_id`) REFERENCES `artista`(`artista_id`)
 )
@@ -51,7 +51,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `musica`;
 CREATE TABLE `musica` (
 `musica_id` INT PRIMARY KEY AUTO_INCREMENT,
-`nome` VARCHAR(100) NOT NULL,
+`nome_musica` VARCHAR(100) NOT NULL,
 `album_id` INT NOT NULL,
 FOREIGN KEY (`album_id`) REFERENCES `album`(`album_id`)
 )
@@ -67,24 +67,24 @@ FOREIGN KEY (`usuario_id`) REFERENCES `usuario`(`usuario_id`)
 )
 ENGINE = InnoDB;
 
-INSERT INTO `plano` (`plano_id`, `nome`, `valor_plano`) VALUES
+INSERT INTO `plano` (`plano_id`, `nome_plano`, `valor_plano`) VALUES
 (1,'gratuito',0),
 (2,'familiar',7.99),
 (3,'universitário',5.99);
 
-INSERT INTO `usuario` (`usuario_id`, `nome`, `idade`, `plano_id`) VALUES
+INSERT INTO `usuario` (`usuario_id`, `nome_usuario`, `idade`, `plano_id`) VALUES
 (1,'Thati',23,1),
 (2,'Cintia',35,2),
 (3,'Bill',20,3),
 (4,'Roger',45,1);
 
-INSERT INTO `artista` (`artista_id`, `nome`) VALUES
+INSERT INTO `artista` (`artista_id`, `nome_artista`) VALUES
 (1,'Walter Phoenix'),
 (2,'Peter Strong'),
 (3,'Lance Day'),
 (4,'Freedie Shannon');
 
-INSERT INTO `album` (`album_id`, `nome`, `artista_id`) VALUES
+INSERT INTO `album` (`album_id`, `nome_album`, `artista_id`) VALUES
 (1,'Envious',1),
 (2,'Exuberant',1),
 (3,'Hallowed Steam',2),
@@ -101,7 +101,7 @@ INSERT INTO `segue_artistas` (`usuario_id`, `artista_id`) VALUES
 (3,1),
 (4,4);
 
-INSERT INTO `musica` (`musica_id`, `nome`, `album_id`) VALUES
+INSERT INTO `musica` (`musica_id`, `nome_musica`, `album_id`) VALUES
 (1,'Soul For Us',1),
 (2,'Reflections Of Magic',1),
 (3,'Dance With Her Own',1),
