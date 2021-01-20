@@ -61,8 +61,8 @@ INSERT INTO album(album_name, artista_id)
 VALUES
 ('Envious', 1),
 ('Exuberant', 1),
-('Hallowed Steam', 3),
-('Incandescent', 2), 
+('Hallowed Steam', 2),
+('Incandescent', 3), 
 ('Temporary Culture', 4);
 INSERT INTO cancoes(cancoes_name, album_id)
 VALUES 
