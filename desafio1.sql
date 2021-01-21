@@ -7,7 +7,7 @@ USE SpotifyClone;
 CREATE TABLE planos(
 id INT PRIMARY KEY AUTO_INCREMENT,
 plano VARCHAR(50) NOT NULL,
-valor VARCHAR(50) NOT NULL
+valor DECIMAL(5, 2) NOT NULL
 );
 
 CREATE TABLE usuarios(
@@ -45,7 +45,7 @@ FOREIGN KEY (usuario_id) REFERENCES usuarios(id),
 FOREIGN KEY (cancao_id) REFERENCES cancoes(id)
 );
 
-CREATE TABLE seguindo_artista(
+CREATE TABLE seguindo_artistas(
 usuario_id INT,
 artista_id INT,
 PRIMARY KEY (usuario_id, artista_id),
@@ -119,7 +119,7 @@ VALUES
 (4, 18),
 (4, 11);
 
-INSERT INTO seguindo_artista(usuario_id, artista_id)
+INSERT INTO seguindo_artistas(usuario_id, artista_id)
 VALUES
 (1, 1),
 (1, 4),

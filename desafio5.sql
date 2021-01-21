@@ -1,7 +1,7 @@
 CREATE VIEW top_2_hits_do_momento AS
 SELECT
 c.cancao AS cancao,
-COUNT(*) as seguidores
+COUNT(h.cancao_id) as reproducoes
 FROM SpotifyClone.cancoes AS c
 JOIN SpotifyClone.historico_de_reproducao AS h
 ON(c.id = h.cancao_id)
