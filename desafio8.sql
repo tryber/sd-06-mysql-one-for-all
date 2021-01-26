@@ -10,4 +10,4 @@ DELETE FROM SpotifyClone.seguindo_artistas
 WHERE usuario_id = OLD.id;
 END $$
 
-DELIMITER $$
+DELIMITER ;
