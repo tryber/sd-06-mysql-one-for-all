@@ -1,3 +1,4 @@
+-- Desafio1 SQL
 DROP DATABASE IF EXISTS SpotifyClone;
 
 CREATE DATABASE SpotifyClone;
