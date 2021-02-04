@@ -8,8 +8,7 @@ CREATE TABLE IF NOT EXISTS plans (
   plan_id INT NOT NULL AUTO_INCREMENT,
   plan_name VARCHAR(45) NOT NULL,
   plan_value FLOAT NOT NULL,
-  PRIMARY KEY (plan_id),
-  UNIQUE INDEX plan_name_UNIQUE (plan_name ASC) VISIBLE)
+  PRIMARY KEY (plan_id))
 ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS users (
@@ -18,19 +17,13 @@ CREATE TABLE IF NOT EXISTS users (
   year_old INT NOT NULL,
   plan_id INT NOT NULL,
   PRIMARY KEY (user_id),
-  INDEX fk_users_plans_idx (plan_id ASC) VISIBLE,
-  CONSTRAINT fk_users_plans
-    FOREIGN KEY (plan_id)
-    REFERENCES plans (plan_id)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  FOREIGN KEY (plan_id) REFERENCES plans (plan_id))
 ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS artists (
   artist_id INT NOT NULL AUTO_INCREMENT,
   artist_name VARCHAR(45) NOT NULL,
-  PRIMARY KEY (artist_id),
-  UNIQUE INDEX artist_name_UNIQUE (artist_name ASC) VISIBLE)
+  PRIMARY KEY (artist_id))
 ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS albuns (
@@ -38,13 +31,7 @@ CREATE TABLE IF NOT EXISTS albuns (
   album_name VARCHAR(100) NOT NULL,
   artist_id INT NOT NULL,
   PRIMARY KEY (album_id),
-  UNIQUE INDEX album_name_UNIQUE (album_name ASC) VISIBLE,
-  INDEX fk_albuns_artists1_idx (artist_id ASC) VISIBLE,
-  CONSTRAINT fk_albuns_artists1
-    FOREIGN KEY (artist_id)
-    REFERENCES artists (artist_id)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  FOREIGN KEY (artist_id) REFERENCES artists (artist_id))
 ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS songs (
@@ -53,55 +40,24 @@ CREATE TABLE IF NOT EXISTS songs (
   album_id INT NOT NULL,
   artist_id INT NOT NULL,
   PRIMARY KEY (song_id),
-  UNIQUE INDEX song_name_UNIQUE (song_name ASC) VISIBLE,
-  INDEX fk_songs_albuns1_idx (album_id ASC) VISIBLE,
-  INDEX fk_songs_artists1_idx (artist_id ASC) VISIBLE,
-  CONSTRAINT fk_songs_albuns1
-    FOREIGN KEY (album_id)
-    REFERENCES albuns (album_id)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT fk_songs_artists1
-    FOREIGN KEY (artist_id)
-    REFERENCES artists (artist_id)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  FOREIGN KEY (album_id) REFERENCES albuns (album_id),
+  FOREIGN KEY (artist_id) REFERENCES artists (artist_id))
 ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS followers (
   user_id INT NOT NULL,
   artist_id INT NOT NULL,
   PRIMARY KEY (user_id, artist_id),
-  INDEX fk_users_has_artists_artists1_idx (artist_id ASC) VISIBLE,
-  INDEX fk_users_has_artists_users1_idx (user_id ASC) VISIBLE,
-  CONSTRAINT fk_users_has_artists_users1
-    FOREIGN KEY (user_id)
-    REFERENCES users (user_id)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT fk_users_has_artists_artists1
-    FOREIGN KEY (artist_id)
-    REFERENCES artists (artist_id)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  FOREIGN KEY (user_id) REFERENCES users (user_id),
+  FOREIGN KEY (artist_id) REFERENCES artists (artist_id))
 ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS history_songs (
   user_id INT NOT NULL,
   song_id INT NOT NULL,
   PRIMARY KEY (user_id, song_id),
-  INDEX fk_users_has_songs_songs1_idx (song_id ASC) VISIBLE,
-  INDEX fk_users_has_songs_users1_idx (user_id ASC) VISIBLE,
-  CONSTRAINT fk_users_has_songs_users1
-    FOREIGN KEY (user_id)
-    REFERENCES users (user_id)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT fk_users_has_songs_songs1
-    FOREIGN KEY (song_id)
-    REFERENCES songs (song_id)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  FOREIGN KEY (user_id) REFERENCES users (user_id),
+  FOREIGN KEY (song_id) REFERENCES songs (song_id))
 ENGINE = InnoDB;
 
 INSERT INTO plans(plan_name, plan_value)
