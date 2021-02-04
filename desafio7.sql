@@ -1,12 +1,12 @@
 CREATE VIEW perfil_artistas AS
 SELECT
-m.musician_name AS  artista,
-a.album_name AS album,
-COUNT(fm.user_id) AS seguidores
-FROM Albums AS a
-INNER JOIN Musicians AS m
-ON m.musician_id = a.musician_id
-INNER JOIN Following_Musicians AS fm
-ON fm.musician_id = a.musician_id
-GROUP BY m.musician_id, a.album_id
-ORDER BY seguidores DESC, musician_name, album_name;
+art.artista_nm AS `artista`,
+alb.album_nm AS `album`,
+COUNT(seg.usuario_id) AS `seguidores`
+FROM SpotifyClone.artista AS art
+INNER JOIN SpotifyClone.artista_usuario AS seg
+ON art.artista_id = seg.artista_id
+INNER JOIN SpotifyClone.album AS alb
+ON art.artista_id = alb.artista_id
+GROUP BY `artista`, `album`
+ORDER BY `seguidores` DESC, `artista`, `album`;
