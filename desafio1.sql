@@ -4,7 +4,7 @@ CREATE DATABASE `SpotifyClone`;
 
 USE `SpotifyClone`;
 
-CREATE TABLE IF NOT EXISTS `SpotifyClone`.`plans` (
+CREATE TABLE IF NOT EXISTS `plans` (
   `plan_id` INT NOT NULL AUTO_INCREMENT,
   `plan_name` VARCHAR(45) NOT NULL,
   `plan_value` FLOAT NOT NULL,
@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`plans` (
   UNIQUE INDEX `plan_name_UNIQUE` (`plan_name` ASC) VISIBLE)
 ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS `SpotifyClone`.`users` (
+CREATE TABLE IF NOT EXISTS `users` (
   `user_id` INT NOT NULL AUTO_INCREMENT,
   `user_name` VARCHAR(45) NOT NULL,
   `year_old` INT NOT NULL,
@@ -21,19 +21,19 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`users` (
   INDEX `fk_users_plans_idx` (`plan_id` ASC) VISIBLE,
   CONSTRAINT `fk_users_plans`
     FOREIGN KEY (`plan_id`)
-    REFERENCES `SpotifyClone`.`plans` (`plan_id`)
+    REFERENCES `plans` (`plan_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS `SpotifyClone`.`artists` (
+CREATE TABLE IF NOT EXISTS `artists` (
   `artist_id` INT NOT NULL AUTO_INCREMENT,
   `artist_name` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`artist_id`),
   UNIQUE INDEX `artist_name_UNIQUE` (`artist_name` ASC) VISIBLE)
 ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS `SpotifyClone`.`albuns` (
+CREATE TABLE IF NOT EXISTS `albuns` (
   `album_id` INT NOT NULL AUTO_INCREMENT,
   `album_name` VARCHAR(100) NOT NULL,
   `artist_id` INT NOT NULL,
@@ -42,12 +42,12 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`albuns` (
   INDEX `fk_albuns_artists1_idx` (`artist_id` ASC) VISIBLE,
   CONSTRAINT `fk_albuns_artists1`
     FOREIGN KEY (`artist_id`)
-    REFERENCES `SpotifyClone`.`artists` (`artist_id`)
+    REFERENCES `artists` (`artist_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS `SpotifyClone`.`songs` (
+CREATE TABLE IF NOT EXISTS `songs` (
   `song_id` INT NOT NULL AUTO_INCREMENT,
   `song_name` VARCHAR(100) NOT NULL,
   `album_id` INT NOT NULL,
@@ -58,17 +58,17 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`songs` (
   INDEX `fk_songs_artists1_idx` (`artist_id` ASC) VISIBLE,
   CONSTRAINT `fk_songs_albuns1`
     FOREIGN KEY (`album_id`)
-    REFERENCES `SpotifyClone`.`albuns` (`album_id`)
+    REFERENCES `albuns` (`album_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_songs_artists1`
     FOREIGN KEY (`artist_id`)
-    REFERENCES `SpotifyClone`.`artists` (`artist_id`)
+    REFERENCES `artists` (`artist_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS `SpotifyClone`.`followers` (
+CREATE TABLE IF NOT EXISTS `followers` (
   `user_id` INT NOT NULL,
   `artist_id` INT NOT NULL,
   PRIMARY KEY (`user_id`, `artist_id`),
@@ -76,17 +76,17 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`followers` (
   INDEX `fk_users_has_artists_users1_idx` (`user_id` ASC) VISIBLE,
   CONSTRAINT `fk_users_has_artists_users1`
     FOREIGN KEY (`user_id`)
-    REFERENCES `SpotifyClone`.`users` (`user_id`)
+    REFERENCES `users` (`user_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_users_has_artists_artists1`
     FOREIGN KEY (`artist_id`)
-    REFERENCES `SpotifyClone`.`artists` (`artist_id`)
+    REFERENCES `artists` (`artist_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS `SpotifyClone`.`history_songs` (
+CREATE TABLE IF NOT EXISTS `history_songs` (
   `user_id` INT NOT NULL,
   `song_id` INT NOT NULL,
   PRIMARY KEY (`user_id`, `song_id`),
@@ -94,37 +94,37 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`history_songs` (
   INDEX `fk_users_has_songs_users1_idx` (`user_id` ASC) VISIBLE,
   CONSTRAINT `fk_users_has_songs_users1`
     FOREIGN KEY (`user_id`)
-    REFERENCES `SpotifyClone`.`users` (`user_id`)
+    REFERENCES `users` (`user_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_users_has_songs_songs1`
     FOREIGN KEY (`song_id`)
-    REFERENCES `SpotifyClone`.`songs` (`song_id`)
+    REFERENCES `songs` (`song_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO `SpotifyClone`.`plans`(`plan_name`, `plan_value`)
+INSERT INTO `plans`(`plan_name`, `plan_value`)
 VALUES
   ('gratuito', 0),
   ('familiar', 7.99),
   ('universitario', 5.99);
 
-INSERT INTO `SpotifyClone`.`users`(`user_name`, `year_old`, `plan_id`)
+INSERT INTO `users`(`user_name`, `year_old`, `plan_id`)
 VALUES
   ('Thati', 23, 1),
   ('Cintia', 35, 2),
   ('Bill', 20, 3),
   ('Roger', 45, 1);
 
-INSERT INTO `SpotifyClone`.`artists`(`artist_name`)
+INSERT INTO `artists`(`artist_name`)
 VALUES
   ('Walter Phoenix'),
   ('Peter Strong'),
   ('Lance Day'),
   ('Freedie Shannon');
 
-INSERT INTO `SpotifyClone`.`albuns`(`album_name`, `artist_id`)
+INSERT INTO `albuns`(`album_name`, `artist_id`)
 VALUES
   ('Envious', 1),
   ('Exuberant', 1),
@@ -132,7 +132,7 @@ VALUES
   ('Incandescent', 3),
   ('Temporary Culture', 4);
 
-INSERT INTO `SpotifyClone`.`songs`(`song_name`, `album_id`, `artist_id`)
+INSERT INTO `songs`(`song_name`, `album_id`, `artist_id`)
 VALUES
   ('Soul For Us', 1, 1),
   ('Reflections Of Magic', 1, 1),
@@ -153,7 +153,7 @@ VALUES
   ('Words Of Her Life', 5, 4),
   ('Without My Streets', 5, 4);
 
-INSERT INTO `SpotifyClone`.`history_songs`(`user_id`, `song_id`)
+INSERT INTO `history_songs`(`user_id`, `song_id`)
 VALUES
   (1, 1),
   (1, 6),
@@ -170,7 +170,7 @@ VALUES
   (4, 18),
   (4, 11);
 
-INSERT INTO `SpotifyClone`.`followers`(`user_id`, `artist_id`)
+INSERT INTO `followers`(`user_id`, `artist_id`)
 VALUES
   (1, 1),
   (1, 4),
