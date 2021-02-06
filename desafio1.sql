@@ -38,17 +38,17 @@ CREATE TABLE musicas (
 ) engine = InnoDB;
 
 CREATE TABLE historico (
-  historico_id INT PRIMARY KEY AUTO_INCREMENT,
   usuario_id INT NOT NULL,
   musicas_id INT NOT NULL,
+  PRIMARY KEY (usuario_id),
   FOREIGN KEY (usuario_id) REFERENCES usuarios (usuario_id),
   FOREIGN KEY (musicas_id) REFERENCES musicas (musicas_id)
 ) engine = InnoDB;
 
 CREATE TABLE seguidores (
-  seguidores_id INT PRIMARY KEY AUTO_INCREMENT,
   usuario_id INT NOT NULL,
   artista_id INT NOT NULL,
+  PRIMARY KEY (usuario_id),
   FOREIGN KEY (usuario_id) REFERENCES usuarios (usuario_id),
   FOREIGN KEY (artista_id) REFERENCES artistas (artista_id)
 ) engine = InnoDB;
