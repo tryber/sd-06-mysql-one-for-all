@@ -40,7 +40,7 @@ CREATE TABLE musicas (
 CREATE TABLE historico (
   usuario_id INT NOT NULL,
   musicas_id INT NOT NULL,
-  PRIMARY KEY (usuario_id),
+  PRIMARY KEY (usuario_id, musicas_id),
   FOREIGN KEY (usuario_id) REFERENCES usuarios (usuario_id),
   FOREIGN KEY (musicas_id) REFERENCES musicas (musicas_id)
 ) engine = InnoDB;
@@ -48,7 +48,7 @@ CREATE TABLE historico (
 CREATE TABLE seguidores (
   usuario_id INT NOT NULL,
   artista_id INT NOT NULL,
-  PRIMARY KEY (usuario_id),
+  PRIMARY KEY (usuario_id, artista_id),
   FOREIGN KEY (usuario_id) REFERENCES usuarios (usuario_id),
   FOREIGN KEY (artista_id) REFERENCES artistas (artista_id)
 ) engine = InnoDB;
