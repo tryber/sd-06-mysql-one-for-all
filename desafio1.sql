@@ -15,7 +15,7 @@ CREATE TABLE Users (
     user_name VARCHAR(64) NOT NULL,
     age INT(11) NOT NULL,
     plan_id INT(11) NOT NULL,
-    FOREIGN KEY (plan_id) REFERENCES Plans(plan_id)
+    FOREIGN KEY (plan_id) REFERENCES Subscriptions(plan_id)
 ) engine = InnoDB;
 
 CREATE TABLE Artists (
@@ -59,7 +59,7 @@ INSERT INTO Artists(artist_name)
 VALUES
 ('Walter Phoenix'), ('Peter Strong'),  ('Lance Day'), ('Freedie Shannon');
 
-INSERT INTO Plans(plan, plan_cost)
+INSERT INTO Subscriptions(plan, plan_cost)
 VALUES
 ('gratuito', 0), ('familiar', 7.99), ('universitário', 5.99);
 
