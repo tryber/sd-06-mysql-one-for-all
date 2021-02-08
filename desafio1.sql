@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`artists`(
 
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`albuns`(
   album_id INT PRIMARY KEY AUTO_INCREMENT,
-  album_name VARCHAR(50) NOT NULL,
+  album_name VARCHAR(100) NOT NULL,
   artist_id INT NOT NULL,
   FOREIGN KEY (artist_id) REFERENCES `SpotifyClone`.`artists` (artist_id)
 ) engine = InnoDB;
