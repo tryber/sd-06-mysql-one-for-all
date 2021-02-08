@@ -9,4 +9,3 @@ CREATE VIEW SpotifyClone.top_3_artistas AS
     GROUP BY a.artista
     ORDER BY `seguidores` DESC, a.artista
     LIMIT 3;
-    

@@ -8,4 +8,3 @@ CREATE VIEW SpotifyClone.top_2_hits_do_momento AS
     GROUP BY c.cancao
     ORDER BY `reproducoes` DESC , c.cancao
     LIMIT 2;
-    

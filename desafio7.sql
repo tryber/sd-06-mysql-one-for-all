@@ -9,4 +9,3 @@ CREATE VIEW SpotifyClone.perfil_artistas AS
         seguindo se ON ar.id_artista = se.id_artista
     GROUP BY al.id_album
     ORDER BY `seguidores` DESC , ar.artista , al.album
-    
