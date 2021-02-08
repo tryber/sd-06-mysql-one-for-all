@@ -130,7 +130,3 @@ VALUES
   (4, 18),
   (4, 11);
 
-
--- FOREIGN KEY (nome_coluna) REFERENCES tabela_referência(coluna_referência),
--- FOREIGN KEY (nome_coluna) REFERENCES tabela_referência(coluna_referência), ...
--- SÓ DA PARA CRIAR REFERÊNCIAS PARA TABELAS QUE JÁ EXISTEM!!
