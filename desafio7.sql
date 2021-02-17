@@ -14,4 +14,3 @@ ORDER BY
   `seguidores` DESC,
   `artista` ASC,
   `album` ASC;
-  
