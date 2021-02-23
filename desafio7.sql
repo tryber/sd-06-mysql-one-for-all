@@ -11,3 +11,4 @@ ON f.artist_id = al.artist_id
 GROUP BY al.name, ar.name
 ORDER BY `seguidores` DESC, `artista`, `album`;
  
+ 
