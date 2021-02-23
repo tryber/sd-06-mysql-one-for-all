@@ -8,5 +8,5 @@ SpotifyClone.albuns AS AL,
 SpotifyClone.seguindo_artistas AS U
 
 WHERE AN.artista_id = AL.artista_id AND
-AN.artista_id = U.artista_id GROUP BY artista
-ORDER BY seguidores DESC, artista;
+AN.artista_id = U.artista_id GROUP BY artista, album
+ORDER BY seguidores DESC, artista, album;
